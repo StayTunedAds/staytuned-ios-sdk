@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StayTuned"
-  s.version      = "1.0.0"
+  s.version      = "1.4"
   s.summary      = "A short description of StayTuned."
 
   # This description is used to generate tags and improve search results.
@@ -52,9 +52,6 @@ Pod::Spec.new do |s|
   #
 
   s.author             = { "StayTuned Advertising" => "contact@staytuned.io" }
-  # Or just: s.author    = "Kevin Morais"
-  # s.authors            = { "Kevin Morais" => "kevin.morais@free" }
-  # s.social_media_url   = "http://twitter.com/Kevin Morais"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -63,7 +60,6 @@ Pod::Spec.new do |s|
   #
 
   s.platform     = :ios
-  # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
