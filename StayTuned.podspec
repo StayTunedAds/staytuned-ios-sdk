@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StayTuned"
-  s.version      = "1.4.3"
+  s.version      = "1.4.4"
   s.summary      = "A short description of StayTuned."
 
   # This description is used to generate tags and improve search results.
@@ -63,9 +63,7 @@ Pod::Spec.new do |s|
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
-  s.ios.vendored_frameworks = 'StayTuned.framework'
-  s.public_header_files = "StayTuned.framework/Headers/*.h"
-  s.source_files = "StayTuned.framework/Headers/*.h"
+  s.ios.vendored_frameworks = 'StayTuned-Debug-iphoneuniversal/StayTuned.framework'
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -90,6 +88,8 @@ Pod::Spec.new do |s|
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
+  #s.public_header_files = "StayTuned.framework/Headers/*.h"
+  #.source_files = "StayTuned.framework/Headers/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
