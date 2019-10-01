@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :http => "https://github.com/StayTunedAds/staytuned-ios-sample/tree/#{s.version}/StayTuned-v#{s.version}.zip" }
+  s.source       = { :http => "https://raw.githubusercontent.com/StayTunedAds/staytuned-ios-sample/master/StayTuned-v#{s.version}.zip" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
