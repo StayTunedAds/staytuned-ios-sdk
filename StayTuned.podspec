@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StayTuned"
-  s.version      = "1.4.4"
+  s.version      = "1.0.0"
   s.summary      = "A short description of StayTuned."
 
   # This description is used to generate tags and improve search results.
@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
-  s.ios.vendored_frameworks = 'StayTuned-Debug-iphoneuniversal/StayTuned.framework'
+  s.ios.vendored_frameworks = "StayTuned.framework"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :http => "https://raw.githubusercontent.com/StayTunedAds/staytuned-ios-sample/master/StayTuned-v#{s.version}.zip" }
+  s.source       = { :git => "https://github.com/StayTunedAds/staytuned-ios-sample.git", :tag => "#{s.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -87,9 +87,9 @@ Pod::Spec.new do |s|
   #s.source_files  = "Classes", "Classes/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
-  #s.public_header_files = "StayTuned.framework/Headers/*.h"
-  #.source_files = "StayTuned.framework/Headers/*.h"
+  #s.public_header_files = "Classes/**/*.h"
+  #s.public_header_files = "StayTuned-Debug-iphoneuniversal/StayTuned.framework/Headers/*.h"
+  #s.source_files = "StayTuned-Debug-iphoneuniversal/StayTuned.framework/Headers/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
