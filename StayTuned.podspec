@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StayTuned"
-  s.version      = "1.4.2"
+  s.version      = "1.4.3"
   s.summary      = "A short description of StayTuned."
 
   # This description is used to generate tags and improve search results.
@@ -64,6 +64,8 @@ Pod::Spec.new do |s|
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
   s.ios.vendored_frameworks = 'StayTuned.framework'
+  s.public_header_files = "StayTuned.framework/Headers/*.h"
+  s.source_files = "StayTuned.framework/Headers/*.h"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -75,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :http => "https://github.com/StayTunedAds/staytuned-ios-sample/tree/#{s.version}/StayTuned-v#{s.version}.zip" }
+  s.source       = { :http => "https://raw.githubusercontent.com/StayTunedAds/staytuned-ios-sample/master/StayTuned-v#{s.version}.zip" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
