@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
+  s.license      = "Apache License, Version 2.0"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -64,6 +64,8 @@ Pod::Spec.new do |s|
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
   s.ios.vendored_frameworks = 'StayTuned.framework'
+  s.public_header_files = "StayTuned.framework/Headers/*.h"
+  s.source_files = "StayTuned.framework/Headers/*.h"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
