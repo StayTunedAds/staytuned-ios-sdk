@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StayTuned"
-  s.version      = "1.0.11"
+  s.version      = "1.0.12"
   s.summary      = "A short description of StayTuned."
 
   # This description is used to generate tags and improve search results.
