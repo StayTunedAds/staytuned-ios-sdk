@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   s.swift_version     = "5"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "10.0"
-  s.ios.vendored_frameworks = "StayTunedSDK.framework"
+  s.ios.deployment_target = "11.0"
+  s.ios.vendored_frameworks = "StayTunedSDK.xcframework"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/StayTunedAds/staytuned-ios-sample.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/StayTunedAds/staytuned-ios-sdk.git", :tag => "#{s.version}" }
 
   #s.framework  = "StayTunedCore"
 

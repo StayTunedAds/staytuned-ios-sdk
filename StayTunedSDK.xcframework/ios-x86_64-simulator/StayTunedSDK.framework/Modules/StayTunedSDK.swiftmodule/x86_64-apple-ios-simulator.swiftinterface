@@ -1,0 +1,767 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StayTunedSDK
+import AVKit
+import Foundation
+import MediaPlayer
+import MobileCoreServices
+import Swift
+import SystemConfiguration
+import UIKit
+public struct STContentTransaction : StayTunedSDK.STContentTransactionProtocol {
+  public let audioItem: StayTunedSDK.STContent
+  public let paymentType: Swift.String?
+  public let amount: Swift.Int
+  public let currency: Swift.String?
+  public let status: Swift.String?
+  public let createdAt: Swift.String?
+  public typealias AudioItemType = StayTunedSDK.STContent
+}
+public struct STTrackTransaction : StayTunedSDK.STTrackTransactionProtocol {
+  public let audioItem: StayTunedSDK.STTrack
+  public let paymentType: Swift.String?
+  public let amount: Swift.Int
+  public let currency: Swift.String?
+  public let status: Swift.String?
+  public let createdAt: Swift.String?
+  public typealias AudioItemType = StayTunedSDK.STTrack
+}
+public protocol STSectionsInterface : StayTunedSDK.STFeature {
+  associatedtype Section : StayTunedSDK.STSectionInterface
+  associatedtype Content : StayTunedSDK.STContentInterface
+  func getSections(completion: @escaping (Swift.Result<[Self.Section], Swift.Error>) -> Swift.Void)
+  func getContent(by key: Swift.String, completion: @escaping (Swift.Result<Self.Content?, Swift.Error>) -> Swift.Void)
+}
+public struct STContentOfflineItem : StayTunedSDK.STContentOfflineItemProtocol {
+  public let audioItem: StayTunedSDK.STContent
+  public var downloading: Swift.Bool
+  public typealias AudioItemType = StayTunedSDK.STContent
+}
+public struct STTrackOfflineItem : StayTunedSDK.STTrackHOfflineItemProtocol {
+  public let audioItem: StayTunedSDK.STTrack
+  public var downloading: Swift.Bool
+  public typealias AudioItemType = StayTunedSDK.STTrack
+}
+public protocol STLibraryInterface : StayTunedSDK.STFeature {
+  associatedtype ContentTransactionProtocol : StayTunedSDK.STContentTransactionProtocol
+  associatedtype TrackTransactionProtocol : StayTunedSDK.STTrackTransactionProtocol
+  associatedtype Content : StayTunedSDK.STContentInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var contents: [Self.ContentTransactionProtocol] { get }
+  var tracks: [Self.TrackTransactionProtocol] { get }
+  func add(content: Self.Content)
+  func add(track: Self.Track)
+}
+public typealias STAudioPosition = (time: Swift.Double, duration: Swift.Double?)
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class STPlayer : ObjectiveC.NSObject {
+  @StayTunedSDK.Observable @_projectedValueProperty($currentTrack) final public var currentTrack: StayTunedSDK.STTrack? {
+    get
+    set
+    _modify
+  }
+  final public var $currentTrack: StayTunedSDK.Observable<StayTunedSDK.STTrack?> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($currentTime) final public var currentTime: Swift.Double? {
+    get
+    set
+    _modify
+  }
+  final public var $currentTime: StayTunedSDK.Observable<Swift.Double?> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($currentState) final public var currentState: StayTunedSDK.STPlayerState {
+    get
+    set
+    _modify
+  }
+  final public var $currentState: StayTunedSDK.Observable<StayTunedSDK.STPlayerState> {
+    get
+  }
+  public struct Header : Swift.Codable {
+    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+  public static let availableRates: [Swift.Float]
+  final public var rate: Swift.Float {
+    get
+    set
+  }
+  @objc deinit
+}
+public protocol STPlaylistInterface {
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var tracks: [Self.Track] { get }
+  func getNext() -> Self.Track?
+  func getPrev() -> Self.Track?
+}
+public struct STPlaylist : StayTunedSDK.STPlaylistInterface {
+  public var tracks: [StayTunedSDK.STTrack]
+  public func getNext() -> StayTunedSDK.STTrack?
+  public func getPrev() -> StayTunedSDK.STTrack?
+  public typealias Track = StayTunedSDK.STTrack
+}
+public struct STWishList : StayTunedSDK.STWishListInterface {
+  public static func getInstance() throws -> StayTunedSDK.STWishList
+  public var contents: [StayTunedSDK.STContentWish]
+  public var tracks: [StayTunedSDK.STTrackWish]
+  public func add(content: StayTunedSDK.STContentWish)
+  public func add(track: StayTunedSDK.STTrackWish)
+  public func remove(content: StayTunedSDK.STContentWish)
+  public func remove(track: StayTunedSDK.STTrackWish)
+  public typealias ContentHistoryItem = StayTunedSDK.STContentWish
+  public typealias TrackHistoryItem = StayTunedSDK.STTrackWish
+}
+public struct STUser : StayTunedSDK.STUserInterface {
+}
+extension STPlayer : StayTunedSDK.STPlayerInterface {
+  public static func getInstance() throws -> StayTunedSDK.STPlayer
+  final public func play(playlist: StayTunedSDK.STPlaylist)
+  final public func play(element: StayTunedSDK.STTrack)
+  final public func stop()
+  final public func next()
+  final public func prev()
+  final public func seekTo(time: Swift.Double)
+  final public func fastForward()
+  final public func rewind()
+  final public func setStopTimer(time: Swift.Double)
+  final public func removeStopTimer()
+  final public func setOnStateChangedListener(_ listener: @escaping (StayTunedSDK.STPlayerState) -> Swift.Void)
+  final public func setOnTrackEndListener(_ listener: @escaping (StayTunedSDK.STTrack) -> Swift.Void)
+  final public func setOnTrackPlayFailedListener(_ listener: @escaping (StayTunedSDK.STTrack, Swift.Error) -> Swift.Void)
+  final public func getAudioDuration() -> Swift.Double?
+  final public func getAudioCurrentTime() -> Swift.Double?
+  final public func isPlaying() -> Swift.Bool
+  final public func isPaused() -> Swift.Bool
+  final public func isLoading() -> Swift.Bool
+  public typealias PlaylistInterface = StayTunedSDK.STPlaylist
+  public typealias Track = StayTunedSDK.STTrack
+}
+public struct STSection : StayTunedSDK.STSectionInterface {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let type: StayTunedSDK.STSectionType?
+  public let linkedContentType: StayTunedSDK.STSectionLinkedContentType?
+  public let order: Swift.Int?
+  public let highlighted: Swift.Bool?
+  public let searchable: Swift.Bool?
+  public let numberOfContents: Swift.Int?
+  public let imgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let linkedContents: [StayTunedSDK.STContentLight]?
+  public var linkedElements: [StayTunedSDK.STTrack]?
+  public typealias ContentLight = StayTunedSDK.STContentLight
+  public typealias Track = StayTunedSDK.STTrack
+}
+public protocol STUserInterface {
+}
+public struct STContentWish : StayTunedSDK.STContentWishProtocol {
+  public let id: Swift.Int
+  public let audioItem: StayTunedSDK.STContent
+  public let createdAt: Swift.String?
+  public typealias AudioItemType = StayTunedSDK.STContent
+}
+public struct STTrackWish : StayTunedSDK.STTrackWishProtocol {
+  public let id: Swift.Int
+  public let audioItem: StayTunedSDK.STTrack
+  public let createdAt: Swift.String?
+  public typealias AudioItemType = StayTunedSDK.STTrack
+}
+public protocol STWishListInterface : StayTunedSDK.STFeature {
+  associatedtype ContentHistoryItem : StayTunedSDK.STContentWishProtocol
+  associatedtype TrackHistoryItem : StayTunedSDK.STTrackWishProtocol
+  var contents: [Self.ContentHistoryItem] { get }
+  var tracks: [Self.TrackHistoryItem] { get }
+  func add(content: Self.ContentHistoryItem)
+  func add(track: Self.TrackHistoryItem)
+  func remove(content: Self.ContentHistoryItem)
+  func remove(track: Self.TrackHistoryItem)
+}
+public struct STContentHistoryItem : StayTunedSDK.STContentHistoryItemProtocol {
+  public let audioItem: StayTunedSDK.STContent
+  public var currentTime: Swift.Float
+  public typealias AudioItemType = StayTunedSDK.STContent
+}
+public struct STTrackHistoryItem : StayTunedSDK.STTrackHistoryItemProtocol {
+  public let audioItem: StayTunedSDK.STTrack
+  public var currentTime: Swift.Float
+  public typealias AudioItemType = StayTunedSDK.STTrack
+}
+public struct STSections : StayTunedSDK.STSectionsInterface {
+  public static func getInstance() throws -> StayTunedSDK.STSections
+  public func getSections(completion: @escaping (Swift.Result<[StayTunedSDK.STSection], Swift.Error>) -> Swift.Void)
+  public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<StayTunedSDK.STContent?, Swift.Error>) -> Swift.Void)
+  public typealias Section = StayTunedSDK.STSection
+  public typealias Content = StayTunedSDK.STContent
+}
+public protocol STContentLightInterface : StayTunedSDK.STAudioItemInterface {
+  var type: StayTunedSDK.STContentModelType? { get }
+  var title: Swift.String { get }
+  var ean: Swift.String? { get }
+  var imgSrc: Swift.String? { get }
+  var portraitImgSrc: Swift.String? { get }
+  var landscapeImgSrc: Swift.String? { get }
+  var narrator: Swift.String? { get }
+  var author: Swift.String? { get }
+  var publicationDate: Foundation.Date? { get }
+  var overallDuration: Swift.Int? { get }
+}
+public struct STOffline : StayTunedSDK.STOfflineInterface {
+  public static func getInstance() throws -> StayTunedSDK.STOffline
+  @StayTunedSDK.Observable @_projectedValueProperty($contents) public var contents: [StayTunedSDK.STContentOfflineItem] {
+    get
+    set
+    _modify
+  }
+  public var $contents: StayTunedSDK.Observable<[StayTunedSDK.STContentOfflineItem]> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($tracks) public var tracks: [StayTunedSDK.STTrackOfflineItem] {
+    get
+    set
+    _modify
+  }
+  public var $tracks: StayTunedSDK.Observable<[StayTunedSDK.STTrackOfflineItem]> {
+    get
+  }
+  public func add(content: StayTunedSDK.STContent)
+  public func add(track: StayTunedSDK.STTrack)
+  public func remove(content: StayTunedSDK.STContent)
+  public func remove(track: StayTunedSDK.STTrack)
+  public typealias ContentOfflineItemProtocol = StayTunedSDK.STContentOfflineItem
+  public typealias TrackOfflineItemProtocol = StayTunedSDK.STTrackOfflineItem
+  public typealias Content = StayTunedSDK.STContent
+  public typealias Track = StayTunedSDK.STTrack
+}
+public enum STOfflineStatus : Swift.Equatable {
+  case notDownloaded
+  case inProgress(Swift.Float)
+  case downloaded
+  public static func == (a: StayTunedSDK.STOfflineStatus, b: StayTunedSDK.STOfflineStatus) -> Swift.Bool
+}
+public protocol STContentInterface : StayTunedSDK.STAudioItemInterface, Swift.Decodable, Swift.Encodable {
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var type: StayTunedSDK.STContentModelType? { get }
+  var title: Swift.String { get }
+  var ean: Swift.String? { get }
+  var imgSrc: Swift.String? { get }
+  var portraitImgSrc: Swift.String? { get }
+  var landscapeImgSrc: Swift.String? { get }
+  var narrator: Swift.String? { get }
+  var author: Swift.String? { get }
+  var authorBibliographicalNote: Swift.String? { get }
+  var ownerName: Swift.String? { get }
+  var ownerEmail: Swift.String? { get }
+  var publishingHouse: Swift.String? { get }
+  var imprintName: Swift.String? { get }
+  var advertiser: Swift.String? { get }
+  var language: Swift.String? { get }
+  var descriptionText: Swift.String? { get }
+  var mediaType: StayTunedSDK.STContentMediaType? { get }
+  var diffusionMode: StayTunedSDK.STContentDiffusionMode? { get }
+  var numberOfChapter: Swift.Int? { get }
+  var disponibilityStatus: StayTunedSDK.STContentDisponibilityStatus? { get }
+  var complete: Swift.Bool? { get }
+  var isExplicitContent: Swift.Bool? { get }
+  var categories: Swift.String? { get }
+  var copyright: Swift.String? { get }
+  var websiteUrl: Swift.String? { get }
+  var rssFeedUrl: Swift.String? { get }
+  var vastUrl: Swift.String? { get }
+  var onixXmlUrl: Swift.String? { get }
+  var pdfUrl: Swift.String? { get }
+  var publicationDate: Foundation.Date? { get }
+  var overallDuration: Swift.Int? { get }
+  var elementList: [Self.Track]? { get }
+}
+public enum STContentModelType : Swift.String, Swift.Codable {
+  case podcast
+  case audiobook
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STContentMediaType : Swift.String, Swift.Codable {
+  case edito
+  case brand
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STContentDiffusionMode : Swift.String, Swift.Codable {
+  case episodic
+  case serial
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
+  case forthcoming
+  case available
+  case stopped
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol STBookmarkedInterface : StayTunedSDK.STFeature {
+  associatedtype Content : StayTunedSDK.STContentInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var contents: [Self.Content] { get }
+  var tracks: [Self.Track] { get }
+  func add(content: Self.Content)
+  func add(track: Self.Track)
+  func remove(content: Self.Content)
+  func remove(track: Self.Track)
+}
+public protocol STTrackInterface : StayTunedSDK.STAudioItemInterface, Swift.Decodable, Swift.Encodable {
+  var type: StayTunedSDK.STTrackModelType? { get }
+  var title: Swift.String { get }
+  var subtitle: Swift.String? { get }
+  var episode: Swift.Int? { get }
+  var season: Swift.Int? { get }
+  var elementNumber: Swift.Int? { get }
+  var chapter: Swift.Int? { get }
+  var chapterPart: Swift.Int? { get }
+  var websiteUrl: Swift.String? { get }
+  var categories: Swift.String? { get }
+  var typeOfElement: StayTunedSDK.STTrackTypeOfElement? { get }
+  var publicationDate: Foundation.Date? { get }
+  var highlighted: Swift.Bool? { get }
+  var isNew: Swift.Bool? { get }
+  var descriptionText: Swift.String? { get }
+  var imgSrc: Swift.String? { get }
+  var audioSrc: Swift.String? { get }
+  var audioSrcWeight: Swift.Int? { get }
+  var audioDuration: Swift.Int? { get }
+}
+public enum STTrackModelType : Swift.String, Swift.Codable {
+  case track
+  case chapter
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STTrackTypeOfElement : Swift.String, Swift.Codable {
+  case full
+  case trailer
+  case bonus
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension STTrackInterface {
+  public static func publicationDateOrder(_ lTrack: Self, _ rTrack: Self) -> Swift.Bool
+}
+public struct STHistory : StayTunedSDK.STHistoryInterface {
+  public static func getInstance() throws -> StayTunedSDK.STHistory
+  @StayTunedSDK.Observable @_projectedValueProperty($contents) public var contents: [StayTunedSDK.STContentHistoryItem] {
+    get
+    set
+    _modify
+  }
+  public var $contents: StayTunedSDK.Observable<[StayTunedSDK.STContentHistoryItem]> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($tracks) public var tracks: [StayTunedSDK.STTrackHistoryItem] {
+    get
+    set
+    _modify
+  }
+  public var $tracks: StayTunedSDK.Observable<[StayTunedSDK.STTrackHistoryItem]> {
+    get
+  }
+  public func add(content: StayTunedSDK.STContent)
+  public func add(track: StayTunedSDK.STTrack)
+  public typealias ContentHistoryItem = StayTunedSDK.STContentHistoryItem
+  public typealias TrackHistoryItem = StayTunedSDK.STTrackHistoryItem
+  public typealias Content = StayTunedSDK.STContent
+  public typealias Track = StayTunedSDK.STTrack
+}
+public protocol STSectionInterface {
+  associatedtype ContentLight : StayTunedSDK.STContentLightInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var id: Swift.Int { get }
+  var name: Swift.String { get }
+  var type: StayTunedSDK.STSectionType? { get }
+  var linkedContentType: StayTunedSDK.STSectionLinkedContentType? { get }
+  var order: Swift.Int? { get }
+  var highlighted: Swift.Bool? { get }
+  var searchable: Swift.Bool? { get }
+  var numberOfContents: Swift.Int? { get }
+  var imgSrc: Swift.String? { get }
+  var landscapeImgSrc: Swift.String? { get }
+  var linkedContents: [Self.ContentLight]? { get }
+  var linkedElements: [Self.Track]? { get }
+}
+public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
+  case content
+  case element
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STSectionType : Swift.String, Swift.Decodable {
+  case `default`
+  case new
+  case trailer
+  case highlight
+  case category
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol STAudioItemInterface : Swift.Equatable {
+  var key: Swift.String { get }
+}
+extension STAudioItemInterface {
+  public static func == (lhs: Self, rhs: Self) -> Swift.Bool
+}
+public struct STContentLight : StayTunedSDK.STContentLightInterface {
+  public let key: Swift.String
+  public let type: StayTunedSDK.STContentModelType?
+  public let title: Swift.String
+  public let ean: Swift.String?
+  public let imgSrc: Swift.String?
+  public let portraitImgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let narrator: Swift.String?
+  public let author: Swift.String?
+  public let publicationDate: Foundation.Date?
+  public let overallDuration: Swift.Int?
+}
+public protocol STOfflineItemInterface {
+  associatedtype AudioItemType : StayTunedSDK.STAudioItemInterface
+  var audioItem: Self.AudioItemType { get }
+  var downloading: Swift.Bool { get }
+}
+public protocol STContentOfflineItemProtocol : StayTunedSDK.STOfflineItemInterface where Self.AudioItemType : StayTunedSDK.STContentInterface {
+}
+public protocol STTrackHOfflineItemProtocol : StayTunedSDK.STOfflineItemInterface where Self.AudioItemType : StayTunedSDK.STTrackInterface {
+}
+public protocol STHistoryInterface : StayTunedSDK.STFeature {
+  associatedtype ContentHistoryItem : StayTunedSDK.STContentHistoryItemProtocol
+  associatedtype TrackHistoryItem : StayTunedSDK.STTrackHistoryItemProtocol
+  associatedtype Content : StayTunedSDK.STContentInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var contents: [Self.ContentHistoryItem] { get }
+  var tracks: [Self.TrackHistoryItem] { get }
+  func add(content: Self.Content)
+  func add(track: Self.Track)
+}
+public protocol STTransactionInterface {
+  associatedtype AudioItemType : StayTunedSDK.STAudioItemInterface
+  var audioItem: Self.AudioItemType { get }
+  var paymentType: Swift.String? { get }
+  var amount: Swift.Int { get }
+  var currency: Swift.String? { get }
+  var status: Swift.String? { get }
+  var createdAt: Swift.String? { get }
+}
+public protocol STContentTransactionProtocol : StayTunedSDK.STTransactionInterface where Self.AudioItemType : StayTunedSDK.STContentInterface {
+}
+public protocol STTrackTransactionProtocol : StayTunedSDK.STTransactionInterface where Self.AudioItemType : StayTunedSDK.STTrackInterface {
+}
+public protocol STFeature {
+  static var shared: Self? { get }
+  static func getInstance() throws -> Self
+}
+extension STFeature {
+  public static var shared: Self? {
+    get
+  }
+}
+@propertyWrapper public struct Observable<Value> {
+  public var projectedValue: StayTunedSDK.Observable<Value> {
+    get
+  }
+  public var wrappedValue: Value {
+    get
+    set
+  }
+  public init(wrappedValue: Value)
+}
+public protocol STUIFeatureInterface {
+  func launchUI()
+}
+public protocol STOfflineInterface : StayTunedSDK.STFeature {
+  associatedtype ContentOfflineItemProtocol : StayTunedSDK.STContentOfflineItemProtocol
+  associatedtype TrackOfflineItemProtocol : StayTunedSDK.STTrackHOfflineItemProtocol
+  associatedtype Content : StayTunedSDK.STContentInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var contents: [Self.ContentOfflineItemProtocol] { get }
+  var tracks: [Self.TrackOfflineItemProtocol] { get }
+  func add(content: Self.Content)
+  func add(track: Self.Track)
+  func remove(content: Self.Content)
+  func remove(track: Self.Track)
+}
+public struct STTrackInContent : Swift.Equatable {
+  public let track: StayTunedSDK.STTrack
+  public let content: StayTunedSDK.STContent?
+  public init(track: StayTunedSDK.STTrack, inContent content: StayTunedSDK.STContent?)
+  public static func == (lhs: StayTunedSDK.STTrackInContent, rhs: StayTunedSDK.STTrackInContent) -> Swift.Bool
+}
+public struct STBookmarked : StayTunedSDK.STBookmarkedInterface {
+  public static func getInstance() throws -> StayTunedSDK.STBookmarked
+  @StayTunedSDK.Observable @_projectedValueProperty($contents) public var contents: [StayTunedSDK.STContent] {
+    get
+    set
+    _modify
+  }
+  public var $contents: StayTunedSDK.Observable<[StayTunedSDK.STContent]> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($tracks) public var tracks: [StayTunedSDK.STTrack] {
+    get
+    set
+    _modify
+  }
+  public var $tracks: StayTunedSDK.Observable<[StayTunedSDK.STTrack]> {
+    get
+  }
+  public func add(content: StayTunedSDK.STContent)
+  public func add(track: StayTunedSDK.STTrack)
+  public func remove(content: StayTunedSDK.STContent)
+  public func remove(track: StayTunedSDK.STTrack)
+  public typealias Content = StayTunedSDK.STContent
+  public typealias Track = StayTunedSDK.STTrack
+}
+public struct STLibrary : StayTunedSDK.STLibraryInterface {
+  public static func getInstance() throws -> StayTunedSDK.STLibrary
+  @StayTunedSDK.Observable @_projectedValueProperty($contents) public var contents: [StayTunedSDK.STContentTransaction] {
+    get
+    set
+    _modify
+  }
+  public var $contents: StayTunedSDK.Observable<[StayTunedSDK.STContentTransaction]> {
+    get
+  }
+  @StayTunedSDK.Observable @_projectedValueProperty($tracks) public var tracks: [StayTunedSDK.STTrackTransaction] {
+    get
+    set
+    _modify
+  }
+  public var $tracks: StayTunedSDK.Observable<[StayTunedSDK.STTrackTransaction]> {
+    get
+  }
+  public func add(content: StayTunedSDK.STContent)
+  public func add(track: StayTunedSDK.STTrack)
+  public typealias ContentTransactionProtocol = StayTunedSDK.STContentTransaction
+  public typealias TrackTransactionProtocol = StayTunedSDK.STTrackTransaction
+  public typealias Content = StayTunedSDK.STContent
+  public typealias Track = StayTunedSDK.STTrack
+}
+public struct STContent : StayTunedSDK.STContentInterface {
+  public let key: Swift.String
+  public let type: StayTunedSDK.STContentModelType?
+  public let title: Swift.String
+  public let ean: Swift.String?
+  public let imgSrc: Swift.String?
+  public let portraitImgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let narrator: Swift.String?
+  public let author: Swift.String?
+  public let authorBibliographicalNote: Swift.String?
+  public let ownerName: Swift.String?
+  public let ownerEmail: Swift.String?
+  public let publishingHouse: Swift.String?
+  public let imprintName: Swift.String?
+  public let advertiser: Swift.String?
+  public let language: Swift.String?
+  public let descriptionText: Swift.String?
+  public let mediaType: StayTunedSDK.STContentMediaType?
+  public let diffusionMode: StayTunedSDK.STContentDiffusionMode?
+  public let numberOfChapter: Swift.Int?
+  public let disponibilityStatus: StayTunedSDK.STContentDisponibilityStatus?
+  public let complete: Swift.Bool?
+  public let isExplicitContent: Swift.Bool?
+  public let categories: Swift.String?
+  public let copyright: Swift.String?
+  public let websiteUrl: Swift.String?
+  public let rssFeedUrl: Swift.String?
+  public let vastUrl: Swift.String?
+  public let onixXmlUrl: Swift.String?
+  public let pdfUrl: Swift.String?
+  public let publicationDate: Foundation.Date?
+  public let overallDuration: Swift.Int?
+  public let elementList: [StayTunedSDK.STTrack]?
+  public typealias Track = StayTunedSDK.STTrack
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol STWishInterface {
+  associatedtype AudioItemType : StayTunedSDK.STAudioItemInterface
+  var id: Swift.Int { get }
+  var audioItem: Self.AudioItemType { get }
+  var createdAt: Swift.String? { get }
+}
+public protocol STContentWishProtocol : StayTunedSDK.STWishInterface where Self.AudioItemType : StayTunedSDK.STContentInterface {
+}
+public protocol STTrackWishProtocol : StayTunedSDK.STWishInterface where Self.AudioItemType : StayTunedSDK.STTrackInterface {
+}
+public enum STPlayerState {
+  case playing
+  case paused
+  case loading
+  public static func == (a: StayTunedSDK.STPlayerState, b: StayTunedSDK.STPlayerState) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol STPlayerInterface : StayTunedSDK.STFeature {
+  associatedtype PlaylistInterface : StayTunedSDK.STPlaylistInterface
+  associatedtype Track : StayTunedSDK.STTrackInterface
+  var currentTrack: Self.Track? { get }
+  var currentTime: Swift.Double? { get }
+  var currentState: StayTunedSDK.STPlayerState { get }
+  func play(playlist: Self.PlaylistInterface)
+  func play(element: Self.Track)
+  func stop()
+  func next()
+  func prev()
+  func seekTo(time: Swift.Double)
+  func fastForward()
+  func rewind()
+  func setStopTimer(time: Swift.Double)
+  func removeStopTimer()
+  func setOnStateChangedListener(_ listener: @escaping (StayTunedSDK.STPlayerState) -> Swift.Void)
+  func setOnTrackEndListener(_ listener: @escaping (Self.Track) -> Swift.Void)
+  func setOnTrackPlayFailedListener(_ listener: @escaping (Self.Track, Swift.Error) -> Swift.Void)
+  func getAudioDuration() -> Swift.Double?
+  func getAudioCurrentTime() -> Swift.Double?
+  func isPlaying() -> Swift.Bool
+  func isPaused() -> Swift.Bool
+  func isLoading() -> Swift.Bool
+}
+public protocol STStateInterface {
+  associatedtype PlayerInterface : StayTunedSDK.STPlayerInterface
+  associatedtype HistoryInterface : StayTunedSDK.STHistoryInterface
+  associatedtype BookmarkedInterface : StayTunedSDK.STBookmarkedInterface
+  associatedtype OfflineInterface : StayTunedSDK.STOfflineInterface
+  associatedtype WishListInterface : StayTunedSDK.STWishListInterface
+  associatedtype WalletInterface : StayTunedSDK.STWalletInterface
+  associatedtype LibraryInterface : StayTunedSDK.STLibraryInterface
+  var player: Self.PlayerInterface { get }
+  var history: Self.HistoryInterface { get }
+  var bookmarked: Self.BookmarkedInterface { get }
+  var offline: Self.OfflineInterface { get }
+  var wishList: Self.WishListInterface { get }
+  var wallet: Self.WalletInterface { get }
+  var library: Self.LibraryInterface { get }
+}
+public struct STState : StayTunedSDK.STStateInterface {
+  public var player: StayTunedSDK.STPlayer
+  public var history: StayTunedSDK.STHistory
+  public var bookmarked: StayTunedSDK.STBookmarked
+  public var offline: StayTunedSDK.STOffline
+  public var wishList: StayTunedSDK.STWishList
+  public var wallet: StayTunedSDK.STWallet
+  public var library: StayTunedSDK.STLibrary
+  public typealias PlayerInterface = StayTunedSDK.STPlayer
+  public typealias HistoryInterface = StayTunedSDK.STHistory
+  public typealias BookmarkedInterface = StayTunedSDK.STBookmarked
+  public typealias OfflineInterface = StayTunedSDK.STOffline
+  public typealias WishListInterface = StayTunedSDK.STWishList
+  public typealias WalletInterface = StayTunedSDK.STWallet
+  public typealias LibraryInterface = StayTunedSDK.STLibrary
+}
+public struct STTrack : StayTunedSDK.STTrackInterface {
+  public let key: Swift.String
+  public let type: StayTunedSDK.STTrackModelType?
+  public let title: Swift.String
+  public let subtitle: Swift.String?
+  public let episode: Swift.Int?
+  public let season: Swift.Int?
+  public let elementNumber: Swift.Int?
+  public let chapter: Swift.Int?
+  public let chapterPart: Swift.Int?
+  public let websiteUrl: Swift.String?
+  public let categories: Swift.String?
+  public let typeOfElement: StayTunedSDK.STTrackTypeOfElement?
+  public let publicationDate: Foundation.Date?
+  public let highlighted: Swift.Bool?
+  public let isNew: Swift.Bool?
+  public let descriptionText: Swift.String?
+  public let imgSrc: Swift.String?
+  public let audioSrc: Swift.String?
+  public let audioSrcWeight: Swift.Int?
+  public let audioDuration: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol STHistoryItemInterface {
+  associatedtype AudioItemType : StayTunedSDK.STAudioItemInterface
+  var audioItem: Self.AudioItemType { get }
+  var currentTime: Swift.Float { get }
+}
+public protocol STContentHistoryItemProtocol : StayTunedSDK.STHistoryItemInterface where Self.AudioItemType : StayTunedSDK.STContentInterface {
+}
+public protocol STTrackHistoryItemProtocol : StayTunedSDK.STHistoryItemInterface where Self.AudioItemType : StayTunedSDK.STTrackInterface {
+}
+extension String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue: Swift.Int)
+}
+public protocol STWalletInterface {
+  var paymentType: Swift.String? { get }
+  var amount: Swift.Int { get }
+  var createdAt: Swift.String? { get }
+  var lastSupplyDate: Swift.String? { get }
+  var lastSupplyAmount: Swift.Int? { get }
+}
+public struct STWallet : StayTunedSDK.STWalletInterface {
+  public let paymentType: Swift.String?
+  public let amount: Swift.Int
+  public let createdAt: Swift.String?
+  public let lastSupplyDate: Swift.String?
+  public let lastSupplyAmount: Swift.Int?
+}
+extension StayTunedSDK.STSectionType : Swift.Equatable {}
+extension StayTunedSDK.STSectionType : Swift.Hashable {}
+extension StayTunedSDK.STSectionType : Swift.RawRepresentable {}
+extension StayTunedSDK.STContentModelType : Swift.Equatable {}
+extension StayTunedSDK.STContentModelType : Swift.Hashable {}
+extension StayTunedSDK.STContentModelType : Swift.RawRepresentable {}
+extension StayTunedSDK.STContentMediaType : Swift.Equatable {}
+extension StayTunedSDK.STContentMediaType : Swift.Hashable {}
+extension StayTunedSDK.STContentMediaType : Swift.RawRepresentable {}
+extension StayTunedSDK.STContentDiffusionMode : Swift.Equatable {}
+extension StayTunedSDK.STContentDiffusionMode : Swift.Hashable {}
+extension StayTunedSDK.STContentDiffusionMode : Swift.RawRepresentable {}
+extension StayTunedSDK.STContentDisponibilityStatus : Swift.Equatable {}
+extension StayTunedSDK.STContentDisponibilityStatus : Swift.Hashable {}
+extension StayTunedSDK.STContentDisponibilityStatus : Swift.RawRepresentable {}
+extension StayTunedSDK.STTrackModelType : Swift.Equatable {}
+extension StayTunedSDK.STTrackModelType : Swift.Hashable {}
+extension StayTunedSDK.STTrackModelType : Swift.RawRepresentable {}
+extension StayTunedSDK.STTrackTypeOfElement : Swift.Equatable {}
+extension StayTunedSDK.STTrackTypeOfElement : Swift.Hashable {}
+extension StayTunedSDK.STTrackTypeOfElement : Swift.RawRepresentable {}
+extension StayTunedSDK.STSectionLinkedContentType : Swift.Equatable {}
+extension StayTunedSDK.STSectionLinkedContentType : Swift.Hashable {}
+extension StayTunedSDK.STSectionLinkedContentType : Swift.RawRepresentable {}
+extension StayTunedSDK.STPlayerState : Swift.Equatable {}
+extension StayTunedSDK.STPlayerState : Swift.Hashable {}
