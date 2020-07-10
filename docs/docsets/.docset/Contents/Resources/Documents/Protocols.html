@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Protocols  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Protocols" class="dashAnchor"></a>
+    <a title="Protocols  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (8% documented)</p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Protocols  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/STPlayer.html">STPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/STPlayer.html#/s:12StayTunedSDK8STPlayerC6HeaderV">– Header</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/STContentDiffusionMode.html">STContentDiffusionMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STContentDisponibilityStatus.html">STContentDisponibilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STContentMediaType.html">STContentMediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STContentModelType.html">STContentModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STOfflineStatus.html">STOfflineStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STPlayerState.html">STPlayerState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STSectionLinkedContentType.html">STSectionLinkedContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STSectionType.html">STSectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STTrackModelType.html">STTrackModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STTrackTypeOfElement.html">STTrackTypeOfElement</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions.html#/STObservable">STObservable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/STAudioItemInterface.html">STAudioItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STBookmarkedInterface.html">STBookmarkedInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK28STContentHistoryItemProtocolP">STContentHistoryItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STContentInterface.html">STContentInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STContentLightInterface.html">STContentLightInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK28STContentOfflineItemProtocolP">STContentOfflineItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK28STContentTransactionProtocolP">STContentTransactionProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK21STContentWishProtocolP">STContentWishProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STFeature.html">STFeature</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STHistoryInterface.html">STHistoryInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STHistoryItemInterface.html">STHistoryItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STLibraryInterface.html">STLibraryInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STOfflineInterface.html">STOfflineInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STOfflineItemInterface.html">STOfflineItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STPlayerInterface.html">STPlayerInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STPlaylistInterface.html">STPlaylistInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STSectionInterface.html">STSectionInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STSectionsInterface.html">STSectionsInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STStateInterface.html">STStateInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK27STTrackHOfflineItemProtocolP">STTrackHOfflineItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK26STTrackHistoryItemProtocolP">STTrackHistoryItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STTrackInterface.html">STTrackInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK26STTrackTransactionProtocolP">STTrackTransactionProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK19STTrackWishProtocolP">STTrackWishProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STTransactionInterface.html">STTransactionInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STUIFeatureInterface.html">STUIFeatureInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK15STUserInterfaceP">STUserInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STWalletInterface.html">STWalletInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STWishInterface.html">STWishInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/STWishListInterface.html">STWishListInterface</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STBookmarked.html">STBookmarked</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContent.html">STContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContentHistoryItem.html">STContentHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContentLight.html">STContentLight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContentOfflineItem.html">STContentOfflineItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContentTransaction.html">STContentTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STContentWish.html">STContentWish</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STHistory.html">STHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STLibrary.html">STLibrary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STOffline.html">STOffline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STPlaylist.html">STPlaylist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STSection.html">STSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STSections.html">STSections</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STState.html">STState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrack.html">STTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrackHistoryItem.html">STTrackHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrackInContent.html">STTrackInContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrackOfflineItem.html">STTrackOfflineItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrackTransaction.html">STTrackTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STTrackWish.html">STTrackWish</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:12StayTunedSDK6STUserV">STUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STWallet.html">STWallet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/STWishList.html">STWishList</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:12StayTunedSDK15STAudioPositiona">STAudioPosition</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Protocols</h1>
+            <p>The following protocols are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK21STBookmarkedInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STBookmarkedInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK21STBookmarkedInterfaceP">STBookmarkedInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STBookmarkedInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STBookmarkedInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK18STHistoryInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STHistoryInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK18STHistoryInterfaceP">STHistoryInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STHistoryInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STHistoryInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK18STLibraryInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STLibraryInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK18STLibraryInterfaceP">STLibraryInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STLibraryInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STLibraryInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK18STOfflineInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STOfflineInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK18STOfflineInterfaceP">STOfflineInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STOfflineInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STOfflineInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK17STPlayerInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STPlayerInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK17STPlayerInterfaceP">STPlayerInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STPlayerInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STPlayerInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK18STSectionInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STSectionInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK18STSectionInterfaceP">STSectionInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STSectionInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STSectionInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK19STSectionsInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STSectionsInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK19STSectionsInterfaceP">STSectionsInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STSectionsInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STSectionsInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STStateInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STStateInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STStateInterfaceP">STStateInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STStateInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STStateInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK19STWishListInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STWishListInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK19STWishListInterfaceP">STWishListInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STWishListInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STWishListInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK9STFeatureP"></a>
+                    <a name="//apple_ref/swift/Protocol/STFeature" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STFeatureP">STFeature</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STFeature.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STFeature</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK20STUIFeatureInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STUIFeatureInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK20STUIFeatureInterfaceP">STUIFeatureInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STUIFeatureInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STUIFeatureInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK20STAudioItemInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STAudioItemInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK20STAudioItemInterfaceP">STAudioItemInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STAudioItemInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STAudioItemInterface</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK18STContentInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK18STContentInterfaceP">STContentInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STContentInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STAudioItemInterface.html">STAudioItemInterface</a></span><span class="p">,</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Encodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK23STContentLightInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentLightInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK23STContentLightInterfaceP">STContentLightInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STContentLightInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentLightInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STAudioItemInterface.html">STAudioItemInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK22STHistoryItemInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STHistoryItemInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK22STHistoryItemInterfaceP">STHistoryItemInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STHistoryItemInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STHistoryItemInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK28STContentHistoryItemProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentHistoryItemProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK28STContentHistoryItemProtocolP">STContentHistoryItemProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentHistoryItemProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STHistoryItemInterface.html">STHistoryItemInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STContentInterface.html">STContentInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK26STTrackHistoryItemProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTrackHistoryItemProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK26STTrackHistoryItemProtocolP">STTrackHistoryItemProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTrackHistoryItemProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STHistoryItemInterface.html">STHistoryItemInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTrackInterface.html">STTrackInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK22STOfflineItemInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STOfflineItemInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK22STOfflineItemInterfaceP">STOfflineItemInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STOfflineItemInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STOfflineItemInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK28STContentOfflineItemProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentOfflineItemProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK28STContentOfflineItemProtocolP">STContentOfflineItemProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentOfflineItemProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STOfflineItemInterface.html">STOfflineItemInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STContentInterface.html">STContentInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK27STTrackHOfflineItemProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTrackHOfflineItemProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK27STTrackHOfflineItemProtocolP">STTrackHOfflineItemProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTrackHOfflineItemProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STOfflineItemInterface.html">STOfflineItemInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTrackInterface.html">STTrackInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK19STPlaylistInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STPlaylistInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK19STPlaylistInterfaceP">STPlaylistInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STPlaylistInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STPlaylistInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STTrackInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTrackInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STTrackInterfaceP">STTrackInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STTrackInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTrackInterface</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STAudioItemInterface.html">STAudioItemInterface</a></span><span class="p">,</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Encodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK22STTransactionInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTransactionInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK22STTransactionInterfaceP">STTransactionInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STTransactionInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTransactionInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK28STContentTransactionProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentTransactionProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK28STContentTransactionProtocolP">STContentTransactionProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentTransactionProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTransactionInterface.html">STTransactionInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STContentInterface.html">STContentInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK26STTrackTransactionProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTrackTransactionProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK26STTrackTransactionProtocolP">STTrackTransactionProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTrackTransactionProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTransactionInterface.html">STTransactionInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTrackInterface.html">STTrackInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK15STUserInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STUserInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK15STUserInterfaceP">STUserInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STUserInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK17STWalletInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STWalletInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK17STWalletInterfaceP">STWalletInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STWalletInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STWalletInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK15STWishInterfaceP"></a>
+                    <a name="//apple_ref/swift/Protocol/STWishInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK15STWishInterfaceP">STWishInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/STWishInterface.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STWishInterface</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK21STContentWishProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STContentWishProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK21STContentWishProtocolP">STContentWishProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STContentWishProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STWishInterface.html">STWishInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STContentInterface.html">STContentInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK19STTrackWishProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/STTrackWishProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK19STTrackWishProtocolP">STTrackWishProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STTrackWishProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STWishInterface.html">STWishInterface</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">AudioItemType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STTrackInterface.html">STTrackInterface</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

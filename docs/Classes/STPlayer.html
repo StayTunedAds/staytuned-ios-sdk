@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STPlayer Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/STPlayer" class="dashAnchor"></a>
+    <a title="STPlayer Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (8% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STPlayer Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STPlayer.html">STPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STPlayer.html#/s:12StayTunedSDK8STPlayerC6HeaderV">– Header</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STContentDiffusionMode.html">STContentDiffusionMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STContentDisponibilityStatus.html">STContentDisponibilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STContentMediaType.html">STContentMediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STContentModelType.html">STContentModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STOfflineStatus.html">STOfflineStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STPlayerState.html">STPlayerState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSectionLinkedContentType.html">STSectionLinkedContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSectionType.html">STSectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STTrackModelType.html">STTrackModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STTrackTypeOfElement.html">STTrackTypeOfElement</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/STObservable">STObservable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STAudioItemInterface.html">STAudioItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STBookmarkedInterface.html">STBookmarkedInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK28STContentHistoryItemProtocolP">STContentHistoryItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STContentInterface.html">STContentInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STContentLightInterface.html">STContentLightInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK28STContentOfflineItemProtocolP">STContentOfflineItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK28STContentTransactionProtocolP">STContentTransactionProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK21STContentWishProtocolP">STContentWishProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STFeature.html">STFeature</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STHistoryInterface.html">STHistoryInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STHistoryItemInterface.html">STHistoryItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STLibraryInterface.html">STLibraryInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STOfflineInterface.html">STOfflineInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STOfflineItemInterface.html">STOfflineItemInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STPlayerInterface.html">STPlayerInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STPlaylistInterface.html">STPlaylistInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSectionInterface.html">STSectionInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSectionsInterface.html">STSectionsInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STStateInterface.html">STStateInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK27STTrackHOfflineItemProtocolP">STTrackHOfflineItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK26STTrackHistoryItemProtocolP">STTrackHistoryItemProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STTrackInterface.html">STTrackInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK26STTrackTransactionProtocolP">STTrackTransactionProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK19STTrackWishProtocolP">STTrackWishProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STTransactionInterface.html">STTransactionInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STUIFeatureInterface.html">STUIFeatureInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:12StayTunedSDK15STUserInterfaceP">STUserInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STWalletInterface.html">STWalletInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STWishInterface.html">STWishInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STWishListInterface.html">STWishListInterface</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STBookmarked.html">STBookmarked</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContent.html">STContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContentHistoryItem.html">STContentHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContentLight.html">STContentLight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContentOfflineItem.html">STContentOfflineItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContentTransaction.html">STContentTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STContentWish.html">STContentWish</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STHistory.html">STHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STLibrary.html">STLibrary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STOffline.html">STOffline</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STPlaylist.html">STPlaylist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STSection.html">STSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STSections.html">STSections</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STState.html">STState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrack.html">STTrack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrackHistoryItem.html">STTrackHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrackInContent.html">STTrackInContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrackOfflineItem.html">STTrackOfflineItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrackTransaction.html">STTrackTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STTrackWish.html">STTrackWish</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:12StayTunedSDK6STUserV">STUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STWallet.html">STWallet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STWishList.html">STWishList</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:12StayTunedSDK15STAudioPositiona">STAudioPosition</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STPlayer</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STPlayer</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">STPlayer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STPlayerInterface.html">STPlayerInterface</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC12currentTrackAA7STTrackVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/currentTrack" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC12currentTrackAA7STTrackVSgvp">currentTrack</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the currently playing track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd"><a href="../Structs/Observable.html">@Observable</a></span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">currentTrack</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC11currentTimeSdSgvp"></a>
+                    <a name="//apple_ref/swift/Property/currentTime" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC11currentTimeSdSgvp">currentTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the currently time of the playing track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd"><a href="../Structs/Observable.html">@Observable</a></span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">currentTime</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC12currentStateAA0dF0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/currentState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC12currentStateAA0dF0Ovp">currentState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the current state</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd"><a href="../Structs/Observable.html">@Observable</a></span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">currentState</span><span class="p">:</span> <span class="kt"><a href="../Enums/STPlayerState.html">STPlayerState</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC6HeaderV"></a>
+                    <a name="//apple_ref/swift/Struct/Header" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC6HeaderV">Header</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Header</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC14availableRatesSaySfGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/availableRates" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC14availableRatesSaySfGvpZ">availableRates</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">availableRates</span><span class="p">:</span> <span class="p">[</span><span class="kt">Float</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4rateSfvp"></a>
+                    <a name="//apple_ref/swift/Property/rate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4rateSfvp">rate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rate</span><span class="p">:</span> <span class="kt">Float</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC11getInstanceACyKFZ"></a>
+                    <a name="//apple_ref/swift/Method/getInstance()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC11getInstanceACyKFZ">getInstance()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get an instance of STPlayer</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Will throw if your plan doesn&rsquo;t allow you to use this feature.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">STPlayer</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return an instance of STPlayer</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4play8playlistyAA10STPlaylistV_tF"></a>
+                    <a name="//apple_ref/swift/Method/play(playlist:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4play8playlistyAA10STPlaylistV_tF">play(playlist:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start playing a Playlist</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">play</span><span class="p">(</span><span class="nv">playlist</span><span class="p">:</span> <span class="kt"><a href="../Structs/STPlaylist.html">STPlaylist</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playlist</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>STPlaylist</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4play7elementyAA7STTrackV_tF"></a>
+                    <a name="//apple_ref/swift/Method/play(element:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4play7elementyAA7STTrackV_tF">play(element:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start playing a track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">play</span><span class="p">(</span><span class="nv">element</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>element</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>STTrack</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4stopyyF"></a>
+                    <a name="//apple_ref/swift/Method/stop()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4stopyyF">stop()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stop playing the current track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stop</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4nextyyF"></a>
+                    <a name="//apple_ref/swift/Method/next()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4nextyyF">next()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start playing the next track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">next</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC4prevyyF"></a>
+                    <a name="//apple_ref/swift/Method/prev()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC4prevyyF">prev()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start playing the previous track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">prev</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC6seekTo4timeySd_tF"></a>
+                    <a name="//apple_ref/swift/Method/seekTo(time:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC6seekTo4timeySd_tF">seekTo(time:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Seek to a given time in the current track</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">seekTo</span><span class="p">(</span><span class="nv">time</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>time</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>in seconds</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC11fastForwardyyF"></a>
+                    <a name="//apple_ref/swift/Method/fastForward()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC11fastForwardyyF">fastForward()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fastForward</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC6rewindyyF"></a>
+                    <a name="//apple_ref/swift/Method/rewind()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC6rewindyyF">rewind()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rewind</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK17STPlayerInterfaceP12setStopTimer4timeySd_tF"></a>
+                    <a name="//apple_ref/swift/Method/setStopTimer(time:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK17STPlayerInterfaceP12setStopTimer4timeySd_tF">setStopTimer(time:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setStopTimer</span><span class="p">(</span><span class="nv">time</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC15removeStopTimeryyF"></a>
+                    <a name="//apple_ref/swift/Method/removeStopTimer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC15removeStopTimeryyF">removeStopTimer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeStopTimer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK17STPlayerInterfaceP25setOnStateChangedListeneryyyAA0dH0OcF"></a>
+                    <a name="//apple_ref/swift/Method/setOnStateChangedListener(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK17STPlayerInterfaceP25setOnStateChangedListeneryyyAA0dH0OcF">setOnStateChangedListener(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setOnStateChangedListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Enums/STPlayerState.html">STPlayerState</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC21setOnTrackEndListeneryyyAA7STTrackVcF"></a>
+                    <a name="//apple_ref/swift/Method/setOnTrackEndListener(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC21setOnTrackEndListeneryyyAA7STTrackVcF">setOnTrackEndListener(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setOnTrackEndListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC28setOnTrackPlayFailedListeneryyyAA7STTrackV_s5Error_ptcF"></a>
+                    <a name="//apple_ref/swift/Method/setOnTrackPlayFailedListener(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC28setOnTrackPlayFailedListeneryyyAA7STTrackV_s5Error_ptcF">setOnTrackPlayFailedListener(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setOnTrackPlayFailedListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">listener</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK17STPlayerInterfaceP16getAudioDurationSdSgyF"></a>
+                    <a name="//apple_ref/swift/Method/getAudioDuration()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK17STPlayerInterfaceP16getAudioDurationSdSgyF">getAudioDuration()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAudioDuration</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC19getAudioCurrentTimeSdSgyF"></a>
+                    <a name="//apple_ref/swift/Method/getAudioCurrentTime()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC19getAudioCurrentTimeSdSgyF">getAudioCurrentTime()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAudioCurrentTime</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC9isPlayingSbyF"></a>
+                    <a name="//apple_ref/swift/Method/isPlaying()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC9isPlayingSbyF">isPlaying()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isPlaying</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC8isPausedSbyF"></a>
+                    <a name="//apple_ref/swift/Method/isPaused()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC8isPausedSbyF">isPaused()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isPaused</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK8STPlayerC9isLoadingSbyF"></a>
+                    <a name="//apple_ref/swift/Method/isLoading()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK8STPlayerC9isLoadingSbyF">isLoading()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isLoading</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
