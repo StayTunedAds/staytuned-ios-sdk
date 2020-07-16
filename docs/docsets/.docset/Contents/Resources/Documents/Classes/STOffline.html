@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSection Structure Reference</title>
+    <title>STOffline Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/STSection" class="dashAnchor"></a>
-    <a title="STSection Structure Reference"></a>
+    <a name="//apple_ref/swift/Class/STOffline" class="dashAnchor"></a>
+    <a title="STOffline Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (66% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSection Structure Reference
+        STOffline Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -185,18 +185,18 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSection</h1>
+            <h1>STOffline</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">STSection</span> <span class="p">:</span> <span class="kt">STSectionInterface</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STOffline</span> <span class="p">:</span> <span class="kt">STOfflineInterface</span></code></pre>
 
                 </div>
               </div>
-            <p>A structure used to model a group of contents or tracks.</p>
+            <p>This class implements the offline feature</p>
 <h3 id='info' class='heading'>Info:</h3>
 
-<p>Sections can be retrieved through the sections feature implemented in the STSections class</p>
+<p>The shared instance allows to retrieve, add and remove tracks and contents that are offline available</p>
 
           </section>
           <section class="section task-group-section">
@@ -205,9 +205,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV2idSivp"></a>
-                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV2idSivp">id</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC11getInstanceACyKFZ"></a>
+                    <a name="//apple_ref/swift/Method/getInstance()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC11getInstanceACyKFZ">getInstance()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,14 +215,52 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the shared instance of STOffline</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Will throw if your plan doesn&rsquo;t include this feature
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">STOffline</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return the shared instance of STOffline</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK9STOfflineC8contentsSayAA20STContentOfflineItemVGvp"></a>
+                    <a name="//apple_ref/swift/Property/contents" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC8contentsSayAA20STContentOfflineItemVGvp">contents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>@Observable
+The list of offline available contents</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd"><a href="../Structs/Observable.html">@Observable</a></span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">contents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/STContentOfflineItem.html">STContentOfflineItem</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -232,9 +270,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV4nameSSvp"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV4nameSSvp">name</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC6tracksSayAA18STTrackOfflineItemVGvp"></a>
+                    <a name="//apple_ref/swift/Property/tracks" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC6tracksSayAA18STTrackOfflineItemVGvp">tracks</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,14 +280,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>@Observable
+The list of offline available tracks</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd"><a href="../Structs/Observable.html">@Observable</a></span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">tracks</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/STTrackOfflineItem.html">STTrackOfflineItem</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -259,9 +299,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV4typeAA0D4TypeOSgvp"></a>
-                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV4typeAA0D4TypeOSgvp">type</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC3add7contentyAA9STContentV_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(content:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC3add7contentyAA9STContentV_tF">add(content:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,16 +309,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Remove in the list of contents the given content</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSectionType.html">STSectionType</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">content</span><span class="p">:</span> <span class="kt"><a href="../Structs/STContent.html">STContent</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Element to remove</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -286,9 +345,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV17linkedContentTypeAA0d6LinkedfG0OSgvp"></a>
-                    <a name="//apple_ref/swift/Property/linkedContentType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV17linkedContentTypeAA0d6LinkedfG0OSgvp">linkedContentType</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC3add5trackyAA7STTrackV_tF"></a>
+                    <a name="//apple_ref/swift/Method/add(track:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC3add5trackyAA7STTrackV_tF">add(track:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -296,16 +355,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Remove in the list of tracks the given content</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">linkedContentType</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSectionLinkedContentType.html">STSectionLinkedContentType</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>track</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Element to remove</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -313,9 +391,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV5orderSiSgvp"></a>
-                    <a name="//apple_ref/swift/Property/order" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV5orderSiSgvp">order</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC6remove7contentyAA9STContentV_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(content:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC6remove7contentyAA9STContentV_tF">remove(content:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -323,16 +401,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Remove in the list of content the given track</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">content</span><span class="p">:</span> <span class="kt"><a href="../Structs/STContent.html">STContent</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Element to remove</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -340,9 +437,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STSectionV11highlightedSbSgvp"></a>
-                    <a name="//apple_ref/swift/Property/highlighted" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV11highlightedSbSgvp">highlighted</a>
+                    <a name="/s:12StayTunedSDK9STOfflineC6remove5trackyAA7STTrackV_tF"></a>
+                    <a name="//apple_ref/swift/Method/remove(track:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK9STOfflineC6remove5trackyAA7STTrackV_tF">remove(track:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -350,178 +447,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Remove in the list of tracks the given track</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">highlighted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV10searchableSbSgvp"></a>
-                    <a name="//apple_ref/swift/Property/searchable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV10searchableSbSgvp">searchable</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">searchable</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV16numberOfContentsSiSgvp"></a>
-                    <a name="//apple_ref/swift/Property/numberOfContents" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV16numberOfContentsSiSgvp">numberOfContents</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">numberOfContents</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV6imgSrcSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/imgSrc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV6imgSrcSSSgvp">imgSrc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">imgSrc</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV15landscapeImgSrcSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/landscapeImgSrc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV15landscapeImgSrcSSSgvp">landscapeImgSrc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">landscapeImgSrc</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV14linkedContentsSayAA14STContentLightVGSgvp"></a>
-                    <a name="//apple_ref/swift/Property/linkedContents" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV14linkedContentsSayAA14STContentLightVGSgvp">linkedContents</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">linkedContents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/STContentLight.html">STContentLight</a></span><span class="p">]?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK9STSectionV14linkedElementsSayAA7STTrackVGSgvp"></a>
-                    <a name="//apple_ref/swift/Property/linkedElements" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STSectionV14linkedElementsSayAA7STTrackVGSgvp">linkedElements</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">linkedElements</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">]?</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>track</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Element to remove</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -1,1846 +1,642 @@
 {
   "warnings": [
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
       "line": 16,
       "symbol": "Observable.projectedValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
       "line": 17,
       "symbol": "Observable.wrappedValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Observables/STObservable.swift",
       "line": 23,
       "symbol": "Observable.init(wrappedValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 11,
-      "symbol": "STBookmarkedInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 12,
-      "symbol": "STBookmarkedInterface.Content",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 13,
-      "symbol": "STBookmarkedInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 16,
-      "symbol": "STBookmarkedInterface.contents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 18,
-      "symbol": "STBookmarkedInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 20,
-      "symbol": "STBookmarkedInterface.add(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 21,
-      "symbol": "STBookmarkedInterface.add(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 23,
-      "symbol": "STBookmarkedInterface.remove(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STBookmarkedInterface.swift",
-      "line": 24,
-      "symbol": "STBookmarkedInterface.remove(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 11,
-      "symbol": "STHistoryInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 12,
-      "symbol": "STHistoryInterface.ContentHistoryItem",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 13,
-      "symbol": "STHistoryInterface.TrackHistoryItem",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 14,
-      "symbol": "STHistoryInterface.Content",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 15,
-      "symbol": "STHistoryInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 18,
-      "symbol": "STHistoryInterface.contents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 20,
-      "symbol": "STHistoryInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 22,
-      "symbol": "STHistoryInterface.add(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STHistoryInterface.swift",
-      "line": 23,
-      "symbol": "STHistoryInterface.add(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 11,
-      "symbol": "STLibraryInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 12,
-      "symbol": "STLibraryInterface.ContentTransactionProtocol",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 13,
-      "symbol": "STLibraryInterface.TrackTransactionProtocol",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 14,
-      "symbol": "STLibraryInterface.Content",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 15,
-      "symbol": "STLibraryInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 18,
-      "symbol": "STLibraryInterface.contents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 20,
-      "symbol": "STLibraryInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 22,
-      "symbol": "STLibraryInterface.add(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STLibraryInterface.swift",
-      "line": 23,
-      "symbol": "STLibraryInterface.add(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 11,
-      "symbol": "STOfflineInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 12,
-      "symbol": "STOfflineInterface.ContentOfflineItemProtocol",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 13,
-      "symbol": "STOfflineInterface.TrackOfflineItemProtocol",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 14,
-      "symbol": "STOfflineInterface.Content",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 15,
-      "symbol": "STOfflineInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 18,
-      "symbol": "STOfflineInterface.contents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 20,
-      "symbol": "STOfflineInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 22,
-      "symbol": "STOfflineInterface.add(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 23,
-      "symbol": "STOfflineInterface.add(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 25,
-      "symbol": "STOfflineInterface.remove(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STOfflineInterface.swift",
-      "line": 26,
-      "symbol": "STOfflineInterface.remove(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
       "line": 13,
       "symbol": "STPlayerState.playing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
       "line": 14,
       "symbol": "STPlayerState.paused",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
       "line": 15,
       "symbol": "STPlayerState.loading",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 18,
-      "symbol": "STPlayerInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 19,
-      "symbol": "STPlayerInterface.PlaylistInterface",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 20,
-      "symbol": "STPlayerInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 26,
-      "symbol": "STPlayerInterface.currentTrack",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 28,
-      "symbol": "STPlayerInterface.currentTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 30,
-      "symbol": "STPlayerInterface.currentState",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 32,
-      "symbol": "STPlayerInterface.rate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 38,
-      "symbol": "STPlayerInterface.play(element:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 39,
-      "symbol": "STPlayerInterface.stop()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 40,
-      "symbol": "STPlayerInterface.next()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 41,
-      "symbol": "STPlayerInterface.prev()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 47,
-      "symbol": "STPlayerInterface.fastForward()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 48,
-      "symbol": "STPlayerInterface.rewind()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 54,
-      "symbol": "STPlayerInterface.setStopAtEndOfTrack()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 55,
-      "symbol": "STPlayerInterface.removeStopTimer()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 61,
-      "symbol": "STPlayerInterface.setOnTrackPlayFailedListener(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 67,
-      "symbol": "STPlayerInterface.getAudioCurrentTime()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 69,
-      "symbol": "STPlayerInterface.isPlaying()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 70,
-      "symbol": "STPlayerInterface.isPaused()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
-      "line": 71,
-      "symbol": "STPlayerInterface.isLoading()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 11,
-      "symbol": "STSectionInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 12,
-      "symbol": "STSectionInterface.ContentLight",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 13,
-      "symbol": "STSectionInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 15,
-      "symbol": "STSectionInterface.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 16,
-      "symbol": "STSectionInterface.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 17,
-      "symbol": "STSectionInterface.type",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 18,
-      "symbol": "STSectionInterface.linkedContentType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 19,
-      "symbol": "STSectionInterface.order",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 20,
-      "symbol": "STSectionInterface.highlighted",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 21,
-      "symbol": "STSectionInterface.searchable",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 22,
-      "symbol": "STSectionInterface.numberOfContents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 23,
-      "symbol": "STSectionInterface.imgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 24,
-      "symbol": "STSectionInterface.landscapeImgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 25,
-      "symbol": "STSectionInterface.linkedContents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
-      "line": 26,
-      "symbol": "STSectionInterface.linkedElements",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 29,
       "symbol": "STSectionLinkedContentType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 30,
       "symbol": "STSectionLinkedContentType.content",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 31,
       "symbol": "STSectionLinkedContentType.element",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 34,
       "symbol": "STSectionType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 35,
       "symbol": "STSectionType.default",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 36,
       "symbol": "STSectionType.new",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 37,
       "symbol": "STSectionType.trailer",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 38,
       "symbol": "STSectionType.highlight",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionInterface.swift",
       "line": 39,
       "symbol": "STSectionType.category",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionsInterface.swift",
-      "line": 11,
-      "symbol": "STSectionsInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionsInterface.swift",
-      "line": 12,
-      "symbol": "STSectionsInterface.Section",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionsInterface.swift",
-      "line": 13,
-      "symbol": "STSectionsInterface.Content",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionsInterface.swift",
-      "line": 15,
-      "symbol": "STSectionsInterface.getSections(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STSectionsInterface.swift",
-      "line": 16,
-      "symbol": "STSectionsInterface.getContent(by:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 11,
-      "symbol": "STWishListInterface",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 12,
-      "symbol": "STWishListInterface.ContentHistoryItem",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 13,
-      "symbol": "STWishListInterface.TrackHistoryItem",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 16,
-      "symbol": "STWishListInterface.contents",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 18,
-      "symbol": "STWishListInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 20,
-      "symbol": "STWishListInterface.add(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 21,
-      "symbol": "STWishListInterface.add(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 23,
-      "symbol": "STWishListInterface.remove(content:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STWishListInterface.swift",
-      "line": 24,
-      "symbol": "STWishListInterface.remove(track:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerInterfaceImplementation.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerInterfaceImplementation.swift",
       "line": 105,
       "symbol": "STPlayer.setOnTrackPlayFailedListener(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 15,
       "symbol": "STSection.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 16,
       "symbol": "STSection.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 17,
       "symbol": "STSection.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 18,
       "symbol": "STSection.linkedContentType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 19,
       "symbol": "STSection.order",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 20,
       "symbol": "STSection.highlighted",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 21,
       "symbol": "STSection.searchable",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 22,
       "symbol": "STSection.numberOfContents",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 23,
       "symbol": "STSection.imgSrc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 24,
       "symbol": "STSection.landscapeImgSrc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 25,
       "symbol": "STSection.linkedContents",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STSection.swift",
       "line": 26,
       "symbol": "STSection.linkedElements",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/STDownloadManagerDownloadTask.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/STDownloadManagerDownloadTask.swift",
       "line": 90,
       "symbol": "STDownloadManager.DownloadTask",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/STDownloadManagerDownloadTask.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/STDownloadManagerDownloadTask.swift",
       "line": 97,
       "symbol": "STDownloadManager.DownloadTask",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STContent.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STContent.swift",
       "line": 86,
       "symbol": "STContent.isExplicitContent",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STContent.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STContent.swift",
       "line": 90,
       "symbol": "STContent.categories",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
       "line": 14,
       "symbol": "STContentHistoryItem.audioItem",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
       "line": 15,
       "symbol": "STContentHistoryItem.currentTime",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
       "line": 20,
       "symbol": "STTrackHistoryItem.audioItem",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
       "line": 21,
       "symbol": "STTrackHistoryItem.currentTime",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
       "line": 13,
       "symbol": "STContentOfflineItem.audioItem",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
       "line": 14,
       "symbol": "STContentOfflineItem.downloading",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
       "line": 19,
       "symbol": "STTrackOfflineItem.audioItem",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STOfflineItem.swift",
       "line": 20,
       "symbol": "STTrackOfflineItem.downloading",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 16,
       "symbol": "STTrack.key",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 17,
       "symbol": "STTrack.contentKey",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 18,
       "symbol": "STTrack.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 19,
       "symbol": "STTrack.title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 20,
       "symbol": "STTrack.subtitle",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 21,
       "symbol": "STTrack.episode",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 22,
       "symbol": "STTrack.season",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 23,
       "symbol": "STTrack.elementNumber",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 24,
       "symbol": "STTrack.chapter",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 25,
       "symbol": "STTrack.chapterPart",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 26,
       "symbol": "STTrack.websiteUrl",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 27,
       "symbol": "STTrack.categories",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 28,
       "symbol": "STTrack.typeOfElement",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 29,
       "symbol": "STTrack.publicationDate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 30,
       "symbol": "STTrack.highlighted",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 31,
       "symbol": "STTrack.isNew",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 32,
       "symbol": "STTrack.descriptionText",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 33,
       "symbol": "STTrack.imgSrc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 34,
       "symbol": "STTrack.audioSrc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 35,
       "symbol": "STTrack.audioSrcWeight",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STTrack.swift",
       "line": 36,
       "symbol": "STTrack.audioDuration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
       "line": 45,
       "symbol": "STRegularVCPresentationTransitioning.transitionDuration(using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
       "line": 49,
       "symbol": "STRegularVCPresentationTransitioning.animateTransition(using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
       "line": 211,
       "symbol": "STRegularVCPresentationTransitioning.fullExpand(completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ExpandPresentaiton/RegularPresentation/STRegularVCPresentationTransitioning.swift",
       "line": 216,
       "symbol": "STRegularVCPresentationTransitioning.dismiss(completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_PresentFooterPlayer.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_PresentFooterPlayer.swift",
       "line": 13,
       "symbol": "STFanViewController.changeFooterPlayerIsDisplayed(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_PresentFooterPlayer.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_PresentFooterPlayer.swift",
       "line": 58,
       "symbol": "STFanViewController.didTapFooterPlayer()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_RootViewControllerProtocol.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_RootViewControllerProtocol.swift",
       "line": 58,
       "symbol": "STFanViewController.present(popup:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_RootViewControllerProtocol.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/KeyClasses/STFanViewController/STFanVC_RootViewControllerProtocol.swift",
       "line": 103,
       "symbol": "STFanViewController.presentQuitAlertViewController(withQuitHandler:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
       "line": 11,
       "symbol": "STPodcastDescriptionIdentityModels",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
       "line": 13,
       "symbol": "STPodcastDescriptionIdentityModels.Style",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/UI/ViewHierachy/SubClasses/TableView/PageUnit/Cell/STPodcastDescriptionIdentity/STPodcastDescriptionIdentityModels.swift",
       "line": 24,
       "symbol": "STPodcastDescriptionIdentityModels.ContentData",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Features/STUIFeatureInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Features/STUIFeatureInterface.swift",
       "line": 11,
       "symbol": "STUIFeatureInterface",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Features/STUIFeatureInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Features/STUIFeatureInterface.swift",
       "line": 12,
       "symbol": "STUIFeatureInterface.launchUI()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
       "line": 11,
       "symbol": "STAudioItemInterface",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
       "line": 12,
       "symbol": "STAudioItemInterface.key",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STAudioItemInterface.swift",
       "line": 15,
       "symbol": "STAudioItemInterface",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 13,
-      "symbol": "STContentInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 15,
-      "symbol": "STContentInterface.type",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 16,
-      "symbol": "STContentInterface.title",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 17,
-      "symbol": "STContentInterface.ean",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 18,
-      "symbol": "STContentInterface.imgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 19,
-      "symbol": "STContentInterface.portraitImgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 20,
-      "symbol": "STContentInterface.landscapeImgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 21,
-      "symbol": "STContentInterface.narrator",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 22,
-      "symbol": "STContentInterface.author",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 23,
-      "symbol": "STContentInterface.authorBibliographicalNote",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 24,
-      "symbol": "STContentInterface.ownerName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 25,
-      "symbol": "STContentInterface.ownerEmail",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 26,
-      "symbol": "STContentInterface.publishingHouse",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 27,
-      "symbol": "STContentInterface.imprintName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 28,
-      "symbol": "STContentInterface.advertiser",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 29,
-      "symbol": "STContentInterface.language",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 30,
-      "symbol": "STContentInterface.descriptionText",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 31,
-      "symbol": "STContentInterface.mediaType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 32,
-      "symbol": "STContentInterface.diffusionMode",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 33,
-      "symbol": "STContentInterface.numberOfChapter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 34,
-      "symbol": "STContentInterface.disponibilityStatus",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 35,
-      "symbol": "STContentInterface.complete",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 36,
-      "symbol": "STContentInterface.isExplicitContent",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 37,
-      "symbol": "STContentInterface.categories",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 38,
-      "symbol": "STContentInterface.copyright",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 39,
-      "symbol": "STContentInterface.websiteUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 40,
-      "symbol": "STContentInterface.rssFeedUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 41,
-      "symbol": "STContentInterface.vastUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 42,
-      "symbol": "STContentInterface.onixXmlUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 43,
-      "symbol": "STContentInterface.pdfUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 44,
-      "symbol": "STContentInterface.publicationDate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 45,
-      "symbol": "STContentInterface.overallDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
-      "line": 46,
-      "symbol": "STContentInterface.elementList",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 52,
       "symbol": "STContentModelType.podcast",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 53,
       "symbol": "STContentModelType.audiobook",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 58,
       "symbol": "STContentMediaType.edito",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 59,
       "symbol": "STContentMediaType.brand",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 64,
       "symbol": "STContentDiffusionMode.episodic",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 65,
       "symbol": "STContentDiffusionMode.serial",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 70,
       "symbol": "STContentDisponibilityStatus.forthcoming",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 71,
       "symbol": "STContentDisponibilityStatus.available",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentInterface.swift",
       "line": 72,
       "symbol": "STContentDisponibilityStatus.stopped",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 13,
-      "symbol": "STContentLightInterface.type",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 14,
-      "symbol": "STContentLightInterface.title",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 15,
-      "symbol": "STContentLightInterface.ean",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 16,
-      "symbol": "STContentLightInterface.imgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 17,
-      "symbol": "STContentLightInterface.portraitImgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 18,
-      "symbol": "STContentLightInterface.landscapeImgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 19,
-      "symbol": "STContentLightInterface.narrator",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 20,
-      "symbol": "STContentLightInterface.author",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 21,
-      "symbol": "STContentLightInterface.publicationDate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STContentLightInterface.swift",
-      "line": 22,
-      "symbol": "STContentLightInterface.overallDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STHistoryItemInterface.swift",
-      "line": 13,
-      "symbol": "STHistoryItemInterface.AudioItemType",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STHistoryItemInterface.swift",
-      "line": 15,
-      "symbol": "STHistoryItemInterface.audioItem",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STHistoryItemInterface.swift",
-      "line": 16,
-      "symbol": "STHistoryItemInterface.currentTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STOfflineItemInterface.swift",
-      "line": 13,
-      "symbol": "STOfflineItemInterface.AudioItemType",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STOfflineItemInterface.swift",
-      "line": 15,
-      "symbol": "STOfflineItemInterface.audioItem",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STOfflineItemInterface.swift",
-      "line": 16,
-      "symbol": "STOfflineItemInterface.downloading",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STPlaylistInterface.swift",
-      "line": 13,
-      "symbol": "STPlaylistInterface.Track",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STPlaylistInterface.swift",
-      "line": 16,
-      "symbol": "STPlaylistInterface.tracks",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STPlaylistInterface.swift",
-      "line": 18,
-      "symbol": "STPlaylistInterface.getNext()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STPlaylistInterface.swift",
-      "line": 19,
-      "symbol": "STPlaylistInterface.getPrev()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 13,
-      "symbol": "STTrackInterface.contentKey",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 14,
-      "symbol": "STTrackInterface.type",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 15,
-      "symbol": "STTrackInterface.title",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 16,
-      "symbol": "STTrackInterface.subtitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 17,
-      "symbol": "STTrackInterface.episode",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 18,
-      "symbol": "STTrackInterface.season",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 19,
-      "symbol": "STTrackInterface.elementNumber",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 20,
-      "symbol": "STTrackInterface.chapter",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 21,
-      "symbol": "STTrackInterface.chapterPart",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 22,
-      "symbol": "STTrackInterface.websiteUrl",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 23,
-      "symbol": "STTrackInterface.categories",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 24,
-      "symbol": "STTrackInterface.typeOfElement",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 25,
-      "symbol": "STTrackInterface.publicationDate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 26,
-      "symbol": "STTrackInterface.highlighted",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 27,
-      "symbol": "STTrackInterface.isNew",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 28,
-      "symbol": "STTrackInterface.descriptionText",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 29,
-      "symbol": "STTrackInterface.imgSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 30,
-      "symbol": "STTrackInterface.audioSrc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 31,
-      "symbol": "STTrackInterface.audioSrcWeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
-      "line": 32,
-      "symbol": "STTrackInterface.audioDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
       "line": 38,
       "symbol": "STTrackModelType.track",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
       "line": 39,
       "symbol": "STTrackModelType.chapter",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
       "line": 44,
       "symbol": "STTrackTypeOfElement.full",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
       "line": 45,
       "symbol": "STTrackTypeOfElement.trailer",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTrackInterface.swift",
       "line": 46,
       "symbol": "STTrackTypeOfElement.bonus",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 19,
-      "symbol": "STTransactionInterface.AudioItemType",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 21,
-      "symbol": "STTransactionInterface.audioItem",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 22,
-      "symbol": "STTransactionInterface.paymentType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 23,
-      "symbol": "STTransactionInterface.amount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 24,
-      "symbol": "STTransactionInterface.currency",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 25,
-      "symbol": "STTransactionInterface.status",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STTransactionInterface.swift",
-      "line": 26,
-      "symbol": "STTransactionInterface.createdAt",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STWishInterface.swift",
-      "line": 13,
-      "symbol": "STWishInterface.AudioItemType",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STWishInterface.swift",
-      "line": 15,
-      "symbol": "STWishInterface.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STWishInterface.swift",
-      "line": 16,
-      "symbol": "STWishInterface.audioItem",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/SDK/Interfaces/Models/STWishInterface.swift",
-      "line": 17,
-      "symbol": "STWishInterface.createdAt",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/kevinmorais/staytuned-ios-sdk/Workspace/StayTunedSDK/StayTunedSDK/StayTunedSDK.swift",
-      "line": 11,
-      "symbol": "StayTunedSDK",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/kevinmorais/staytuned-ios-sdk/Workspace"
+  "source_directory": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace"
 }
