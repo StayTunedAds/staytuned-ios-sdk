@@ -17,7 +17,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (66% documented)</p>
+        <p><a href="index.html"> Docs</a> (65% documented)</p>
         <p class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -39,6 +39,9 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/STBookmarked.html">STBookmarked</a>
               </li>
               <li class="nav-group-task">
@@ -55,6 +58,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/STSections.html">STSections</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/STStateManager.html">STStateManager</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/STWishList.html">STWishList</a>
@@ -81,6 +87,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/STError.html">STError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STObservable.html">STObservable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STObservable/Cancellable.html">– Cancellable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/STPlayerState.html">STPlayerState</a>
@@ -112,9 +124,6 @@
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions.html#/STObservable">STObservable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Extensions/String.html">String</a>
               </li>
             </ul>
@@ -129,6 +138,12 @@
                 <a href="Protocols/STFeature.html">STFeature</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/STPlayerObserver.html">STPlayerObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/STUIFeatureInterface.html">STUIFeatureInterface</a>
               </li>
             </ul>
@@ -136,9 +151,6 @@
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/Observable.html">Observable</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Structs/STContent.html">STContent</a>
               </li>
@@ -192,6 +204,69 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP"></a>
+                    <a name="//apple_ref/swift/Protocol/STPlayerObserver" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP">STPlayerObserver</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use this protocol to observe the following events in the shared instance of <code><a href="Classes/STPlayer.html">STPlayer</a></code>: change of state, end of a track and failure in playing a track.
+Each observer has to be added to the <code><a href="Classes/STStateManager.html">STStateManager</a></code>to be called.</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+
+<p>class MyClass: STPlayerObserver {
+/<em>..</em>/
+}
+let myObject = MyClass()
+STStateManager.shared.addObserver(myObject)</p>
+
+                        <a href="Protocols/STPlayerObserver.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STPlayerObserver</span> <span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK15STStateObserverP"></a>
+                    <a name="//apple_ref/swift/Protocol/STStateObserver" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STStateObserver</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -264,7 +339,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>For internal purpose.</p>
 
                         <a href="Protocols/STAudioItemInterface.html" class="slightly-smaller">See more</a>
                       </div>
@@ -284,7 +359,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-16)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

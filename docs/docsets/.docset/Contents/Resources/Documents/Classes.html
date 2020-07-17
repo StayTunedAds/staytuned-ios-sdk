@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (66% documented)</p>
+        <p><a href="index.html"> Docs</a> (65% documented)</p>
         <p class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -39,6 +39,9 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/STBookmarked.html">STBookmarked</a>
               </li>
               <li class="nav-group-task">
@@ -55,6 +58,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/STSections.html">STSections</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/STStateManager.html">STStateManager</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/STWishList.html">STWishList</a>
@@ -81,6 +87,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/STError.html">STError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STObservable.html">STObservable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/STObservable/Cancellable.html">– Cancellable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/STPlayerState.html">STPlayerState</a>
@@ -112,9 +124,6 @@
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions.html#/STObservable">STObservable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Extensions/String.html">String</a>
               </li>
             </ul>
@@ -129,6 +138,12 @@
                 <a href="Protocols/STFeature.html">STFeature</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/STPlayerObserver.html">STPlayerObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/STUIFeatureInterface.html">STUIFeatureInterface</a>
               </li>
             </ul>
@@ -136,9 +151,6 @@
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/Observable.html">Observable</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Structs/STContent.html">STContent</a>
               </li>
@@ -195,6 +207,35 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:12StayTunedSDK10ObservableC"></a>
+                    <a name="//apple_ref/swift/Class/Observable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK10ObservableC">Observable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>More information here: <a href="https://www.swiftbysundell.com/articles/published-properties-in-swift/">https://www.swiftbysundell.com/articles/published-properties-in-swift/</a></p>
+
+                        <a href="Classes/Observable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@propertyWrapper</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:12StayTunedSDK12STBookmarkedC"></a>
                     <a name="//apple_ref/swift/Class/STBookmarked" class="dashAnchor"></a>
                     <a class="token" href="#/s:12StayTunedSDK12STBookmarkedC">STBookmarked</a>
@@ -216,7 +257,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STBookmarked</span> <span class="p">:</span> <span class="kt">STBookmarkedInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STBookmarked</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
 
                         </div>
                       </div>
@@ -247,7 +288,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STHistory</span> <span class="p">:</span> <span class="kt">STHistoryInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STHistory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
 
                         </div>
                       </div>
@@ -278,7 +319,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STLibrary</span> <span class="p">:</span> <span class="kt">STLibraryInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STLibrary</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
 
                         </div>
                       </div>
@@ -309,7 +350,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STOffline</span> <span class="p">:</span> <span class="kt">STOfflineInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STOffline</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
 
                         </div>
                       </div>
@@ -383,7 +424,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STSections</span> <span class="p">:</span> <span class="kt">STSectionsInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STSections</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
 
                         </div>
                       </div>
@@ -414,7 +455,36 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STWishList</span> <span class="p">:</span> <span class="kt">STWishListInterface</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">STWishList</span> <span class="p">:</span> <span class="kt"><a href="Protocols/STFeature.html">STFeature</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@StayTunedSDK@objc(cs)STStateManager"></a>
+                    <a name="//apple_ref/swift/Class/STStateManager" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@StayTunedSDK@objc(cs)STStateManager">STStateManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This class is in charge of dispatching the state properties to observers.
+Use the <code>shared</code>instance to add or remove an observer.</p>
+
+                        <a href="Classes/STStateManager.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">STStateManager</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -458,7 +528,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-16)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
