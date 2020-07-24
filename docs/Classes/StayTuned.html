@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STFeature Protocol Reference</title>
+    <title>StayTuned Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/STFeature" class="dashAnchor"></a>
-    <a title="STFeature Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/StayTuned" class="dashAnchor"></a>
+    <a title="StayTuned Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (65% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STFeature Protocol Reference
+        StayTuned Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -197,18 +197,19 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STFeature</h1>
+            <h1>StayTuned</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STFeature</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StayTuned</span></code></pre>
 
                 </div>
               </div>
-            <p>This protocol is adopted by the various features of the SDK.</p>
-<h3 id='info' class='heading'>Info:</h3>
+            <p>You should instantiate this class once to initialize the SDK</p>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code><span class="kt">StayTunedSDK</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="cm">/* the appId given by StayTuned */</span><span class="p">,</span> <span class="nv">authToken</span><span class="p">:</span> <span class="cm">/* the authKey given by StayTuned */</span><span class="p">)</span>
 
-<p>It supplies a common syntax to acces the various features objects: <code><a href="../Classes/STPlayer.html">STPlayer</a></code>, <code><a href="../Classes/STSections.html">STSections</a></code>, <code><a href="../Classes/STHistory.html">STHistory</a></code>, <code><a href="../Classes/STWishList.html">STWishList</a></code>, <code><a href="../Classes/STBookmarked.html">STBookmarked</a></code>, <code><a href="../Classes/STLibrary.html">STLibrary</a></code>, <code><a href="../Classes/STOffline.html">STOffline</a></code>.</p>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -217,9 +218,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STFeatureP11getInstancexyKFZ"></a>
-                    <a name="//apple_ref/swift/Method/getInstance()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STFeatureP11getInstancexyKFZ">getInstance()</a>
+                    <a name="/s:12StayTunedSDK0aB0C5appId9authTokenACSS_SStKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(appId:authToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK0aB0C5appId9authTokenACSS_SStKcfc">init(appId:<wbr>authToken:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -227,14 +228,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the shared instance of the feature, adn throws an error if your plan doesn&rsquo;t include this feature</p>
+                        <p>Initialize the SDK</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>alreadyInitException</code> if the SDK has been initialized already
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">authToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -244,33 +251,35 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK9STFeatureP6sharedxSgvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK9STFeatureP6sharedxSgvpZ">shared</a>
+                    <a name="/s:12StayTunedSDK0aB0C11getInstanceACyKFZ"></a>
+                    <a name="//apple_ref/swift/Method/getInstance()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK0aB0C11getInstanceACyKFZ">getInstance()</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the same result as the <code><a href="../Protocols/STFeature.html#/s:12StayTunedSDK9STFeatureP11getInstancexyKFZ">getInstance()</a></code> method, without throwing. Can be seen as a shortcut intended to allow a more concise syntax.</p>
+                        <p>Get the SDK instance</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>NotInitException</code> You should call the init before calling this method
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="k">Self</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">StayTuned</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The current instance of the StayTunedSDK</p>
                       </div>
                     </section>
                   </div>
