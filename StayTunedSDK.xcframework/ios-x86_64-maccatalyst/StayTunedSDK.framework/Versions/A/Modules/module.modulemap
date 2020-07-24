@@ -1,4 +1,0 @@
-framework module StayTunedSDK {
-  header "StayTunedSDK-Swift.h"
-  requires objc
-}
