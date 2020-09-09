@@ -187,7 +187,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import Foundation;
-@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -205,21 +204,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="StayTunedSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
-
-
-
-
-
-
-
-
-/// This class is in charge of dispatching the state properties to observers.
-/// Use the <code>shared</code>instance to add or remove an observer.
-SWIFT_CLASS("_TtC12StayTunedSDK14STStateManager")
-@interface STStateManager : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 
 

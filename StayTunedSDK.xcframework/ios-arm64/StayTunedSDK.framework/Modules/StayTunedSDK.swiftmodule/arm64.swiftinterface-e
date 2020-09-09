@@ -32,6 +32,16 @@ public struct STTrackOfflineItem {
   public let audioItem: StayTunedSDK.STTrack
   public var downloading: Swift.Bool
 }
+extension String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue: Swift.Int)
+}
 @_hasMissingDesignatedInitializers final public class STPlayer {
   @StayTunedSDK.Observable @_projectedValueProperty($currentTrack) final public var currentTrack: StayTunedSDK.STTrack? {
     get
@@ -62,7 +72,7 @@ public struct STTrackOfflineItem {
   }
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class STStateManager : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers public class STStateManager {
   public static var shared: StayTunedSDK.STStateManager {
     get
   }
@@ -75,7 +85,7 @@ extension STStateManager {
   public func playerTrackDidEnd(_ track: StayTunedSDK.STTrack)
   public func playerFailed(for track: StayTunedSDK.STTrack)
 }
-public protocol STStateObserver : ObjectiveC.NSObject {
+public protocol STStateObserver : AnyObject {
 }
 public struct STPlaylist {
   public var tracks: [StayTunedSDK.STTrack]
@@ -146,7 +156,7 @@ public struct STSection {
   public let order: Swift.Int?
   public let highlighted: Swift.Bool?
   public let searchable: Swift.Bool?
-  public let numberOfContents: Swift.Int?
+  public let numberOfItems: Swift.Int?
   public let imgSrc: Swift.String?
   public let landscapeImgSrc: Swift.String?
   public let linkedContents: [StayTunedSDK.STContentLight]?
@@ -173,9 +183,11 @@ public struct STTrackHistoryItem {
 }
 @_hasMissingDesignatedInitializers final public class STSections : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STSections
-  final public func getSections(completion: @escaping (Swift.Result<[StayTunedSDK.STSection], Swift.Error>) -> Swift.Void)
-  final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<StayTunedSDK.STContent?, Swift.Error>) -> Swift.Void)
   @objc deinit
+}
+extension STSections {
+  final public func getSections(completion: @escaping (Swift.Result<[StayTunedSDK.STSection]?, Swift.Error>) -> Swift.Void)
+  final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<StayTunedSDK.STSection?, Swift.Error>) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers final public class STOffline : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STOffline
@@ -204,6 +216,7 @@ public struct STTrackHistoryItem {
 public enum STContentModelType : Swift.String, Swift.Codable {
   case podcast
   case audiobook
+  case livestream
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
@@ -240,6 +253,7 @@ public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
 }
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
+  case livetrack
   case chapter
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
@@ -346,6 +360,14 @@ public enum STObservable {
     final public func cancel()
   }
 }
+@_hasMissingDesignatedInitializers final public class STAuth : StayTunedSDK.STFeature {
+  public static func getInstance() throws -> StayTunedSDK.STAuth
+  @objc deinit
+}
+extension STAuth {
+  final public func connect(partnerKey: Swift.String, partnerToken: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
+  final public func refresh(completion: ((Swift.Error?) -> Swift.Void)?)
+}
 public protocol STUIFeatureInterface {
   func launchUI()
 }
@@ -357,6 +379,14 @@ extension STFeature {
   public static var shared: Self? {
     get
   }
+}
+@_hasMissingDesignatedInitializers final public class STContents : StayTunedSDK.STFeature {
+  public static func getInstance() throws -> StayTunedSDK.STContents
+  @objc deinit
+}
+extension STContents {
+  final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<StayTunedSDK.STContent?, Swift.Error>) -> Swift.Void)
+  final public func getContents(completion: @escaping (Swift.Result<[StayTunedSDK.STContentLight]?, Swift.Error>) -> Swift.Void)
 }
 public protocol STPlayerObserver : StayTunedSDK.STStateObserver {
   func playerStateDidChange(to value: StayTunedSDK.STPlayerState)
@@ -420,8 +450,6 @@ public struct STContent {
   public let narrator: Swift.String?
   public let author: Swift.String?
   public let authorBibliographicalNote: Swift.String?
-  public let ownerName: Swift.String?
-  public let ownerEmail: Swift.String?
   public let publishingHouse: Swift.String?
   public let imprintName: Swift.String?
   public let advertiser: Swift.String?
@@ -429,7 +457,6 @@ public struct STContent {
   public let descriptionText: Swift.String?
   public let mediaType: StayTunedSDK.STContentMediaType?
   public let diffusionMode: StayTunedSDK.STContentDiffusionMode?
-  public let numberOfChapter: Swift.Int?
   public let disponibilityStatus: StayTunedSDK.STContentDisponibilityStatus?
   public let complete: Swift.Bool?
   #warning("TODO: documentation")
@@ -440,13 +467,20 @@ public struct STContent {
   public let websiteUrl: Swift.String?
   public let rssFeedUrl: Swift.String?
   public let vastUrl: Swift.String?
-  public let onixXmlUrl: Swift.String?
   public let pdfUrl: Swift.String?
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
   public let elementList: [StayTunedSDK.STTrack]?
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+public enum STKeychainWrapperKeys : Swift.String {
+  case refreshToken
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
 }
 public enum STPlayerState {
   case playing
@@ -470,16 +504,16 @@ public struct STTrack {
   public let chapter: Swift.Int?
   public let chapterPart: Swift.Int?
   public let websiteUrl: Swift.String?
-  public let categories: Swift.String?
   public let typeOfElement: StayTunedSDK.STTrackTypeOfElement?
   public let publicationDate: Foundation.Date?
   public let highlighted: Swift.Bool?
-  public let isNew: Swift.Bool?
   public let descriptionText: Swift.String?
   public var imgSrc: Swift.String?
   public let audioSrc: Swift.String?
   public let audioSrcWeight: Swift.Int?
   public let audioDuration: Swift.Int?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -487,22 +521,14 @@ public enum STError : Swift.Error {
   case notInitException
   case alreadyInitException
   case featureNotAvailable
+  case missingRefreshTokenInKeychain
   public static func == (a: StayTunedSDK.STError, b: StayTunedSDK.STError) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
-extension String : Swift.CodingKey {
-  public var stringValue: Swift.String {
-    get
-  }
-  public init?(stringValue: Swift.String)
-  public var intValue: Swift.Int? {
-    get
-  }
-  public init?(intValue: Swift.Int)
-}
+extension StayTunedSDK.STContentLight : StayTunedSDK.STAudioItemInterface {}
 extension StayTunedSDK.STPlayer : StayTunedSDK.STFeature {}
 extension StayTunedSDK.STStateManager : StayTunedSDK.STPlayerObserver {}
 extension StayTunedSDK.STStateManager : StayTunedSDK.STStateObserver {}
@@ -530,14 +556,16 @@ extension StayTunedSDK.STTrackTypeOfElement : Swift.RawRepresentable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.Equatable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.Hashable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.RawRepresentable {}
-extension StayTunedSDK.STContentLight : StayTunedSDK.STAudioItemInterface {}
 extension StayTunedSDK.STContent : Swift.Encodable {}
 extension StayTunedSDK.STContent : Swift.Decodable {}
 extension StayTunedSDK.STContent : StayTunedSDK.STAudioItemInterface {}
-extension StayTunedSDK.STPlayerState : Swift.Equatable {}
-extension StayTunedSDK.STPlayerState : Swift.Hashable {}
 extension StayTunedSDK.STTrack : Swift.Encodable {}
 extension StayTunedSDK.STTrack : Swift.Decodable {}
 extension StayTunedSDK.STTrack : StayTunedSDK.STAudioItemInterface {}
+extension StayTunedSDK.STKeychainWrapperKeys : Swift.Equatable {}
+extension StayTunedSDK.STKeychainWrapperKeys : Swift.Hashable {}
+extension StayTunedSDK.STKeychainWrapperKeys : Swift.RawRepresentable {}
+extension StayTunedSDK.STPlayerState : Swift.Equatable {}
+extension StayTunedSDK.STPlayerState : Swift.Hashable {}
 extension StayTunedSDK.STError : Swift.Equatable {}
 extension StayTunedSDK.STError : Swift.Hashable {}

@@ -17,7 +17,7 @@
     <a title="STTrack Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (65% documented)</p>
+        <p><a href="../index.html"> Docs</a> (63% documented)</p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -42,7 +42,13 @@
                 <a href="../Classes/Observable.html">Observable</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STAuth.html">STAuth</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STBookmarked.html">STBookmarked</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STContents.html">STContents</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STHistory.html">STHistory</a>
@@ -87,6 +93,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STError.html">STError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STKeychainWrapperKeys.html">STKeychainWrapperKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STObservable.html">STObservable</a>
@@ -515,33 +524,6 @@ A track is identified by a key and carries informations about the element itself
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12StayTunedSDK7STTrackV10categoriesSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/categories" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK7STTrackV10categoriesSSSgvp">categories</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:12StayTunedSDK7STTrackV13typeOfElementAA0d4TypefG0OSgvp"></a>
                     <a name="//apple_ref/swift/Property/typeOfElement" class="dashAnchor"></a>
                     <a class="token" href="#/s:12StayTunedSDK7STTrackV13typeOfElementAA0d4TypefG0OSgvp">typeOfElement</a>
@@ -614,33 +596,6 @@ A track is identified by a key and carries informations about the element itself
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">highlighted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12StayTunedSDK7STTrackV5isNewSbSgvp"></a>
-                    <a name="//apple_ref/swift/Property/isNew" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12StayTunedSDK7STTrackV5isNewSbSgvp">isNew</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isNew</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -782,12 +737,66 @@ A track is identified by a key and carries informations about the element itself
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK7STTrackV9createdAt10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/createdAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK7STTrackV9createdAt10Foundation4DateVSgvp">createdAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">createdAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK7STTrackV9updatedAt10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/updatedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK7STTrackV9updatedAt10Foundation4DateVSgvp">updatedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">updatedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-24)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-09-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
