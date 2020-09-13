@@ -122,6 +122,98 @@ public enum STPodcastDescriptionIdentityModels {
   public struct ContentData {
   }
 }
+public enum STListLinkedContentType : Swift.String {
+  case content
+  case track
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol STListProtocol {
+  var id: Swift.Int? { get }
+  var name: Swift.String? { get set }
+  var type: StayTunedSDK.STListType? { get set }
+  var imgSrc: Swift.String? { get set }
+  var linkedContentType: StayTunedSDK.STListLinkedContentType? { get }
+  var numberOfItems: Swift.Int? { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
+  func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func update(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers public class STList<Item> {
+  public var id: Swift.Int? {
+    get
+  }
+  public var name: Swift.String? {
+    get
+    set
+  }
+  public var type: StayTunedSDK.STListType? {
+    get
+    set
+  }
+  public var imgSrc: Swift.String? {
+    get
+    set
+  }
+  public var linkedContentType: StayTunedSDK.STListLinkedContentType? {
+    get
+  }
+  public var numberOfItems: Swift.Int? {
+    get
+  }
+  public var items: [StayTunedSDK.STListItem<Item>] {
+    get
+    set
+  }
+  public var createdAt: Foundation.Date? {
+    get
+  }
+  public var updatedAt: Foundation.Date? {
+    get
+  }
+  @objc deinit
+}
+extension STList : StayTunedSDK.STListProtocol {
+}
+extension STList {
+  public func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func update(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func updateItems(_ items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func updateItem(_ item: StayTunedSDK.STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func addItems(_ items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func addItem(_ item: StayTunedSDK.STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func deleteItems(_ items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func deleteItem(_ item: StayTunedSDK.STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+}
+public struct STListItem<Item> {
+  public var id: Swift.Int?
+  public var key: Swift.String?
+  public var item: Item?
+  public var order: Swift.Int?
+  public var value: Swift.String?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+}
+extension STListItem : Swift.Equatable {
+  public static func == (lhs: StayTunedSDK.STListItem<Item>, rhs: StayTunedSDK.STListItem<Item>) -> Swift.Bool
+}
+extension STListItem {
+  public static func defaultOrder(lhs: StayTunedSDK.STListItem<Item>, rhs: StayTunedSDK.STListItem<Item>) -> Swift.Bool
+}
+extension STListItem where Item == StayTunedSDK.STTrack {
+  public init(track: StayTunedSDK.STTrack)
+}
+extension STListItem where Item == StayTunedSDK.STContentLight {
+  public init(contentLight: StayTunedSDK.STContentLight)
+}
 extension STPlayer {
   public static func getInstance() throws -> StayTunedSDK.STPlayer
   final public func play(playlist: StayTunedSDK.STPlaylist)
@@ -161,6 +253,8 @@ public struct STSection {
   public let landscapeImgSrc: Swift.String?
   public let linkedContents: [StayTunedSDK.STContentLight]?
   public var linkedElements: [StayTunedSDK.STTrack]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public struct STContentWish {
   public let id: Swift.Int
@@ -251,6 +345,10 @@ public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
     get
   }
 }
+public typealias STTrackList = StayTunedSDK.STList<StayTunedSDK.STTrack>
+public typealias STContentList = StayTunedSDK.STList<StayTunedSDK.STContentLight>
+public typealias STTrackListItem = StayTunedSDK.STListItem<StayTunedSDK.STTrack>
+public typealias STContentListItem = StayTunedSDK.STListItem<StayTunedSDK.STContentLight>
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
   case livetrack
@@ -302,7 +400,7 @@ public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
     get
   }
 }
-public enum STSectionType : Swift.String, Swift.Decodable {
+public enum STSectionType : Swift.String, Swift.Codable {
   case `default`
   case new
   case trailer
@@ -332,6 +430,8 @@ public struct STContentLight {
   public let author: Swift.String?
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 final public class StayTunedSDK {
   @discardableResult
@@ -370,6 +470,19 @@ extension STAuth {
 }
 public protocol STUIFeatureInterface {
   func launchUI()
+}
+@_hasMissingDesignatedInitializers final public class STLists : StayTunedSDK.STFeature {
+  public static func getInstance() throws -> StayTunedSDK.STLists
+  final public func getLists(completion: @escaping (Swift.Result<[StayTunedSDK.STListProtocol], Swift.Error>) -> Swift.Void)
+  final public func create<Item>(name: Swift.String, type: StayTunedSDK.STListType, completion: @escaping (Swift.Result<StayTunedSDK.STList<Item>?, Swift.Error>) -> Swift.Void)
+  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<StayTunedSDK.STList<Item>?, Swift.Error>) -> Swift.Void)
+  final public func update<Item>(_ list: StayTunedSDK.STList<Item>, completion: @escaping ((Swift.Error?) -> Swift.Void))
+  final public func delete(listId: Swift.Int, completion: @escaping ((Swift.Error?) -> Swift.Void))
+  final public func updateItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (([StayTunedSDK.STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  final public func addItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (([StayTunedSDK.STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  final public func deleteItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping ((Swift.Int?, Swift.Error?) -> Swift.Void))
+  final public func syncItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (([StayTunedSDK.STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  @objc deinit
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -474,6 +587,12 @@ public struct STContent {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public enum STListType {
+  case bookmark, playlist, favorite, queue, custom(Swift.String)
+}
+extension STListType : Swift.Equatable {
+  public static func == (lhs: StayTunedSDK.STListType, rhs: StayTunedSDK.STListType) -> Swift.Bool
+}
 public enum STKeychainWrapperKeys : Swift.String {
   case refreshToken
   public typealias RawValue = Swift.String
@@ -528,6 +647,8 @@ public enum STError : Swift.Error {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
+extension StayTunedSDK.STContentLight : Swift.Encodable {}
+extension StayTunedSDK.STContentLight : Swift.Decodable {}
 extension StayTunedSDK.STContentLight : StayTunedSDK.STAudioItemInterface {}
 extension StayTunedSDK.STPlayer : StayTunedSDK.STFeature {}
 extension StayTunedSDK.STStateManager : StayTunedSDK.STPlayerObserver {}
@@ -535,6 +656,11 @@ extension StayTunedSDK.STStateManager : StayTunedSDK.STStateObserver {}
 extension StayTunedSDK.STSectionType : Swift.Equatable {}
 extension StayTunedSDK.STSectionType : Swift.Hashable {}
 extension StayTunedSDK.STSectionType : Swift.RawRepresentable {}
+extension StayTunedSDK.STListLinkedContentType : Swift.Equatable {}
+extension StayTunedSDK.STListLinkedContentType : Swift.Hashable {}
+extension StayTunedSDK.STListLinkedContentType : Swift.RawRepresentable {}
+extension StayTunedSDK.STSection : Swift.Encodable {}
+extension StayTunedSDK.STSection : Swift.Decodable {}
 extension StayTunedSDK.STContentModelType : Swift.Equatable {}
 extension StayTunedSDK.STContentModelType : Swift.Hashable {}
 extension StayTunedSDK.STContentModelType : Swift.RawRepresentable {}

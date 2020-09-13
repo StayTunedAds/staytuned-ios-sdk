@@ -122,6 +122,98 @@ public enum STPodcastDescriptionIdentityModels {
   public struct ContentData {
   }
 }
+public enum STListLinkedContentType : Swift.String {
+  case content
+  case track
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol STListProtocol {
+  var id: Swift.Int? { get }
+  var name: Swift.String? { get set }
+  var type: STListType? { get set }
+  var imgSrc: Swift.String? { get set }
+  var linkedContentType: STListLinkedContentType? { get }
+  var numberOfItems: Swift.Int? { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
+  func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func update(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers public class STList<Item> {
+  public var id: Swift.Int? {
+    get
+  }
+  public var name: Swift.String? {
+    get
+    set
+  }
+  public var type: STListType? {
+    get
+    set
+  }
+  public var imgSrc: Swift.String? {
+    get
+    set
+  }
+  public var linkedContentType: STListLinkedContentType? {
+    get
+  }
+  public var numberOfItems: Swift.Int? {
+    get
+  }
+  public var items: [STListItem<Item>] {
+    get
+    set
+  }
+  public var createdAt: Foundation.Date? {
+    get
+  }
+  public var updatedAt: Foundation.Date? {
+    get
+  }
+  @objc deinit
+}
+extension STList : STListProtocol {
+}
+extension STList {
+  public func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func update(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func updateItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func updateItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func addItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func addItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func deleteItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func deleteItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+}
+public struct STListItem<Item> {
+  public var id: Swift.Int?
+  public var key: Swift.String?
+  public var item: Item?
+  public var order: Swift.Int?
+  public var value: Swift.String?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+}
+extension STListItem : Swift.Equatable {
+  public static func == (lhs: STListItem<Item>, rhs: STListItem<Item>) -> Swift.Bool
+}
+extension STListItem {
+  public static func defaultOrder(lhs: STListItem<Item>, rhs: STListItem<Item>) -> Swift.Bool
+}
+extension STListItem where Item == STTrack {
+  public init(track: STTrack)
+}
+extension STListItem where Item == STContentLight {
+  public init(contentLight: STContentLight)
+}
 extension STPlayer {
   public static func getInstance() throws -> STPlayer
   final public func play(playlist: STPlaylist)
@@ -161,6 +253,8 @@ public struct STSection {
   public let landscapeImgSrc: Swift.String?
   public let linkedContents: [STContentLight]?
   public var linkedElements: [STTrack]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public struct STContentWish {
   public let id: Swift.Int
@@ -251,6 +345,10 @@ public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
     get
   }
 }
+public typealias STTrackList = STList<STTrack>
+public typealias STContentList = STList<STContentLight>
+public typealias STTrackListItem = STListItem<STTrack>
+public typealias STContentListItem = STListItem<STContentLight>
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
   case livetrack
@@ -302,7 +400,7 @@ public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
     get
   }
 }
-public enum STSectionType : Swift.String, Swift.Decodable {
+public enum STSectionType : Swift.String, Swift.Codable {
   case `default`
   case new
   case trailer
@@ -332,6 +430,8 @@ public struct STContentLight {
   public let author: Swift.String?
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 final public class StayTunedSDK {
   @discardableResult
@@ -370,6 +470,19 @@ extension STAuth {
 }
 public protocol STUIFeatureInterface {
   func launchUI()
+}
+@_hasMissingDesignatedInitializers final public class STLists : STFeature {
+  public static func getInstance() throws -> STLists
+  final public func getLists(completion: @escaping (Swift.Result<[STListProtocol], Swift.Error>) -> Swift.Void)
+  final public func create<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>?, Swift.Error>) -> Swift.Void)
+  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<STList<Item>?, Swift.Error>) -> Swift.Void)
+  final public func update<Item>(_ list: STList<Item>, completion: @escaping ((Swift.Error?) -> Swift.Void))
+  final public func delete(listId: Swift.Int, completion: @escaping ((Swift.Error?) -> Swift.Void))
+  final public func updateItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  final public func addItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  final public func deleteItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping ((Swift.Int?, Swift.Error?) -> Swift.Void))
+  final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  @objc deinit
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -474,6 +587,12 @@ public struct STContent {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public enum STListType {
+  case bookmark, playlist, favorite, queue, custom(Swift.String)
+}
+extension STListType : Swift.Equatable {
+  public static func == (lhs: STListType, rhs: STListType) -> Swift.Bool
+}
 public enum STKeychainWrapperKeys : Swift.String {
   case refreshToken
   public typealias RawValue = Swift.String
@@ -528,6 +647,8 @@ public enum STError : Swift.Error {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
+extension STContentLight : Swift.Encodable {}
+extension STContentLight : Swift.Decodable {}
 extension STContentLight : STAudioItemInterface {}
 extension STPlayer : STFeature {}
 extension STStateManager : STPlayerObserver {}
@@ -535,6 +656,11 @@ extension STStateManager : STStateObserver {}
 extension STSectionType : Swift.Equatable {}
 extension STSectionType : Swift.Hashable {}
 extension STSectionType : Swift.RawRepresentable {}
+extension STListLinkedContentType : Swift.Equatable {}
+extension STListLinkedContentType : Swift.Hashable {}
+extension STListLinkedContentType : Swift.RawRepresentable {}
+extension STSection : Swift.Encodable {}
+extension STSection : Swift.Decodable {}
 extension STContentModelType : Swift.Equatable {}
 extension STContentModelType : Swift.Hashable {}
 extension STContentModelType : Swift.RawRepresentable {}
