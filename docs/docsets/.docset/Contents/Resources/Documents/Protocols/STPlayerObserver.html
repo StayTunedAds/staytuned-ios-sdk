@@ -17,7 +17,7 @@
     <a title="STPlayerObserver Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (63% documented)</p>
+        <p><a href="../index.html"> Docs</a> (52% documented)</p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -57,16 +57,22 @@
                 <a href="../Classes/STLibrary.html">STLibrary</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STLists.html">STLists</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STOffline.html">STOffline</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STPlayer.html">STPlayer</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STPlaylist.html">STPlaylist</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STSections.html">STSections</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/STStateManager.html">STStateManager</a>
+                <a href="../Classes.html#/s:12StayTunedSDK9STWeakRefC">STWeakRef</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STWishList.html">STWishList</a>
@@ -98,10 +104,19 @@
                 <a href="../Enums/STKeychainWrapperKeys.html">STKeychainWrapperKeys</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/STListLinkedContentType.html">STListLinkedContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STListType.html">STListType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/STObservable.html">STObservable</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STObservable/Cancellable.html">– Cancellable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STOfflineState.html">STOfflineState</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STPlayerState.html">STPlayerState</a>
@@ -147,10 +162,19 @@
                 <a href="../Protocols/STFeature.html">STFeature</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/STPlayerObserver.html">STPlayerObserver</a>
+                <a href="../Protocols/STListObserver.html">STListObserver</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols.html#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a>
+                <a href="../Protocols/STListProtocol.html">STListProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STObservableProtocol.html">STObservableProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STOfflineObserver.html">STOfflineObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STPlayerObserver.html">STPlayerObserver</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/STUIFeatureInterface.html">STUIFeatureInterface</a>
@@ -170,7 +194,7 @@
                 <a href="../Structs/STContentLight.html">STContentLight</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/STContentOfflineItem.html">STContentOfflineItem</a>
+                <a href="../Structs/STContentLightOfflineItem.html">STContentLightOfflineItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/STContentTransaction.html">STContentTransaction</a>
@@ -179,7 +203,13 @@
                 <a href="../Structs/STContentWish.html">STContentWish</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/STPlaylist.html">STPlaylist</a>
+                <a href="../Structs/STList.html">STList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STListItem.html">STListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/STPlayerConfiguration.html">STPlayerConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/STSection.html">STSection</a>
@@ -201,6 +231,23 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:12StayTunedSDK13STContentLista">STContentList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:12StayTunedSDK17STContentListItema">STContentListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:12StayTunedSDK11STTrackLista">STTrackList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:12StayTunedSDK15STTrackListItema">STTrackListItem</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -210,24 +257,105 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STPlayerObserver</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:12StayTunedSDK15STStateObserverP">STStateObserver</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">STPlayerObserver</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                 </div>
               </div>
             <p>Use this protocol to observe the following events in the shared instance of <code><a href="../Classes/STPlayer.html">STPlayer</a></code>: change of state, end of a track and failure in playing a track.
-Each observer has to be added to the <code><a href="../Classes/STStateManager.html">STStateManager</a></code>to be called.</p>
+Each observer has to be added to the <code>STStateManager</code>to be called.</p>
 <h3 id='usage-example' class='heading'>Usage Example:</h3>
 
 <p>class MyClass: STPlayerObserver {
 /<em>..</em>/
 }
 let myObject = MyClass()
-STStateManager.shared.addObserver(myObject)</p>
+STPlayer.shared?.add(observer: myObject)</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP27playerCurrentTrackDidChange2toyAA7STTrackV_tF"></a>
+                    <a name="//apple_ref/swift/Method/playerCurrentTrackDidChange(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP27playerCurrentTrackDidChange2toyAA7STTrackV_tF">playerCurrentTrackDidChange(to:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerCurrentTrackDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">track</span><span class="p">:</span> <span class="kt"><a href="../Structs/STTrack.html">STTrack</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP29playerCurrentContentDidChange2toyAA9STContentV_tF"></a>
+                    <a name="//apple_ref/swift/Method/playerCurrentContentDidChange(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP29playerCurrentContentDidChange2toyAA9STContentV_tF">playerCurrentContentDidChange(to:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerCurrentContentDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">content</span><span class="p">:</span> <span class="kt"><a href="../Structs/STContent.html">STContent</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP26playerCurrentTimeDidChange2toySdSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/playerCurrentTimeDidChange(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP26playerCurrentTimeDidChange2toySdSg_tF">playerCurrentTimeDidChange(to:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerCurrentTimeDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -249,6 +377,60 @@ STStateManager.shared.addObserver(myObject)</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerStateDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="../Enums/STPlayerState.html">STPlayerState</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP19playerRateDidChange2toySf_tF"></a>
+                    <a name="//apple_ref/swift/Method/playerRateDidChange(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP19playerRateDidChange2toySf_tF">playerRateDidChange(to:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerRateDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12StayTunedSDK16STPlayerObserverP20playerTimerDidChange2toySdSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/playerTimerDidChange(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12StayTunedSDK16STPlayerObserverP20playerTimerDidChange2toySdSg_tF">playerTimerDidChange(to:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">playerTimerDidChange</span><span class="p">(</span><span class="n">to</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -314,7 +496,7 @@ STStateManager.shared.addObserver(myObject)</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-09-09)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-10-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

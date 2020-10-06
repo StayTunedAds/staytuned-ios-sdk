@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StayTunedSDK
 import AVKit
+import CoreData
 import Foundation
 import MediaPlayer
 import MobileCoreServices
@@ -24,14 +25,6 @@ public struct STTrackTransaction {
   public let status: Swift.String?
   public let createdAt: Swift.String?
 }
-public struct STContentOfflineItem {
-  public let audioItem: STContent
-  public var downloading: Swift.Bool
-}
-public struct STTrackOfflineItem {
-  public let audioItem: STTrack
-  public var downloading: Swift.Bool
-}
 extension String : Swift.CodingKey {
   public var stringValue: Swift.String {
     get
@@ -43,6 +36,9 @@ extension String : Swift.CodingKey {
   public init?(intValue: Swift.Int)
 }
 @_hasMissingDesignatedInitializers final public class STPlayer {
+  final public var currentList: STPlaylist? {
+    get
+  }
   @Observable @_projectedValueProperty($currentTrack) final public var currentTrack: STTrack? {
     get
   }
@@ -70,27 +66,16 @@ extension String : Swift.CodingKey {
   final public var $rate: Observable<Swift.Float> {
     get
   }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class STStateManager {
-  public static var shared: STStateManager {
+  final public var options: STPlayerConfiguration?
+  final public var timerRemainingDuration: Foundation.TimeInterval? {
     get
   }
-  public func addObserver(_ observer: STStateObserver)
-  public func removeObserver(_ observer: STStateObserver)
   @objc deinit
 }
-extension STStateManager {
-  public func playerStateDidChange(to value: STPlayerState)
-  public func playerTrackDidEnd(_ track: STTrack)
-  public func playerFailed(for track: STTrack)
-}
-public protocol STStateObserver : AnyObject {
-}
-public struct STPlaylist {
-  public var tracks: [STTrack]
-  public func getNext() -> STTrack?
-  public func getPrev() -> STTrack?
+extension STPlayer : STObservableProtocol {
+  final public func add(observer: STPlayerObserver)
+  final public func remove(observer: STPlayerObserver)
+  public typealias Observer = STPlayerObserver
 }
 @_hasMissingDesignatedInitializers final public class STWishList : STFeature {
   public static func getInstance() throws -> STWishList
@@ -140,12 +125,12 @@ public protocol STListProtocol {
   var numberOfItems: Swift.Int? { get }
   var createdAt: Foundation.Date? { get }
   var updatedAt: Foundation.Date? { get }
-  func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
-  func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
-  func update(completion: @escaping (Swift.Error?) -> Swift.Void)
-  func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  func delete(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func getItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func update(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func syncItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
 }
-@_hasMissingDesignatedInitializers public class STList<Item> {
+public struct STList<Item> : STListProtocol {
   public var id: Swift.Int? {
     get
   }
@@ -177,21 +162,30 @@ public protocol STListProtocol {
   public var updatedAt: Foundation.Date? {
     get
   }
-  @objc deinit
-}
-extension STList : STListProtocol {
 }
 extension STList {
-  public func delete(completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func getItems(completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func update(completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func updateItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func updateItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func addItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func addItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func deleteItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func deleteItem(_ item: STListItem<Item>, completion: @escaping (Swift.Error?) -> Swift.Void)
-  public func syncItems(completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func delete(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func getItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func update(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func updateItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func updateItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func addItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func addItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func deleteItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func deleteItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func syncItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+}
+extension STList : STObservableProtocol {
+  public func add(observer: STListObserver)
+  public func remove(observer: STListObserver)
+  public typealias Observer = STListObserver
+}
+public protocol STListObserver : AnyObject {
+  func itemsDidChange<Item>(to value: [STListItem<Item>])
+}
+public struct STContentLightOfflineItem {
+  public let audioItem: STContentLight
+  public var state: STOfflineState
 }
 public struct STListItem<Item> {
   public var id: Swift.Int?
@@ -216,8 +210,7 @@ extension STListItem where Item == STContentLight {
 }
 extension STPlayer {
   public static func getInstance() throws -> STPlayer
-  final public func play(playlist: STPlaylist)
-  final public func play(element: STTrack)
+  final public func play(playlist: STPlaylist, at index: Swift.Int)
   final public func stop()
   final public func next()
   final public func prev()
@@ -280,32 +273,33 @@ public struct STTrackHistoryItem {
   @objc deinit
 }
 extension STSections {
-  final public func getSections(completion: @escaping (Swift.Result<[STSection]?, Swift.Error>) -> Swift.Void)
-  final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<STSection?, Swift.Error>) -> Swift.Void)
+  final public func getSections(completion: @escaping (Swift.Result<[STSection], Swift.Error>) -> Swift.Void)
+  final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<STSection, Swift.Error>) -> Swift.Void)
+}
+public enum STOfflineState : Swift.Equatable {
+  case notDownloaded
+  case queued
+  case downloading(Swift.Float)
+  case downloaded
+  public static func == (a: STOfflineState, b: STOfflineState) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers final public class STOffline : STFeature {
   public static func getInstance() throws -> STOffline
-  @Observable @_projectedValueProperty($contents) final public var contents: [STContentOfflineItem] {
-    get
-    set
-    _modify
-  }
-  final public var $contents: Observable<[STContentOfflineItem]> {
+  final public var tracks: [STTrackOfflineItem] {
     get
   }
-  @Observable @_projectedValueProperty($tracks) final public var tracks: [STTrackOfflineItem] {
-    get
-    set
-    _modify
-  }
-  final public var $tracks: Observable<[STTrackOfflineItem]> {
-    get
-  }
-  final public func add(content: STContent)
-  final public func add(track: STTrack)
-  final public func remove(content: STContent)
-  final public func remove(track: STTrack)
+  final public func add(track: STTrack, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil)
+  final public func remove(track: STTrack) throws
   @objc deinit
+}
+extension STOffline : STObservableProtocol {
+  final public func add(observer: STOfflineObserver)
+  final public func remove(observer: STOfflineObserver)
+  public typealias Observer = STOfflineObserver
+}
+public protocol STOfflineObserver : AnyObject {
+  func offlineContentsDidChange(to value: [STContentLightOfflineItem])
+  func offlineTracksDidChange(to value: [STTrackOfflineItem])
 }
 public enum STContentModelType : Swift.String, Swift.Codable {
   case podcast
@@ -439,6 +433,22 @@ final public class StayTunedSDK {
   public static func getInstance() throws -> StayTunedSDK
   @objc deinit
 }
+final public class STPlaylist {
+  final public var tracks: [STTrack]
+  final public var hasNext: Swift.Bool {
+    get
+  }
+  final public var hasPrevious: Swift.Bool {
+    get
+  }
+  public init(tracks: [STTrack])
+  convenience public init(content: STContent)
+  @discardableResult
+  final public func next() -> STTrack?
+  @discardableResult
+  final public func previous() -> STTrack?
+  @objc deinit
+}
 @propertyWrapper public class Observable<Value> {
   public var projectedValue: Observable<Value> {
     get
@@ -474,15 +484,20 @@ public protocol STUIFeatureInterface {
 @_hasMissingDesignatedInitializers final public class STLists : STFeature {
   public static func getInstance() throws -> STLists
   final public func getLists(completion: @escaping (Swift.Result<[STListProtocol], Swift.Error>) -> Swift.Void)
-  final public func create<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>?, Swift.Error>) -> Swift.Void)
-  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<STList<Item>?, Swift.Error>) -> Swift.Void)
-  final public func update<Item>(_ list: STList<Item>, completion: @escaping ((Swift.Error?) -> Swift.Void))
-  final public func delete(listId: Swift.Int, completion: @escaping ((Swift.Error?) -> Swift.Void))
-  final public func updateItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
-  final public func addItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
-  final public func deleteItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping ((Swift.Int?, Swift.Error?) -> Swift.Void))
-  final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (([STListItem<Item>]?, Swift.Error?) -> Swift.Void))
+  final public func create<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func update<Item>(_ list: STList<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func delete(listId: Swift.Int, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func updateItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func addItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func deleteItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Int?, Swift.Error>) -> Swift.Void)
+  final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
   @objc deinit
+}
+public struct STPlayerConfiguration {
+  public var isContentCellVisible: Swift.Bool
+  public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
+  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil)
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -498,11 +513,16 @@ extension STFeature {
   @objc deinit
 }
 extension STContents {
-  final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<STContent?, Swift.Error>) -> Swift.Void)
-  final public func getContents(completion: @escaping (Swift.Result<[STContentLight]?, Swift.Error>) -> Swift.Void)
+  final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<STContent, Swift.Error>) -> Swift.Void)
+  final public func getContents(completion: @escaping (Swift.Result<[STContentLight], Swift.Error>) -> Swift.Void)
 }
-public protocol STPlayerObserver : STStateObserver {
+public protocol STPlayerObserver : AnyObject {
+  func playerCurrentTrackDidChange(to track: STTrack)
+  func playerCurrentContentDidChange(to content: STContent)
+  func playerCurrentTimeDidChange(to value: Swift.Double?)
   func playerStateDidChange(to value: STPlayerState)
+  func playerRateDidChange(to value: Swift.Float)
+  func playerTimerDidChange(to value: Foundation.TimeInterval?)
   func playerTrackDidEnd(_ track: STTrack)
   func playerFailed(for track: STTrack)
 }
@@ -587,6 +607,9 @@ public struct STContent {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+@_hasMissingDesignatedInitializers public class STWeakRef {
+  @objc deinit
+}
 public enum STListType {
   case bookmark, playlist, favorite, queue, custom(Swift.String)
 }
@@ -647,12 +670,22 @@ public enum STError : Swift.Error {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
+public protocol STObservableProtocol {
+  associatedtype Observer
+  func add(observer: Self.Observer)
+  func remove(observer: Self.Observer)
+}
+public struct STTrackOfflineItem {
+  public let audioItem: STTrack
+  public var state: STOfflineState
+}
+extension STTrack : Swift.Encodable {}
+extension STTrack : Swift.Decodable {}
+extension STTrack : STAudioItemInterface {}
 extension STContentLight : Swift.Encodable {}
 extension STContentLight : Swift.Decodable {}
 extension STContentLight : STAudioItemInterface {}
 extension STPlayer : STFeature {}
-extension STStateManager : STPlayerObserver {}
-extension STStateManager : STStateObserver {}
 extension STSectionType : Swift.Equatable {}
 extension STSectionType : Swift.Hashable {}
 extension STSectionType : Swift.RawRepresentable {}
@@ -685,9 +718,6 @@ extension STSectionLinkedContentType : Swift.RawRepresentable {}
 extension STContent : Swift.Encodable {}
 extension STContent : Swift.Decodable {}
 extension STContent : STAudioItemInterface {}
-extension STTrack : Swift.Encodable {}
-extension STTrack : Swift.Decodable {}
-extension STTrack : STAudioItemInterface {}
 extension STKeychainWrapperKeys : Swift.Equatable {}
 extension STKeychainWrapperKeys : Swift.Hashable {}
 extension STKeychainWrapperKeys : Swift.RawRepresentable {}
