@@ -66,7 +66,9 @@ extension String : Swift.CodingKey {
   final public var $rate: Observable<Swift.Float> {
     get
   }
-  final public var options: STPlayerConfiguration?
+  final public var configuration: STPlayerConfiguration? {
+    get
+  }
   final public var timerRemainingDuration: Foundation.TimeInterval? {
     get
   }
@@ -210,6 +212,7 @@ extension STListItem where Item == STContentLight {
 }
 extension STPlayer {
   public static func getInstance() throws -> STPlayer
+  final public func setConfiguration(_ configuration: STPlayerConfiguration)
   final public func play(playlist: STPlaylist, at index: Swift.Int)
   final public func stop()
   final public func next()
@@ -450,9 +453,11 @@ final public class STPlaylist {
   @objc deinit
 }
 @propertyWrapper public class Observable<Value> {
+  @available(*, deprecated, message: "Observation will be removed in 1.0.5. Please use delegate pattern.")
   public var projectedValue: Observable<Value> {
     get
   }
+  @available(*, deprecated, message: "Observation will be removed in 1.0.5. Please use delegate pattern.")
   public var wrappedValue: Value {
     get
     set
@@ -462,6 +467,7 @@ final public class STPlaylist {
 }
 extension Observable {
   @discardableResult
+  @available(*, deprecated, message: "Observation will be removed in 1.0.5. Please use delegate pattern.")
   public func observe(with closure: @escaping (Value) -> Swift.Void) -> STObservable.Cancellable
 }
 public enum STObservable {
