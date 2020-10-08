@@ -74,6 +74,9 @@ extension String : Swift.CodingKey {
   }
   @objc deinit
 }
+extension STPlayer {
+  final public func resume()
+}
 extension STPlayer : STObservableProtocol {
   final public func add(observer: STPlayerObserver)
   final public func remove(observer: STPlayerObserver)
@@ -450,7 +453,9 @@ final public class STPlaylist {
   final public func next() -> STTrack?
   @discardableResult
   final public func previous() -> STTrack?
+  public init(from decoder: Swift.Decoder) throws
   @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
 }
 @propertyWrapper public class Observable<Value> {
   @available(*, deprecated, message: "Observation will be removed in 1.0.5. Please use delegate pattern.")
@@ -721,6 +726,8 @@ extension STTrackTypeOfElement : Swift.RawRepresentable {}
 extension STSectionLinkedContentType : Swift.Equatable {}
 extension STSectionLinkedContentType : Swift.Hashable {}
 extension STSectionLinkedContentType : Swift.RawRepresentable {}
+extension STPlaylist : Swift.Encodable {}
+extension STPlaylist : Swift.Decodable {}
 extension STContent : Swift.Encodable {}
 extension STContent : Swift.Decodable {}
 extension STContent : STAudioItemInterface {}

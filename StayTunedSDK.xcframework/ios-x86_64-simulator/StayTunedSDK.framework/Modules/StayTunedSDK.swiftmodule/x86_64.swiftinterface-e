@@ -74,6 +74,9 @@ extension String : Swift.CodingKey {
   }
   @objc deinit
 }
+extension STPlayer {
+  final public func resume()
+}
 extension STPlayer : StayTunedSDK.STObservableProtocol {
   final public func add(observer: StayTunedSDK.STPlayerObserver)
   final public func remove(observer: StayTunedSDK.STPlayerObserver)
@@ -450,7 +453,9 @@ final public class STPlaylist {
   final public func next() -> StayTunedSDK.STTrack?
   @discardableResult
   final public func previous() -> StayTunedSDK.STTrack?
+  public init(from decoder: Swift.Decoder) throws
   @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
 }
 @propertyWrapper public class Observable<Value> {
   @available(*, deprecated, message: "Observation will be removed in 1.0.5. Please use delegate pattern.")
@@ -721,6 +726,8 @@ extension StayTunedSDK.STTrackTypeOfElement : Swift.RawRepresentable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.Equatable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.Hashable {}
 extension StayTunedSDK.STSectionLinkedContentType : Swift.RawRepresentable {}
+extension StayTunedSDK.STPlaylist : Swift.Encodable {}
+extension StayTunedSDK.STPlaylist : Swift.Decodable {}
 extension StayTunedSDK.STContent : Swift.Encodable {}
 extension StayTunedSDK.STContent : Swift.Decodable {}
 extension StayTunedSDK.STContent : StayTunedSDK.STAudioItemInterface {}
