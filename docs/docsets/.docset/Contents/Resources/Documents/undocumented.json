@@ -254,6 +254,13 @@
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
+      "line": 392,
+      "symbol": "STPlayer.resume()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
       "line": 486,
       "symbol": "STPlayer.add(observer:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -268,7 +275,7 @@
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerConfiguration.swift",
-      "line": 22,
+      "line": 21,
       "symbol": "STPlayerConfiguration.init(isContentCellVisible:onContentCellClick:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

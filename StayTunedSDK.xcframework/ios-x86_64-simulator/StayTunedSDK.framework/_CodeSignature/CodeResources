@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		YbrzE7+tBTRWzvmO2BYKLG/+/NE=
+		4OjKSfRQeoYME2vxXlkdK41aAVg=
 		</data>
 		<key>EpisodePageToolBarCell.nib</key>
 		<data>
-		ATEPPkhFNndJj4Wt4gRdN30uyyo=
+		+LCcBkT6uapit52g73R5HKHS2/8=
 		</data>
 		<key>Headers/StayTunedSDK-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fDGzB/lY6SACKJtjIUASL1Jj85s=
+		Febax2hzwvxoXLrz7wu/3vpJsBQ=
 		</data>
 		<key>Modules/StayTunedSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/StayTunedSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		orZWhMqGXyRTZaMBMslBi6mv2Mw=
+		Y7WpltCM6lCAcH0Qy7wA+mnr6tA=
 		</data>
 		<key>Modules/StayTunedSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/StayTunedSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		orZWhMqGXyRTZaMBMslBi6mv2Mw=
+		Y7WpltCM6lCAcH0Qy7wA+mnr6tA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,39 +50,39 @@
 		</data>
 		<key>STCollectionVPageDefaultHeader.nib</key>
 		<data>
-		ZAZ4z8/O/QbiXir5N+u3xxBFT2M=
+		zAquySyPQNlucB5BndMNfDTlZvI=
 		</data>
 		<key>STCompactDescriptionTableViewCell.nib</key>
 		<data>
-		Gqu/7hE55uN3djyni2eqcZYFLAI=
+		lwvl5N+wM7+eWazqmJ1qYZWfZg8=
 		</data>
 		<key>STContentIdentityCell.nib</key>
 		<data>
-		cybVVLuNg6vfYkeAjLCNTONnY98=
+		Us95ZHtW0yf7pOZ7E4pLTlru8gY=
 		</data>
 		<key>STDescriptionTextTableViewCell.nib</key>
 		<data>
-		ZgREb/xHp+LpYGeOWsQUlL20jVg=
+		AKP7Ed/giTWk7yevIVZelKO97SQ=
 		</data>
 		<key>STEmptySectionCell.nib/objects-12.3+.nib</key>
 		<data>
-		O0FUiAToL0Y77L6iDSu0FB7imG4=
+		yKMAaeGMyJzui1Xa1QUDHqZr9Bo=
 		</data>
 		<key>STEmptySectionCell.nib/runtime.nib</key>
 		<data>
-		8158ouFGZ61oSNF8Ozz7BA/AfTE=
+		CScDRSHTN84WUb63VnnbcUUn8Vg=
 		</data>
 		<key>STEpisodeTableViewCell.nib</key>
 		<data>
-		9jNgMEaMwy2AGEpJJPoqMmx51Ps=
+		TVeqItH2GYCnmAMHbl12ywiF2rg=
 		</data>
 		<key>STMiniPlayer.nib/objects-13.0+.nib</key>
 		<data>
-		x+IPVNHzJKBLy3SDoM/TciU8Mqk=
+		Byzlpn+JWNBLfw9VYwkjKWiDblc=
 		</data>
 		<key>STMiniPlayer.nib/runtime.nib</key>
 		<data>
-		YAxI+EVG7qJf3UWOGK5X7TaYnXM=
+		irE1dZqnzxqAPW/WQ2y98NPSDsQ=
 		</data>
 		<key>STOfflineModel.momd/STDataModel.mom</key>
 		<data>
@@ -94,43 +94,43 @@
 		</data>
 		<key>STOpenPodcastTableViewCell.nib/objects-13.0+.nib</key>
 		<data>
-		y8DoHspob2bF5VEKDtDgnoykshQ=
+		jvj0DoZAOppq9/u6OXBbwrC2H9s=
 		</data>
 		<key>STOpenPodcastTableViewCell.nib/runtime.nib</key>
 		<data>
-		UrLo9cIA+iYqFATvmqwa/k4Rrlc=
+		2arfwQfAZtA86vZg/RM4JNfwzxs=
 		</data>
 		<key>STPlayButtonCell.nib</key>
 		<data>
-		1qjRraIJ8RsUJmX6rvJFzOiP7Kk=
+		RQA76X+cNPHESUWn58sOjBYynSM=
 		</data>
 		<key>STPlayerTableViewCell.nib</key>
 		<data>
-		CWCNFQYiV8otlmRdkk3oOSCLhmg=
+		f8EgeorjPzQKg2aFIDHfXmAf8ys=
 		</data>
 		<key>STPlayerToolBarCell.nib</key>
 		<data>
-		hIu6xFs3YpAnxKssfmyWfmGrPEk=
+		uTqHXF+TZvbTkpYJl+Cx2lsc96k=
 		</data>
 		<key>STPlayerTrackButtons.nib</key>
 		<data>
-		TcwpAmQ0EoGYxVl4204qBddS4Dg=
+		luyaZ9v6XUqTv9g2mQno3xQz8/M=
 		</data>
 		<key>STPodcastDescriptionIdentity.nib</key>
 		<data>
-		HhV1lEjWHQMXMfHGXmLyeoXZRew=
+		qTCPPz/45c8gMmcT/VqPmcdPm2c=
 		</data>
 		<key>STPodcastEpisodesListHeader.nib</key>
 		<data>
-		KmapJ//DiasZsbVui8YJ+0uomaw=
+		zY7QCTmBcU33lvhSZZkoyz+JfDM=
 		</data>
 		<key>STPopup.nib</key>
 		<data>
-		o/73UnaS7Cs/XDrElzsKIRrVtZQ=
+		UrzkMvMmFCCECYwcITGbRCAcO9I=
 		</data>
 		<key>STPropertyCell.nib</key>
 		<data>
-		GhScMjoR6FsHp1/QmUH5HQV+Wp0=
+		+T/pLOS5FnoSxhCEcH8POZn3rVQ=
 		</data>
 		<key>STStoryboard.storyboardc/Info.plist</key>
 		<data>
@@ -138,15 +138,15 @@
 		</data>
 		<key>STStoryboard.storyboardc/UIPageViewController-lJ7-y1-Vds.nib</key>
 		<data>
-		bd43sTbDNlrCNBuc0J8eJGS+uEY=
+		AKAvLgznwYMUl7Y11oK8qPQ0vyk=
 		</data>
 		<key>STTMPPodcastPlayCell.nib</key>
 		<data>
-		7NiiA8MCCrlOkCM/k5E5hdOovFA=
+		RwuG/omWKBVIcM5d5moDuYT8OdA=
 		</data>
 		<key>STTableViewPageSectionHeader.nib</key>
 		<data>
-		eODuzB+RBSyTZFRI4jBN1lX7Wpo=
+		wP4UJUsauoXsPDSIqNQ37sT81hU=
 		</data>
 		<key>en.lproj/STCoreStrings.strings</key>
 		<dict>
@@ -182,14 +182,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+zqbhigcmj8+KGl+trNw+TyUqCMUnGW8J/YgEG5kjUA=
+			YcoUqengmTZmEEdHQ8rcser8CWbIFfcZ7pJ98uLF5Z8=
 			</data>
 		</dict>
 		<key>EpisodePageToolBarCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sQBy2n4ktlycK5xxFq9GkNmiap/zcvEjiTL+zQDSLwM=
+			CHWrXqEvnPsEpQv7arGWbM7eJ9pPdksNu6oiC52XNA4=
 			</data>
 		</dict>
 		<key>Headers/StayTunedSDK-Swift.h</key>
@@ -217,7 +217,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7W2oqMVpQzeCOz6EnThgdZp6eoAWBaq+QrcsnN2RSsc=
+			WogykoKiJeZi6uiMoCBi4wBAcd9a5I2kFaQtm8zK3T4=
 			</data>
 		</dict>
 		<key>Modules/StayTunedSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -238,7 +238,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7W2oqMVpQzeCOz6EnThgdZp6eoAWBaq+QrcsnN2RSsc=
+			WogykoKiJeZi6uiMoCBi4wBAcd9a5I2kFaQtm8zK3T4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -252,63 +252,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/kL21hNNlklnqvxl2xuYdYdK+u4OlnSZijCI5DaePos=
+			+lp7VsJAw7R8c6zaGrgCBFUbq8EVpUCWTxJ+4T0QidI=
 			</data>
 		</dict>
 		<key>STCompactDescriptionTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qolFkEsrQKj6mUFSJ8AixSOrUpk9oNL2T77xJS9KE2A=
+			2zC+4w5uwbWx7zq+wCY26OJ20fnp6kbhOfMAKUCs2IY=
 			</data>
 		</dict>
 		<key>STContentIdentityCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FiCvrgOSwar9ai5gPN03UPOIjSF7iy8VizfknJdhUzQ=
+			FIzVBfIzNXHtHiZKdJinU0qAEqm28WVww4BOmZyQVjg=
 			</data>
 		</dict>
 		<key>STDescriptionTextTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dpQwqAXvZ/cpF5HVH5Hws+B1Axo3JgDLagMRVvdBbdE=
+			wVv57RA19686u9BwHauZh2//fLrC8iXK6leFxuNcpvg=
 			</data>
 		</dict>
 		<key>STEmptySectionCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fcZBgLn201dj2tNZmZxcMFRzLIIx8GarePxFtoJ7GpA=
+			37gCzFb4LSzkRAz8+Kce0aoGUHHEQVKY2c74imFPs2I=
 			</data>
 		</dict>
 		<key>STEmptySectionCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4nyN2+5wXDTXJHIrUSAKioOhfJBEJHgyZpBEscefyTo=
+			SWOnkyQD2VcYreRys/ztbq91zglYJGJzoq5t4RcDVU8=
 			</data>
 		</dict>
 		<key>STEpisodeTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uA9QUEgMa/RIUxwnLwhLe6JexltwTGL7Q7LI37BOdIc=
+			XrvgF5qH8jhH9Ie+J36yuFeWGXzZ4VCzU1TYoS1zbNc=
 			</data>
 		</dict>
 		<key>STMiniPlayer.nib/objects-13.0+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			66mvcBM7pkmVQnGW4DOlTJjGcV0WS3eM/3aA5cMPioU=
+			f4/ypwQ8IrbvVRtxrpKhFpBAviHhVQWXG+dZ7iUjLBA=
 			</data>
 		</dict>
 		<key>STMiniPlayer.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PqOBBOIBX11ajb8GmMAr+Khg8oxpFJlkg33j06qIVak=
+			SxIPXAjrDTNQkbu+fgv056oqWqhE3HbInADIc3VfOZI=
 			</data>
 		</dict>
 		<key>STOfflineModel.momd/STDataModel.mom</key>
@@ -329,70 +329,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3mf/uGeog118XasNbqPGSAgGivr+yANIcaRiBAXomLE=
+			1awpNxHLwTsNnjYYwiT3fSA3d3R0i1HBBikHsjLWcsg=
 			</data>
 		</dict>
 		<key>STOpenPodcastTableViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SUOscclkreC1KUDpaDSNxZ2U7wDVKzR3jSI657vjZnQ=
+			XzlUFlnz654uxIhenBUTh9xyInp2BrpWmhBSjf44szc=
 			</data>
 		</dict>
 		<key>STPlayButtonCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pGPUpuYvl2Y3RFKTY7zbS1AYWcqstkKCnQyZ2r5zIC4=
+			f5AER/sxakeQzHIAr0a7MAln6RJCBYjiTL0merxsblY=
 			</data>
 		</dict>
 		<key>STPlayerTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Og2j2yOZesJBMM8SDh+UQp9Fv4vcEB1HUwAw3+8kvA=
+			mO2TLcTZcMftpBlQLBZvU+F7QsMR6ltKK6m67FOGL00=
 			</data>
 		</dict>
 		<key>STPlayerToolBarCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HBd6D/YIFOpDnbWvKtpkS8BkkhSxpCgIBTirZJR2+zY=
+			pP9ko361G6lLLL4SNMI9W/Y7PAUVyxGgZSaCYG+PvcE=
 			</data>
 		</dict>
 		<key>STPlayerTrackButtons.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1b3hGZUvHfLID/vtcrRgfoAy7/milftrU0If3XaU9hw=
+			v8xBuH1RyOXPj3ckPjcvlCJKRcFlRKUrB7VEimJsQZs=
 			</data>
 		</dict>
 		<key>STPodcastDescriptionIdentity.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sViA8Q+w1IQbTzFmIDi5HMCoDnpP3eXZPpLE2Q8DReM=
+			yM+wk/BIJOoccdYAiPg9INfEqRE/At8uS6P064g6BNA=
 			</data>
 		</dict>
 		<key>STPodcastEpisodesListHeader.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G24wRYuSTenYVRAY3ax1ZyOIktEwR6VWgdcnF5J3ZWE=
+			kFvAkQX8o5h4Bc5QZCbMx5EOx7mKR+dy3YTrb48MR4A=
 			</data>
 		</dict>
 		<key>STPopup.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qqda5XhKZXOjBg9u3x+VAWE6gXCuybLZWhWYCw8TKjk=
+			mAWquGxdWRfIG2pCVJWd9/WK706GojHs8MJrn9GyUwI=
 			</data>
 		</dict>
 		<key>STPropertyCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zDtdvl9jXQaYLBPIel29C1oTZVwXrv6tsPsoFLmcl70=
+			ANVkc4LALFFMsYh8IrpGl9m4baB/J8dHwj4dwcksdWY=
 			</data>
 		</dict>
 		<key>STStoryboard.storyboardc/Info.plist</key>
@@ -406,21 +406,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HjmoB2bCKWYsfXn5H4dmTd4aJwH4dyAlI+i+OT4SUus=
+			Dx083vvDhOdqpUOkXlsYel6c8pBe0WL+MarleCyPvuk=
 			</data>
 		</dict>
 		<key>STTMPPodcastPlayCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d4cq4x9R6QizddZ7jJwOQRCC4kQhLLOGZ5rNlawqYS4=
+			ppwDCcjia+gfqPXEjeVroMLxkEf6i5ioKQ/ZiEKdZMQ=
 			</data>
 		</dict>
 		<key>STTableViewPageSectionHeader.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xwX9zhq66NjXWSV15Na2W9b/vE6LbLZfnVRI+NwvbSI=
+			NAxuVEn/lSI6q4xp8vWjeFfseq9NJxGTmOaImL0BrjY=
 			</data>
 		</dict>
 		<key>en.lproj/STCoreStrings.strings</key>
