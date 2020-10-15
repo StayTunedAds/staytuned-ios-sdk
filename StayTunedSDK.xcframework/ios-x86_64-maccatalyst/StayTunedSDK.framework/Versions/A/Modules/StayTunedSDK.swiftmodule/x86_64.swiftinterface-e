@@ -45,6 +45,9 @@ extension String : Swift.CodingKey {
   final public var $currentTrack: StayTunedSDK.Observable<StayTunedSDK.STTrack?> {
     get
   }
+  final public var currentTrackAudioQuality: StayTunedSDK.STAudioQuality? {
+    get
+  }
   @StayTunedSDK.Observable @_projectedValueProperty($currentContent) final public var currentContent: StayTunedSDK.STContent? {
     get
   }
@@ -66,7 +69,7 @@ extension String : Swift.CodingKey {
   final public var $rate: StayTunedSDK.Observable<Swift.Float> {
     get
   }
-  final public var configuration: StayTunedSDK.STPlayerConfiguration? {
+  final public var configuration: StayTunedSDK.STPlayerConfiguration {
     get
   }
   final public var timerRemainingDuration: Foundation.TimeInterval? {
@@ -191,6 +194,8 @@ public protocol STListObserver : AnyObject {
 public struct STContentLightOfflineItem {
   public let audioItem: StayTunedSDK.STContentLight
   public var state: StayTunedSDK.STOfflineState
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public struct STListItem<Item> {
   public var id: Swift.Int?
@@ -216,6 +221,7 @@ extension STListItem where Item == StayTunedSDK.STContentLight {
 extension STPlayer {
   public static func getInstance() throws -> StayTunedSDK.STPlayer
   final public func setConfiguration(_ configuration: StayTunedSDK.STPlayerConfiguration)
+  final public func setPreferredAudioQuality(_ preferredAudioQuality: StayTunedSDK.STAudioQuality)
   final public func play(playlist: StayTunedSDK.STPlaylist, at index: Swift.Int)
   final public func stop()
   final public func next()
@@ -281,13 +287,6 @@ public struct STTrackHistoryItem {
 extension STSections {
   final public func getSections(completion: @escaping (Swift.Result<[StayTunedSDK.STSection], Swift.Error>) -> Swift.Void)
   final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<StayTunedSDK.STSection, Swift.Error>) -> Swift.Void)
-}
-public enum STOfflineState : Swift.Equatable {
-  case notDownloaded
-  case queued
-  case downloading(Swift.Float)
-  case downloaded
-  public static func == (a: StayTunedSDK.STOfflineState, b: StayTunedSDK.STOfflineState) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers final public class STOffline : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STOffline
@@ -489,6 +488,15 @@ extension STAuth {
   final public func connect(partnerKey: Swift.String, partnerToken: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
   final public func refresh(completion: ((Swift.Error?) -> Swift.Void)?)
 }
+public enum STOfflineState : Swift.Equatable, Swift.Codable {
+  case notDownloaded
+  case queued
+  case downloading(Swift.Float)
+  case downloaded
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (a: StayTunedSDK.STOfflineState, b: StayTunedSDK.STOfflineState) -> Swift.Bool
+}
 public protocol STUIFeatureInterface {
   func launchUI()
 }
@@ -505,10 +513,20 @@ public protocol STUIFeatureInterface {
   final public func syncItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Result<[StayTunedSDK.STListItem<Item>], Swift.Error>) -> Swift.Void)
   @objc deinit
 }
+public enum STAudioQuality {
+  case normal
+  case hd
+  public static func == (a: StayTunedSDK.STAudioQuality, b: StayTunedSDK.STAudioQuality) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
 public struct STPlayerConfiguration {
   public var isContentCellVisible: Swift.Bool
   public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
-  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil)
+  public var preferredAudioQuality: StayTunedSDK.STAudioQuality
+  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil, preferredAudioQuality: StayTunedSDK.STAudioQuality = .normal)
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -529,6 +547,7 @@ extension STContents {
 }
 public protocol STPlayerObserver : AnyObject {
   func playerCurrentTrackDidChange(to track: StayTunedSDK.STTrack)
+  func playerCurrentTrackAudioQualityDidChange(to value: StayTunedSDK.STAudioQuality)
   func playerCurrentContentDidChange(to content: StayTunedSDK.STContent)
   func playerCurrentTimeDidChange(to value: Swift.Double?)
   func playerStateDidChange(to value: StayTunedSDK.STPlayerState)
@@ -536,6 +555,17 @@ public protocol STPlayerObserver : AnyObject {
   func playerTimerDidChange(to value: Foundation.TimeInterval?)
   func playerTrackDidEnd(_ track: StayTunedSDK.STTrack)
   func playerFailed(for track: StayTunedSDK.STTrack)
+}
+extension STPlayerObserver {
+  public func playerCurrentTrackDidChange(to track: StayTunedSDK.STTrack)
+  public func playerCurrentTrackAudioQualityDidChange(to value: StayTunedSDK.STAudioQuality)
+  public func playerCurrentContentDidChange(to content: StayTunedSDK.STContent)
+  public func playerCurrentTimeDidChange(to value: Swift.Double?)
+  public func playerStateDidChange(to value: StayTunedSDK.STPlayerState)
+  public func playerRateDidChange(to value: Swift.Float)
+  public func playerTimerDidChange(to value: Foundation.TimeInterval?)
+  public func playerTrackDidEnd(_ track: StayTunedSDK.STTrack)
+  public func playerFailed(for track: StayTunedSDK.STTrack)
 }
 @_hasMissingDesignatedInitializers final public class STBookmarked : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STBookmarked
@@ -664,6 +694,8 @@ public struct STTrack {
   public var imgSrc: Swift.String?
   public let audioSrc: Swift.String?
   public let audioSrcWeight: Swift.Int?
+  public let hdAudioSrc: Swift.String?
+  public let hdAudioSrcWeight: Swift.Int?
   public let audioDuration: Swift.Int?
   public let createdAt: Foundation.Date?
   public let updatedAt: Foundation.Date?
@@ -689,10 +721,14 @@ public protocol STObservableProtocol {
 public struct STTrackOfflineItem {
   public let audioItem: StayTunedSDK.STTrack
   public var state: StayTunedSDK.STOfflineState
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 extension StayTunedSDK.STTrack : Swift.Encodable {}
 extension StayTunedSDK.STTrack : Swift.Decodable {}
 extension StayTunedSDK.STTrack : StayTunedSDK.STAudioItemInterface {}
+extension StayTunedSDK.STTrackOfflineItem : Swift.Encodable {}
+extension StayTunedSDK.STTrackOfflineItem : Swift.Decodable {}
 extension StayTunedSDK.STContentLight : Swift.Encodable {}
 extension StayTunedSDK.STContentLight : Swift.Decodable {}
 extension StayTunedSDK.STContentLight : StayTunedSDK.STAudioItemInterface {}
@@ -703,6 +739,8 @@ extension StayTunedSDK.STSectionType : Swift.RawRepresentable {}
 extension StayTunedSDK.STListLinkedContentType : Swift.Equatable {}
 extension StayTunedSDK.STListLinkedContentType : Swift.Hashable {}
 extension StayTunedSDK.STListLinkedContentType : Swift.RawRepresentable {}
+extension StayTunedSDK.STContentLightOfflineItem : Swift.Encodable {}
+extension StayTunedSDK.STContentLightOfflineItem : Swift.Decodable {}
 extension StayTunedSDK.STSection : Swift.Encodable {}
 extension StayTunedSDK.STSection : Swift.Decodable {}
 extension StayTunedSDK.STContentModelType : Swift.Equatable {}
@@ -731,6 +769,8 @@ extension StayTunedSDK.STPlaylist : Swift.Decodable {}
 extension StayTunedSDK.STContent : Swift.Encodable {}
 extension StayTunedSDK.STContent : Swift.Decodable {}
 extension StayTunedSDK.STContent : StayTunedSDK.STAudioItemInterface {}
+extension StayTunedSDK.STAudioQuality : Swift.Equatable {}
+extension StayTunedSDK.STAudioQuality : Swift.Hashable {}
 extension StayTunedSDK.STKeychainWrapperKeys : Swift.Equatable {}
 extension StayTunedSDK.STKeychainWrapperKeys : Swift.Hashable {}
 extension StayTunedSDK.STKeychainWrapperKeys : Swift.RawRepresentable {}

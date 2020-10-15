@@ -45,6 +45,9 @@ extension String : Swift.CodingKey {
   final public var $currentTrack: Observable<STTrack?> {
     get
   }
+  final public var currentTrackAudioQuality: STAudioQuality? {
+    get
+  }
   @Observable @_projectedValueProperty($currentContent) final public var currentContent: STContent? {
     get
   }
@@ -66,7 +69,7 @@ extension String : Swift.CodingKey {
   final public var $rate: Observable<Swift.Float> {
     get
   }
-  final public var configuration: STPlayerConfiguration? {
+  final public var configuration: STPlayerConfiguration {
     get
   }
   final public var timerRemainingDuration: Foundation.TimeInterval? {
@@ -191,6 +194,8 @@ public protocol STListObserver : AnyObject {
 public struct STContentLightOfflineItem {
   public let audioItem: STContentLight
   public var state: STOfflineState
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public struct STListItem<Item> {
   public var id: Swift.Int?
@@ -216,6 +221,7 @@ extension STListItem where Item == STContentLight {
 extension STPlayer {
   public static func getInstance() throws -> STPlayer
   final public func setConfiguration(_ configuration: STPlayerConfiguration)
+  final public func setPreferredAudioQuality(_ preferredAudioQuality: STAudioQuality)
   final public func play(playlist: STPlaylist, at index: Swift.Int)
   final public func stop()
   final public func next()
@@ -281,13 +287,6 @@ public struct STTrackHistoryItem {
 extension STSections {
   final public func getSections(completion: @escaping (Swift.Result<[STSection], Swift.Error>) -> Swift.Void)
   final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<STSection, Swift.Error>) -> Swift.Void)
-}
-public enum STOfflineState : Swift.Equatable {
-  case notDownloaded
-  case queued
-  case downloading(Swift.Float)
-  case downloaded
-  public static func == (a: STOfflineState, b: STOfflineState) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers final public class STOffline : STFeature {
   public static func getInstance() throws -> STOffline
@@ -489,6 +488,15 @@ extension STAuth {
   final public func connect(partnerKey: Swift.String, partnerToken: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
   final public func refresh(completion: ((Swift.Error?) -> Swift.Void)?)
 }
+public enum STOfflineState : Swift.Equatable, Swift.Codable {
+  case notDownloaded
+  case queued
+  case downloading(Swift.Float)
+  case downloaded
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (a: STOfflineState, b: STOfflineState) -> Swift.Bool
+}
 public protocol STUIFeatureInterface {
   func launchUI()
 }
@@ -505,10 +513,20 @@ public protocol STUIFeatureInterface {
   final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
   @objc deinit
 }
+public enum STAudioQuality {
+  case normal
+  case hd
+  public static func == (a: STAudioQuality, b: STAudioQuality) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
 public struct STPlayerConfiguration {
   public var isContentCellVisible: Swift.Bool
   public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
-  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil)
+  public var preferredAudioQuality: STAudioQuality
+  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil, preferredAudioQuality: STAudioQuality = .normal)
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -529,6 +547,7 @@ extension STContents {
 }
 public protocol STPlayerObserver : AnyObject {
   func playerCurrentTrackDidChange(to track: STTrack)
+  func playerCurrentTrackAudioQualityDidChange(to value: STAudioQuality)
   func playerCurrentContentDidChange(to content: STContent)
   func playerCurrentTimeDidChange(to value: Swift.Double?)
   func playerStateDidChange(to value: STPlayerState)
@@ -536,6 +555,17 @@ public protocol STPlayerObserver : AnyObject {
   func playerTimerDidChange(to value: Foundation.TimeInterval?)
   func playerTrackDidEnd(_ track: STTrack)
   func playerFailed(for track: STTrack)
+}
+extension STPlayerObserver {
+  public func playerCurrentTrackDidChange(to track: STTrack)
+  public func playerCurrentTrackAudioQualityDidChange(to value: STAudioQuality)
+  public func playerCurrentContentDidChange(to content: STContent)
+  public func playerCurrentTimeDidChange(to value: Swift.Double?)
+  public func playerStateDidChange(to value: STPlayerState)
+  public func playerRateDidChange(to value: Swift.Float)
+  public func playerTimerDidChange(to value: Foundation.TimeInterval?)
+  public func playerTrackDidEnd(_ track: STTrack)
+  public func playerFailed(for track: STTrack)
 }
 @_hasMissingDesignatedInitializers final public class STBookmarked : STFeature {
   public static func getInstance() throws -> STBookmarked
@@ -664,6 +694,8 @@ public struct STTrack {
   public var imgSrc: Swift.String?
   public let audioSrc: Swift.String?
   public let audioSrcWeight: Swift.Int?
+  public let hdAudioSrc: Swift.String?
+  public let hdAudioSrcWeight: Swift.Int?
   public let audioDuration: Swift.Int?
   public let createdAt: Foundation.Date?
   public let updatedAt: Foundation.Date?
@@ -689,10 +721,14 @@ public protocol STObservableProtocol {
 public struct STTrackOfflineItem {
   public let audioItem: STTrack
   public var state: STOfflineState
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 extension STTrack : Swift.Encodable {}
 extension STTrack : Swift.Decodable {}
 extension STTrack : STAudioItemInterface {}
+extension STTrackOfflineItem : Swift.Encodable {}
+extension STTrackOfflineItem : Swift.Decodable {}
 extension STContentLight : Swift.Encodable {}
 extension STContentLight : Swift.Decodable {}
 extension STContentLight : STAudioItemInterface {}
@@ -703,6 +739,8 @@ extension STSectionType : Swift.RawRepresentable {}
 extension STListLinkedContentType : Swift.Equatable {}
 extension STListLinkedContentType : Swift.Hashable {}
 extension STListLinkedContentType : Swift.RawRepresentable {}
+extension STContentLightOfflineItem : Swift.Encodable {}
+extension STContentLightOfflineItem : Swift.Decodable {}
 extension STSection : Swift.Encodable {}
 extension STSection : Swift.Decodable {}
 extension STContentModelType : Swift.Equatable {}
@@ -731,6 +769,8 @@ extension STPlaylist : Swift.Decodable {}
 extension STContent : Swift.Encodable {}
 extension STContent : Swift.Decodable {}
 extension STContent : STAudioItemInterface {}
+extension STAudioQuality : Swift.Equatable {}
+extension STAudioQuality : Swift.Hashable {}
 extension STKeychainWrapperKeys : Swift.Equatable {}
 extension STKeychainWrapperKeys : Swift.Hashable {}
 extension STKeychainWrapperKeys : Swift.RawRepresentable {}
