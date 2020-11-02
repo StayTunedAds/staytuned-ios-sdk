@@ -214,6 +214,46 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("STBlobMO")
+@interface STBlobMO : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class STMediaMO;
+
+@interface STBlobMO (SWIFT_EXTENSION(StayTunedSDK))
+@property (nonatomic, copy) NSData * _Nullable blob;
+@property (nonatomic, strong) STMediaMO * _Nullable media;
+@end
+
+
+SWIFT_CLASS_NAMED("STMediaMO")
+@interface STMediaMO : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface STMediaMO (SWIFT_EXTENSION(StayTunedSDK))
+@property (nonatomic, copy) NSString * _Nullable url;
+@property (nonatomic, copy) NSDate * _Nullable updatedAt;
+@property (nonatomic) int64_t size;
+@property (nonatomic, copy) NSString * _Nullable status;
+@property (nonatomic, strong) STBlobMO * _Nullable blob;
+@end
+
+
+SWIFT_CLASS_NAMED("STTrackHistoryItemMO")
+@interface STTrackHistoryItemMO : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+
 
 
 

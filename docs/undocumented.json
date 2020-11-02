@@ -29,6 +29,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Authentication/STAuth.swift",
+      "line": 36,
+      "symbol": "STAuth.connectAnonymous(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Content/STContents.swift",
       "line": 11,
       "symbol": "STContents",
@@ -50,6 +57,104 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 11,
+      "symbol": "STFloatingChip",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 27,
+      "symbol": "STFloatingChip.display(in:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 32,
+      "symbol": "STFloatingChipConfiguration",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 33,
+      "symbol": "STFloatingChipConfiguration.Size",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 34,
+      "symbol": "STFloatingChipConfiguration.Size.small",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 35,
+      "symbol": "STFloatingChipConfiguration.Size.medium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 36,
+      "symbol": "STFloatingChipConfiguration.Size.large",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 39,
+      "symbol": "STFloatingChipConfiguration.Position",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 40,
+      "symbol": "STFloatingChipConfiguration.Position.bottomRight(horizontalMargin:verticalMargin:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 41,
+      "symbol": "STFloatingChipConfiguration.Position.bottomLeft(horizontalMargin:verticalMargin:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 44,
+      "symbol": "STFloatingChipConfiguration.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 45,
+      "symbol": "STFloatingChipConfiguration.position",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 46,
+      "symbol": "STFloatingChipConfiguration.animate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/FloatingChip/STFloatingChip.swift",
+      "line": 48,
+      "symbol": "STFloatingChipConfiguration.init(size:position:animate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
       "line": 11,
       "symbol": "STKeychainWrapperKeys",
@@ -60,6 +165,34 @@
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
       "line": 12,
       "symbol": "STKeychainWrapperKeys.refreshToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
+      "line": 13,
+      "symbol": "STKeychainWrapperKeys.partnerKey",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
+      "line": 14,
+      "symbol": "STKeychainWrapperKeys.anonymousUsername",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
+      "line": 15,
+      "symbol": "STKeychainWrapperKeys.anonymousPassword",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Helpers/Keychain/STKeychainWrapperKeys.swift",
+      "line": 16,
+      "symbol": "STKeychainWrapperKeys.anonymousUserKey",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
@@ -148,6 +281,62 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/Database/Models/STTrackHistoryItemMO/STTrackHistoryItem+CoreDataClass.swift",
+      "line": 13,
+      "symbol": "STTrackHistoryItemMO",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/Database/Models/STTrackHistoryItemMO/STTrackHistoryItem+CoreDataClass.swift",
+      "line": 13,
+      "symbol": "STTrackHistoryItemMO",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/Database/Models/STTrackHistoryItemMO/STTrackHistoryItem+CoreDataProperties.swift",
+      "line": 15,
+      "symbol": "STTrackHistoryItemMO.fetchRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/STHistory.swift",
+      "line": 43,
+      "symbol": "STHistoryObserver",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/STHistory.swift",
+      "line": 44,
+      "symbol": "STHistoryObserver.historyTracksDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/STHistory.swift",
+      "line": 48,
+      "symbol": "STHistory.add(observer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/STHistory.swift",
+      "line": 52,
+      "symbol": "STHistory.remove(observer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/History/STHistoryInternal.swift",
+      "line": 47,
+      "symbol": "STHistoryInternal.playerCurrentTimeDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Interfaces/STPlayerInterface.swift",
       "line": 13,
       "symbol": "STPlayerState.playing",
@@ -233,35 +422,35 @@
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
-      "line": 37,
+      "line": 42,
       "symbol": "STPlayer.currentList",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
-      "line": 89,
+      "line": 94,
       "symbol": "STPlayer.timerRemainingDuration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
-      "line": 414,
+      "line": 443,
       "symbol": "STPlayer.resume()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
-      "line": 508,
+      "line": 541,
       "symbol": "STPlayer.add(observer:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayer.swift",
-      "line": 512,
+      "line": 545,
       "symbol": "STPlayer.remove(observer:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -290,7 +479,14 @@
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerConfiguration.swift",
       "line": 28,
-      "symbol": "STPlayerConfiguration.init(isContentCellVisible:onContentCellClick:preferredAudioQuality:)",
+      "symbol": "STPlayerConfiguration.shouldResumeTrackFromHistory",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerConfiguration.swift",
+      "line": 34,
+      "symbol": "STPlayerConfiguration.init(isContentCellVisible:onContentCellClick:preferredAudioQuality:shouldResumeTrackFromHistory:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -318,104 +514,132 @@
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
       "line": 24,
-      "symbol": "STPlayerObserver.playerCurrentTimeDidChange(to:)",
+      "symbol": "STPlayerObserver.playerStateDidChange(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
       "line": 25,
-      "symbol": "STPlayerObserver.playerStateDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 26,
-      "symbol": "STPlayerObserver.playerRateDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 27,
-      "symbol": "STPlayerObserver.playerTimerDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 28,
-      "symbol": "STPlayerObserver.playerTrackDidEnd(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 29,
-      "symbol": "STPlayerObserver.playerFailed(for:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 33,
-      "symbol": "STPlayerObserver.playerCurrentTrackDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 34,
-      "symbol": "STPlayerObserver.playerCurrentTrackAudioQualityDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 35,
-      "symbol": "STPlayerObserver.playerCurrentContentDidChange(to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 36,
       "symbol": "STPlayerObserver.playerCurrentTimeDidChange(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 37,
-      "symbol": "STPlayerObserver.playerStateDidChange(to:)",
+      "line": 26,
+      "symbol": "STPlayerObserver.playerWillSeek(from:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 38,
+      "line": 27,
+      "symbol": "STPlayerObserver.playerDidSeek(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 28,
       "symbol": "STPlayerObserver.playerRateDidChange(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 39,
+      "line": 29,
       "symbol": "STPlayerObserver.playerTimerDidChange(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
-      "line": 40,
+      "line": 30,
       "symbol": "STPlayerObserver.playerTrackDidEnd(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 31,
+      "symbol": "STPlayerObserver.playerFailed(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 35,
+      "symbol": "STPlayerObserver.playerCurrentTrackDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 36,
+      "symbol": "STPlayerObserver.playerCurrentTrackAudioQualityDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 37,
+      "symbol": "STPlayerObserver.playerCurrentContentDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 38,
+      "symbol": "STPlayerObserver.playerCurrentTimeDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 39,
+      "symbol": "STPlayerObserver.playerWillSeek(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 40,
+      "symbol": "STPlayerObserver.playerDidSeek(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
       "line": 41,
+      "symbol": "STPlayerObserver.playerStateDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 42,
+      "symbol": "STPlayerObserver.playerRateDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 43,
+      "symbol": "STPlayerObserver.playerTimerDidChange(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 44,
+      "symbol": "STPlayerObserver.playerTrackDidEnd(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/InterfacesImplementations/STPlayer/STPlayerObserver.swift",
+      "line": 45,
       "symbol": "STPlayerObserver.playerFailed(for:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -946,6 +1170,83 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Blob+CoreDataClass.swift",
+      "line": 12,
+      "symbol": "STBlobMO",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Blob+CoreDataClass.swift",
+      "line": 13,
+      "symbol": "STBlobMO",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Blob+CoreDataProperties.swift",
+      "line": 14,
+      "symbol": "STBlobMO.blob",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Blob+CoreDataProperties.swift",
+      "line": 15,
+      "symbol": "STBlobMO.media",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataClass.swift",
+      "line": 12,
+      "symbol": "STMediaMO",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataClass.swift",
+      "line": 13,
+      "symbol": "STMediaMO",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataProperties.swift",
+      "line": 14,
+      "symbol": "STMediaMO.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataProperties.swift",
+      "line": 16,
+      "symbol": "STMediaMO.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataProperties.swift",
+      "line": 17,
+      "symbol": "STMediaMO.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataProperties.swift",
+      "line": 18,
+      "symbol": "STMediaMO.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/NewStorage/Media+CoreDataProperties.swift",
+      "line": 19,
+      "symbol": "STMediaMO.blob",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Managers/MediaFiles/STDownloadManagerDownloadTask.swift",
       "line": 90,
       "symbol": "STDownloadManager.DownloadTask",
@@ -1003,30 +1304,37 @@
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
-      "line": 14,
-      "symbol": "STContentHistoryItem.audioItem",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
-      "line": 15,
-      "symbol": "STContentHistoryItem.currentTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
-      "line": 20,
+      "line": 13,
       "symbol": "STTrackHistoryItem.audioItem",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
-      "line": 21,
-      "symbol": "STTrackHistoryItem.currentTime",
+      "line": 14,
+      "symbol": "STTrackHistoryItem.time",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "line": 15,
+      "symbol": "STTrackHistoryItem.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "line": 16,
+      "symbol": "STTrackHistoryItem.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Models/STHistoryItem.swift",
+      "line": 20,
+      "symbol": "STTrackHistoryItem.updateOrder(lhs:rhs:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
@@ -1191,35 +1499,35 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/DataPersistence/Models/STContentLightOfflineItemMO/STContentLightOfflineItem+CoreDataProperties.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/Database/Models/STContentLightOfflineItemMO/STContentLightOfflineItem+CoreDataProperties.swift",
       "line": 14,
       "symbol": "STContentLightOfflineItemMO.content",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/DataPersistence/Models/STContentLightOfflineItemMO/STContentLightOfflineItem+CoreDataProperties.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/Database/Models/STContentLightOfflineItemMO/STContentLightOfflineItem+CoreDataProperties.swift",
       "line": 15,
       "symbol": "STContentLightOfflineItemMO.state",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/DataPersistence/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/Database/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
       "line": 33,
       "symbol": "STTrackOfflineItemMO.track",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/DataPersistence/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/Database/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
       "line": 34,
       "symbol": "STTrackOfflineItemMO.state",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/DataPersistence/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Offline/Database/Models/STTrackOfflineItemMO/STTrackOfflineItemMO+CoreDataProperties.swift",
       "line": 35,
       "symbol": "STTrackOfflineItemMO.downloadingProgress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
@@ -1296,9 +1604,100 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Options/STContentCachingOptions.swift",
+      "line": 20,
+      "symbol": "STContentCachingOptions.init(enabledContentCaching:maxCachedContent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Options/STOptions.swift",
+      "line": 20,
+      "symbol": "STOptions.init(uiOptions:contentCachingOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Options/STUIOptions.swift",
+      "line": 14,
+      "symbol": "STUIOptions.brandColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Options/STUIOptions.swift",
+      "line": 16,
+      "symbol": "STUIOptions.init(brandColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Section/STSections.swift",
       "line": 41,
       "symbol": "STSections.getSection(by:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingAdapter.swift",
+      "line": 11,
+      "symbol": "STTrackingAdapter",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingPlayerAdapter.swift",
+      "line": 11,
+      "symbol": "STTrackingPlayerAdapter",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingPlayerAdapter.swift",
+      "line": 12,
+      "symbol": "STTrackingPlayerAdapter.trackDidStart(track:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingPlayerAdapter.swift",
+      "line": 13,
+      "symbol": "STTrackingPlayerAdapter.positionDidChange(position:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingPlayerAdapter.swift",
+      "line": 14,
+      "symbol": "STTrackingPlayerAdapter.durationDidChange(duration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/Adapters/STTrackingPlayerAdapter.swift",
+      "line": 15,
+      "symbol": "STTrackingPlayerAdapter.percentilePlayed(percentile:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/STTracking.swift",
+      "line": 11,
+      "symbol": "STTracking",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/STTracking.swift",
+      "line": 24,
+      "symbol": "STTracking",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/Core/Tracking/STTracking.swift",
+      "line": 26,
+      "symbol": "STTracking.inject(adapters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1377,6 +1776,20 @@
       "line": 24,
       "symbol": "STPodcastDescriptionIdentityModels.ContentData",
       "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Exceptions/STError.swift",
+      "line": 28,
+      "symbol": "STError.missingAnonymousCredentialsInKeychain",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/staytuned-ios-workspace/staytuned-ios-workspace/Workspace/StayTunedSDK/StayTunedSDK/SDK/Exceptions/STError.swift",
+      "line": 30,
+      "symbol": "STError.unknowned",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
