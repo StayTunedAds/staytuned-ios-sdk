@@ -123,6 +123,10 @@ extension STPlayer : STObservableProtocol {
   final public func remove(track: STTrackWish)
   @objc deinit
 }
+public struct STExpandConfiguration {
+  public let halfExpand: Swift.Bool
+  public init(halfExpand: Swift.Bool = true)
+}
 extension STTrackHistoryItemMO {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<STTrackHistoryItemMO>
 }
@@ -256,6 +260,7 @@ extension STPlayer {
   final public func isLoading() -> Swift.Bool
 }
 extension STPlayer {
+  @available(*, deprecated, message: "Use STExpand feature istead")
   final public func openExpand(presenter viewController: UIKit.UIViewController)
   @available(*, deprecated, message: "Use STFloatingChip feature istead")
   @discardableResult
@@ -283,6 +288,16 @@ public struct STSection {
   public var linkedElements: [STTrack]?
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers final public class STExpand : STFeature {
+  public static func getInstance() throws -> STExpand
+  final public var configuration: STExpandConfiguration {
+    get
+    set
+  }
+  final public func present(from presenter: UIKit.UIViewController, with configuration: STExpandConfiguration? = nil)
+  final public func dismiss(completion: (() -> Swift.Void)?)
+  @objc deinit
 }
 public protocol STTrackingPlayerAdapter : STTrackingAdapter {
   func trackDidStart(track: STTrack)
@@ -386,26 +401,6 @@ public typealias STContentListItem = STListItem<STContentLight>
   @discardableResult
   final public func display(in viewController: UIKit.UIViewController, with configuration: STFloatingChipConfiguration) -> UIKit.UIView
   @objc deinit
-}
-public struct STFloatingChipConfiguration {
-  public enum Size : CoreGraphics.CGFloat {
-    case small
-    case medium
-    case large
-    public typealias RawValue = CoreGraphics.CGFloat
-    public init?(rawValue: CoreGraphics.CGFloat)
-    public var rawValue: CoreGraphics.CGFloat {
-      get
-    }
-  }
-  public enum Position {
-    case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
-    case bottomLeft(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
-  }
-  public let size: STFloatingChipConfiguration.Size
-  public let position: STFloatingChipConfiguration.Position
-  public let animate: Swift.Bool
-  public init(size: STFloatingChipConfiguration.Size = .medium, position: STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
 }
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
@@ -583,6 +578,26 @@ public enum STOfflineState : Swift.Equatable, Swift.Codable {
 }
 public protocol STUIFeatureInterface {
   func launchUI()
+}
+public struct STFloatingChipConfiguration {
+  public enum Size : CoreGraphics.CGFloat {
+    case small
+    case medium
+    case large
+    public typealias RawValue = CoreGraphics.CGFloat
+    public var rawValue: CoreGraphics.CGFloat {
+      get
+    }
+    public init?(rawValue: CoreGraphics.CGFloat)
+  }
+  public enum Position {
+    case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+    case bottomLeft(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+  }
+  public let size: STFloatingChipConfiguration.Size
+  public let position: STFloatingChipConfiguration.Position
+  public let animate: Swift.Bool
+  public init(size: STFloatingChipConfiguration.Size = .medium, position: STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
 }
 @_inheritsConvenienceInitializers @objc(STTrackHistoryItemMO) public class STTrackHistoryItemMO : CoreData.NSManagedObject {
   @objc deinit
@@ -865,9 +880,6 @@ extension STContentDiffusionMode : Swift.RawRepresentable {}
 extension STContentDisponibilityStatus : Swift.Equatable {}
 extension STContentDisponibilityStatus : Swift.Hashable {}
 extension STContentDisponibilityStatus : Swift.RawRepresentable {}
-extension STFloatingChipConfiguration.Size : Swift.Equatable {}
-extension STFloatingChipConfiguration.Size : Swift.Hashable {}
-extension STFloatingChipConfiguration.Size : Swift.RawRepresentable {}
 extension STTrackModelType : Swift.Equatable {}
 extension STTrackModelType : Swift.Hashable {}
 extension STTrackModelType : Swift.RawRepresentable {}
@@ -882,6 +894,9 @@ extension STPlaylist : Swift.Decodable {}
 extension STContent : Swift.Encodable {}
 extension STContent : Swift.Decodable {}
 extension STContent : STAudioItemInterface {}
+extension STFloatingChipConfiguration.Size : Swift.Equatable {}
+extension STFloatingChipConfiguration.Size : Swift.Hashable {}
+extension STFloatingChipConfiguration.Size : Swift.RawRepresentable {}
 extension STAudioQuality : Swift.Equatable {}
 extension STAudioQuality : Swift.Hashable {}
 extension STKeychainWrapperKeys : Swift.Equatable {}

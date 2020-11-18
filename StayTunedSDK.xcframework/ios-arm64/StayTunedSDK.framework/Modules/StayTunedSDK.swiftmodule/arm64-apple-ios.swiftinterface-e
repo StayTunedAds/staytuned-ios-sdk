@@ -123,6 +123,10 @@ extension STPlayer : StayTunedSDK.STObservableProtocol {
   final public func remove(track: StayTunedSDK.STTrackWish)
   @objc deinit
 }
+public struct STExpandConfiguration {
+  public let halfExpand: Swift.Bool
+  public init(halfExpand: Swift.Bool = true)
+}
 extension STTrackHistoryItemMO {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<StayTunedSDK.STTrackHistoryItemMO>
 }
@@ -256,6 +260,7 @@ extension STPlayer {
   final public func isLoading() -> Swift.Bool
 }
 extension STPlayer {
+  @available(*, deprecated, message: "Use STExpand feature istead")
   final public func openExpand(presenter viewController: UIKit.UIViewController)
   @available(*, deprecated, message: "Use STFloatingChip feature istead")
   @discardableResult
@@ -283,6 +288,16 @@ public struct STSection {
   public var linkedElements: [StayTunedSDK.STTrack]?
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers final public class STExpand : StayTunedSDK.STFeature {
+  public static func getInstance() throws -> StayTunedSDK.STExpand
+  final public var configuration: StayTunedSDK.STExpandConfiguration {
+    get
+    set
+  }
+  final public func present(from presenter: UIKit.UIViewController, with configuration: StayTunedSDK.STExpandConfiguration? = nil)
+  final public func dismiss(completion: (() -> Swift.Void)?)
+  @objc deinit
 }
 public protocol STTrackingPlayerAdapter : StayTunedSDK.STTrackingAdapter {
   func trackDidStart(track: StayTunedSDK.STTrack)
@@ -386,26 +401,6 @@ public typealias STContentListItem = StayTunedSDK.STListItem<StayTunedSDK.STCont
   @discardableResult
   final public func display(in viewController: UIKit.UIViewController, with configuration: StayTunedSDK.STFloatingChipConfiguration) -> UIKit.UIView
   @objc deinit
-}
-public struct STFloatingChipConfiguration {
-  public enum Size : CoreGraphics.CGFloat {
-    case small
-    case medium
-    case large
-    public typealias RawValue = CoreGraphics.CGFloat
-    public init?(rawValue: CoreGraphics.CGFloat)
-    public var rawValue: CoreGraphics.CGFloat {
-      get
-    }
-  }
-  public enum Position {
-    case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
-    case bottomLeft(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
-  }
-  public let size: StayTunedSDK.STFloatingChipConfiguration.Size
-  public let position: StayTunedSDK.STFloatingChipConfiguration.Position
-  public let animate: Swift.Bool
-  public init(size: StayTunedSDK.STFloatingChipConfiguration.Size = .medium, position: StayTunedSDK.STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
 }
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
@@ -583,6 +578,26 @@ public enum STOfflineState : Swift.Equatable, Swift.Codable {
 }
 public protocol STUIFeatureInterface {
   func launchUI()
+}
+public struct STFloatingChipConfiguration {
+  public enum Size : CoreGraphics.CGFloat {
+    case small
+    case medium
+    case large
+    public typealias RawValue = CoreGraphics.CGFloat
+    public var rawValue: CoreGraphics.CGFloat {
+      get
+    }
+    public init?(rawValue: CoreGraphics.CGFloat)
+  }
+  public enum Position {
+    case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+    case bottomLeft(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+  }
+  public let size: StayTunedSDK.STFloatingChipConfiguration.Size
+  public let position: StayTunedSDK.STFloatingChipConfiguration.Position
+  public let animate: Swift.Bool
+  public init(size: StayTunedSDK.STFloatingChipConfiguration.Size = .medium, position: StayTunedSDK.STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
 }
 @_inheritsConvenienceInitializers @objc(STTrackHistoryItemMO) public class STTrackHistoryItemMO : CoreData.NSManagedObject {
   @objc deinit
@@ -865,9 +880,6 @@ extension StayTunedSDK.STContentDiffusionMode : Swift.RawRepresentable {}
 extension StayTunedSDK.STContentDisponibilityStatus : Swift.Equatable {}
 extension StayTunedSDK.STContentDisponibilityStatus : Swift.Hashable {}
 extension StayTunedSDK.STContentDisponibilityStatus : Swift.RawRepresentable {}
-extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.Equatable {}
-extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.Hashable {}
-extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.RawRepresentable {}
 extension StayTunedSDK.STTrackModelType : Swift.Equatable {}
 extension StayTunedSDK.STTrackModelType : Swift.Hashable {}
 extension StayTunedSDK.STTrackModelType : Swift.RawRepresentable {}
@@ -882,6 +894,9 @@ extension StayTunedSDK.STPlaylist : Swift.Decodable {}
 extension StayTunedSDK.STContent : Swift.Encodable {}
 extension StayTunedSDK.STContent : Swift.Decodable {}
 extension StayTunedSDK.STContent : StayTunedSDK.STAudioItemInterface {}
+extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.Equatable {}
+extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.Hashable {}
+extension StayTunedSDK.STFloatingChipConfiguration.Size : Swift.RawRepresentable {}
 extension StayTunedSDK.STAudioQuality : Swift.Equatable {}
 extension StayTunedSDK.STAudioQuality : Swift.Hashable {}
 extension StayTunedSDK.STKeychainWrapperKeys : Swift.Equatable {}
