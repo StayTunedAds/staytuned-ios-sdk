@@ -831,8 +831,8 @@ public protocol STObservableProtocol {
 public struct STTrackOfflineItem {
   public let audioItem: StayTunedSDK.STTrack
   public var state: StayTunedSDK.STOfflineState
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension StayTunedSDK.STTrack : Swift.Encodable {}
 extension StayTunedSDK.STTrack : Swift.Decodable {}
