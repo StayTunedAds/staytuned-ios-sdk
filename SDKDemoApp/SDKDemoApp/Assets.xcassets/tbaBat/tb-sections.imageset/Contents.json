@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icone_sections.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

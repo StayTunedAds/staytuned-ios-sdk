@@ -1,0 +1,8 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+
+target 'SDKDemoApp' do
+  use_frameworks!
+  pod 'SDWebImage'
+  pod 'StayTuned', :git => 'https://github.com/StayTunedAds/staytuned-ios-sdk.git' 
+end
