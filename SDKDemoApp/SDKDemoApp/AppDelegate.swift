@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
         )
         
-        // Favorites.shared = Favorites()
+         Favorites.shared = Favorites()
         
         STAuth.shared?.connectAnonymous(completion: { result in
             switch result {

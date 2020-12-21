@@ -35,9 +35,9 @@ final class ContentDetailTableViewControllerPresenter {
         return try? STOffline.getInstance()
     }()
     
-//    private lazy var favorites: Favorites? = {
-//        return Favorites.shared
-//    }()
+    private lazy var favorites: Favorites? = {
+        return Favorites.shared
+    }()
     
     private var content: STContent? {
         didSet {
@@ -58,7 +58,7 @@ final class ContentDetailTableViewControllerPresenter {
     init(viewController: ContentDetailTableViewControllerInput?) {
         self.viewController = viewController
         STOffline.shared?.add(observer: self)
-//        Favorites.shared?.add(observer: self)
+        Favorites.shared?.add(observer: self)
     }
     
     private func retrieveContent(by key: String) {
@@ -141,9 +141,9 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
     }
     
     func loadFavoritesTracks() {
-//        if let list = self.favorites?.list {
-//            self.favoritesTracks = list.items
-//        }
+        if let list = self.favorites?.list {
+            self.favoritesTracks = list.items
+        }
     }
 
     func userDidSelectRow(at index: Int) {
@@ -181,19 +181,19 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
             let tracks = self.content?.elementList,
             tracks.count > trackIndex else { return }
         
-//        let track = tracks[trackIndex]
-//        let listItem = self.favorites?.list?.items.first(where: { item -> Bool in
-//            item.key == track.key
-//        })
-//        if let item = listItem {
-//            self.favorites?.list?.deleteItem(item, completion: { error in
-//                print(error)
-//            })
-//        } else {
-//            self.favorites?.list?.addItem(STTrackListItem(track: track), completion: { error in
-//                print(error)
-//            })
-//        }
+        let track = tracks[trackIndex]
+        let listItem = self.favorites?.list?.items.first(where: { item -> Bool in
+            item.key == track.key
+        })
+        if let item = listItem {
+            self.favorites?.list?.deleteItem(item, completion: { error in
+                print(error)
+            })
+        } else {
+            self.favorites?.list?.addItem(STTrackListItem(track: track), completion: { error in
+                print(error)
+            })
+        }
     }
     
 }
@@ -206,8 +206,8 @@ extension ContentDetailTableViewControllerPresenter: STOfflineObserver {
     }
 }
 
-//extension ContentDetailTableViewControllerPresenter: FavoritesObserver {
-//    func itemsDidChange(to value: [STTrackListItem]) {
-//        self.favoritesTracks = value
-//    }
-//}
+extension ContentDetailTableViewControllerPresenter: FavoritesObserver {
+    func itemsDidChange(to value: [STTrackListItem]) {
+        self.favoritesTracks = value
+    }
+}
