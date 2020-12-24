@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "StayTuned",
+    name: "StayTunedSDK",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v11), .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "StayTuned",
-            targets: ["StayTuned"]
+            name: "StayTunedSDK",
+            targets: ["StayTunedSDK"]
         )
     ],
     targets: [
         .binaryTarget(
-            name: "StayTuned",
-            path: "https://github.com/StayTunedAds/staytuned-ios-sdk/releases/download/1.0.16/StayTunedSDK.xcframework.zip"
+            name: "StayTunedSDK",
+            path: "StayTunedSDK.xcframework"
         )
     ]
 )
