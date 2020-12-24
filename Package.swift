@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "StayTuned",
-            path: "https://github.com/StayTunedAds/staytuned-ios-sdk/releases/download/1.0/StayTunedSDK.xcframework.zip"
+            path: "https://github.com/StayTunedAds/staytuned-ios-sdk/releases/download/1.0.16/StayTunedSDK.xcframework.zip"
         )
     ]
 )
