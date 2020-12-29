@@ -21,4 +21,5 @@ extension STPlayerObserver {
     func playerTimerDidChange(to value: TimeInterval?) {}
     func playerTrackDidEnd(_ track: STTrack) {}
     func playerFailed(for track: STTrack) {}
+    func playerTrackDidSkip(for track: STTrack) {}
 }
