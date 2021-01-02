@@ -13,14 +13,14 @@ class MiniPlayerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if STPlayer.shared?.currentTrack != nil {
-            STPlayer.shared?.displayMiniPlayer(false)
+            STMiniPlayer.shared?.display(false)
             self.displayMiniPlayer()
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         if STPlayer.shared?.currentTrack != nil {
-            STPlayer.shared?.displayMiniPlayer(true)
+            STMiniPlayer.shared?.display(true)
         }
     }
     

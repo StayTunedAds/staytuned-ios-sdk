@@ -148,7 +148,7 @@ extension ContentDetailTableViewController: ContentDetailTableViewControllerInpu
     }
     
     func displayMiniPlayer() {
-        STPlayer.shared?.displayMiniPlayer(true)
+        STMiniPlayer.shared?.display(true)
     }
     
 }

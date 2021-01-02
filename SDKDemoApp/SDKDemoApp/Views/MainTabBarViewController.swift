@@ -13,7 +13,7 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        try? STPlayer.getInstance().setMiniPlayer(in: self)
+        try? STMiniPlayer.getInstance().set(in: self)
     }
 
 }
