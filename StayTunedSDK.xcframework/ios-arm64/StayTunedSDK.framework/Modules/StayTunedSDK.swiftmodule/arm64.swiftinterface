@@ -4,6 +4,7 @@
 import AVKit
 import CoreData
 import Foundation
+import GoogleInteractiveMediaAds
 import MediaPlayer
 import MobileCoreServices
 import Swift
@@ -85,6 +86,7 @@ public protocol STPlayerObserver : AnyObject {
   func playerTimerDidChange(to value: Foundation.TimeInterval?)
   func playerTrackDidEnd(_ track: STTrack)
   func playerFailed(for track: STTrack)
+  func playerTrackDidSkip(for track: STTrack)
 }
 extension String : Swift.CodingKey {
   public var stringValue: Swift.String {
@@ -96,105 +98,12 @@ extension String : Swift.CodingKey {
   }
   public init?(intValue: Swift.Int)
 }
-public enum STKeychainWrapperKeys : Swift.String {
-  case refreshToken
-  case partnerKey
-  case anonymousUsername
-  case anonymousPassword
-  case userKey
-  public typealias RawValue = Swift.String
-  public init?(rawValue: Swift.String)
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum STAudioQuality {
-  case normal
-  case hd
-  public static func == (a: STAudioQuality, b: STAudioQuality) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-  public func hash(into hasher: inout Swift.Hasher)
-}
-public struct STPlayerConfiguration {
-  public var isContentCellVisible: Swift.Bool
-  public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
-  public var preferredAudioQuality: STAudioQuality
-  public var shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)?
-  public init(isContentCellVisible: Swift.Bool = true, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil, preferredAudioQuality: STAudioQuality = .normal, shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)? = nil)
-}
 public class STWeakRef {
   weak public var value: Swift.AnyObject? {
     get
   }
   public init(value: Swift.AnyObject?)
   @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class STPlayer {
-  final public var currentList: STPlaylist? {
-    get
-  }
-  @Observable @_projectedValueProperty($currentTrack) final public var currentTrack: STTrack? {
-    get
-  }
-  final public var $currentTrack: Observable<STTrack?> {
-    get
-  }
-  final public var currentTrackAudioQuality: STAudioQuality? {
-    get
-  }
-  @Observable @_projectedValueProperty($currentContent) final public var currentContent: STContent? {
-    get
-  }
-  final public var $currentContent: Observable<STContent?> {
-    get
-  }
-  @Observable @_projectedValueProperty($currentTime) final public var currentTime: Swift.Double? {
-    get
-  }
-  final public var $currentTime: Observable<Swift.Double?> {
-    get
-  }
-  final public var currentState: STPlayerState {
-    get
-  }
-  @Observable @_projectedValueProperty($rate) final public var rate: Swift.Float {
-    get
-  }
-  final public var $rate: Observable<Swift.Float> {
-    get
-  }
-  final public var configuration: STPlayerConfiguration {
-    get
-  }
-  final public var timerRemainingDuration: Foundation.TimeInterval? {
-    get
-  }
-  @objc deinit
-}
-extension STPlayer {
-  final public func resume()
-}
-extension STPlayer {
-  public struct Header : Swift.Codable {
-    public let key: Swift.String
-    public let value: Swift.String
-    public init(key: Swift.String, value: Swift.String)
-    public init(from decoder: Swift.Decoder) throws
-    public func encode(to encoder: Swift.Encoder) throws
-  }
-  public struct Source : Swift.Decodable {
-    public let urlString: Swift.String
-    public let headers: [STPlayer.Header]?
-    public init(urlString: Swift.String, headers: [STPlayer.Header]?)
-    public init(from decoder: Swift.Decoder) throws
-  }
-}
-extension STPlayer : STObservableProtocol {
-  final public func add(observer: STPlayerObserver)
-  final public func remove(observer: STPlayerObserver)
-  public typealias Observer = STPlayerObserver
 }
 final public class STPlaylist {
   final public var tracks: [STTrack]
@@ -213,6 +122,11 @@ final public class STPlaylist {
   @objc deinit
   public init(from decoder: Swift.Decoder) throws
   final public func encode(to encoder: Swift.Encoder) throws
+}
+public struct STContentsConfiguration {
+  public var cachingOptions: STContentCachingOptions
+  public var getContentByKey: ((Swift.String, @escaping (STContent?) -> Swift.Void) -> Swift.Void)?
+  public init(cachingOptions: STContentCachingOptions = .init(), getContentByKey: ((Swift.String, @escaping (STContent?) -> Swift.Void) -> Swift.Void)? = nil)
 }
 public struct STContentCachingOptions {
   public var enabledContentCaching: Swift.Bool
@@ -244,8 +158,18 @@ extension STAudioItemInterface {
   @objc deinit
 }
 extension STContents {
+  final public func setConfiguration(_ configuration: STContentsConfiguration)
   final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<STContent, Swift.Error>) -> Swift.Void)
   final public func getContents(completion: @escaping (Swift.Result<[STContentLight], Swift.Error>) -> Swift.Void)
+}
+public enum STAudioQuality {
+  case normal
+  case hd
+  public static func == (a: STAudioQuality, b: STAudioQuality) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct STContent {
   public let key: Swift.String
@@ -279,6 +203,7 @@ public struct STContent {
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
   public let elementList: [STTrack]?
+  public init(key: Swift.String, type: STContentModelType? = nil, title: Swift.String, ean: Swift.String? = nil, imgSrc: Swift.String? = nil, portraitImgSrc: Swift.String? = nil, landscapeImgSrc: Swift.String? = nil, narrator: Swift.String? = nil, author: Swift.String? = nil, authorBibliographicalNote: Swift.String? = nil, publishingHouse: Swift.String? = nil, imprintName: Swift.String? = nil, advertiser: Swift.String? = nil, language: Swift.String? = nil, descriptionText: Swift.String? = nil, mediaType: STContentMediaType? = nil, diffusionMode: STContentDiffusionMode? = nil, disponibilityStatus: STContentDisponibilityStatus? = nil, complete: Swift.Bool? = nil, isExplicitContent: Swift.Bool? = nil, categories: Swift.String? = nil, copyright: Swift.String? = nil, websiteUrl: Swift.String? = nil, rssFeedUrl: Swift.String? = nil, vastUrl: Swift.String? = nil, pdfUrl: Swift.String? = nil, publicationDate: Foundation.Date? = nil, overallDuration: Swift.Int? = nil, elementList: [STTrack]? = nil)
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -299,9 +224,9 @@ public class STInternalEvents {
 open class STInternalEventsDefaultDelegate : STInternalEventsProtocols {
   public init()
   open func downlaodShouldStart(for track: STTrack) -> Swift.Bool
-  open func downloadWillStart(for track: STTrack) -> STPlayer.Source?
+  open func downloadWillStart(for track: STTrack)
   open func downloadDidFinish(for track: STTrack)
-  open func playerWillStart(for track: STTrack) -> STPlayer.Source?
+  open func playerWillStart(for track: STTrack)
   open func playerDidFinish(for track: STTrack)
   open func didFailedToloadItem(for itemUrl: Swift.String, error: Swift.String)
   @objc deinit
@@ -309,6 +234,7 @@ open class STInternalEventsDefaultDelegate : STInternalEventsProtocols {
 extension STHelpersNameSpace {
   @_hasMissingDesignatedInitializers public class STColorsManager {
     public static var shared: STHelpersNameSpace.STColorsManager
+    public static func color(for name: Swift.String, style: STUIOptions.UserInterfaceStyle? = nil) -> UIKit.UIColor?
     public func setBundles(_ bundles: [Foundation.Bundle]?)
     public func color(for name: Swift.String) -> UIKit.UIColor?
     @objc deinit
@@ -320,43 +246,30 @@ extension STHelpersNameSpace {
     get
     set
   }
-  final public func present(from presenter: UIKit.UIViewController, with configuration: STExpandConfiguration? = nil)
+  final public func present(from presenter: UIKit.UIViewController)
   final public func dismiss(completion: (() -> Swift.Void)?)
   @objc deinit
 }
 public struct STUIOptions {
+  public enum UserInterfaceStyle {
+    case app
+    case light
+    case dark
+    public static func == (a: STUIOptions.UserInterfaceStyle, b: STUIOptions.UserInterfaceStyle) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
   public let brandColor: UIKit.UIColor
-  public init(brandColor: UIKit.UIColor = .black)
+  public let interfaceStyle: STUIOptions.UserInterfaceStyle
+  public init(brandColor: UIKit.UIColor = .black, interfaceStyle: STUIOptions.UserInterfaceStyle = .app)
 }
 @_inheritsConvenienceInitializers @objc(STBlobMO) public class STBlobMO : CoreData.NSManagedObject {
   @objc deinit
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
 }
 #warning("TODO: STTrackingNavigationAdapter")
-@_hasMissingDesignatedInitializers final public class STWishList : STFeature {
-  public static func getInstance() throws -> STWishList
-  @Observable @_projectedValueProperty($contents) final public var contents: [STContentWish] {
-    get
-    set
-    _modify
-  }
-  final public var $contents: Observable<[STContentWish]> {
-    get
-  }
-  @Observable @_projectedValueProperty($tracks) final public var tracks: [STTrackWish] {
-    get
-    set
-    _modify
-  }
-  final public var $tracks: Observable<[STTrackWish]> {
-    get
-  }
-  final public func add(content: STContentWish)
-  final public func add(track: STTrackWish)
-  final public func remove(content: STContentWish)
-  final public func remove(track: STTrackWish)
-  @objc deinit
-}
 extension STHelpersNameSpace {
   @_hasMissingDesignatedInitializers public class STUIDelegate {
     public static var shared: STHelpersNameSpace.STUIDelegate {
@@ -370,6 +283,28 @@ extension STHelpersNameSpace {
     public func sectionItemSubtitle(forContentLight content: STContentLight, forSectionType sectionType: STSectionType?) -> Swift.String?
     @objc deinit
   }
+}
+@_hasMissingDesignatedInitializers final public class STWishes : STFeature {
+  public static func getInstance() throws -> STWishes
+  final public var contents: [STContentWish] {
+    get
+  }
+  final public var tracks: [STTrackWish] {
+    get
+  }
+  final public func getWishes(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func add<Item>(wish: STWish<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func delete<Item>(wish: STWish<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+extension STWishes : STObservableProtocol {
+  final public func add(observer: STWishesObserver)
+  final public func remove(observer: STWishesObserver)
+  public typealias Observer = STWishesObserver
+}
+public protocol STWishesObserver : AnyObject {
+  func contentsDidChange(to value: [STContentWish])
+  func tracksDidChange(to value: [STTrackWish])
 }
 public enum STListType {
   case bookmark, playlist, favorite, queue, custom(Swift.String)
@@ -435,6 +370,7 @@ public struct STList<Item> : STListProtocol {
   public var updatedAt: Foundation.Date? {
     get
   }
+  public init(name: Swift.String, type: STListType)
 }
 extension STList {
   public func delete(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
@@ -455,30 +391,6 @@ extension STList : STObservableProtocol {
 }
 public protocol STListObserver : AnyObject {
   func itemsDidChange<Item>(to value: [STListItem<Item>])
-}
-@_hasMissingDesignatedInitializers final public class STBookmarked : STFeature {
-  public static func getInstance() throws -> STBookmarked
-  @Observable @_projectedValueProperty($contents) final public var contents: [STContent] {
-    get
-    set
-    _modify
-  }
-  final public var $contents: Observable<[STContent]> {
-    get
-  }
-  @Observable @_projectedValueProperty($tracks) final public var tracks: [STTrack] {
-    get
-    set
-    _modify
-  }
-  final public var $tracks: Observable<[STTrack]> {
-    get
-  }
-  final public func add(content: STContent)
-  final public func add(track: STTrack)
-  final public func remove(content: STContent)
-  final public func remove(track: STTrack)
-  @objc deinit
 }
 public struct STFloatingChipConfiguration {
   public enum Size : CoreGraphics.CGFloat {
@@ -526,28 +438,6 @@ extension STSections {
 extension STTracking {
   final public func inject(adapters: [STTrackingAdapter])
 }
-@_hasMissingDesignatedInitializers final public class STLibrary : STFeature {
-  public static func getInstance() throws -> STLibrary
-  @Observable @_projectedValueProperty($contents) final public var contents: [STContentTransaction] {
-    get
-    set
-    _modify
-  }
-  final public var $contents: Observable<[STContentTransaction]> {
-    get
-  }
-  @Observable @_projectedValueProperty($tracks) final public var tracks: [STTrackTransaction] {
-    get
-    set
-    _modify
-  }
-  final public var $tracks: Observable<[STTrackTransaction]> {
-    get
-  }
-  final public func add(content: STContent)
-  final public func add(track: STTrack)
-  @objc deinit
-}
 extension STHelpersNameSpace {
   @objc public class STImageView : UIKit.UIView {
     @objc dynamic public init()
@@ -582,33 +472,18 @@ extension STTrackHistoryItem {
 public struct STOptions {
   public let uiOptions: STUIOptions
   public let contentCachingOptions: STContentCachingOptions
-  public init(uiOptions: STUIOptions = STUIOptions(), contentCachingOptions: STContentCachingOptions = STContentCachingOptions())
+  public let trackPlayUrlExtra: Swift.String
+  public let trackDownloadUrlExtra: Swift.String
+  public let requestHeaders: [Swift.String : Swift.String]
+  public init(uiOptions: STUIOptions = STUIOptions(), contentCachingOptions: STContentCachingOptions = STContentCachingOptions(), trackPlayUrlExtra: Swift.String = "", trackDownloadUrlExtra: Swift.String = "", requestHeaders: [Swift.String : Swift.String] = [:])
 }
-public struct STSection {
-  public let id: Swift.Int
-  public let name: Swift.String
-  public let type: STSectionType?
-  public let linkedContentType: STSectionLinkedContentType?
-  public let order: Swift.Int?
-  public let highlighted: Swift.Bool?
-  public let searchable: Swift.Bool?
-  public let grouped: Swift.Bool?
-  public let numberOfItems: Swift.Int?
-  public let imgSrc: Swift.String?
-  public let landscapeImgSrc: Swift.String?
-  public let hdImgSrc: Swift.String?
-  public let hdLandscapeImgSrc: Swift.String?
-  public let linkedContents: [STContentLight]?
-  public var linkedElements: [STTrack]?
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
-}
-extension STSection : Swift.Hashable {
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+@_hasMissingDesignatedInitializers final public class STWallets : STFeature {
+  public static func getInstance() throws -> STWallets
+  final public var wallets: [STWallet] {
     get
   }
-  public static func == (a: STSection, b: STSection) -> Swift.Bool
+  final public func getWallets(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(STLocalListItemMO) public class STLocalListItemMO : CoreData.NSManagedObject {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
@@ -625,16 +500,23 @@ extension STHelpersNameSpace {
 extension STHelpersNameSpace.STPageViewController : UIKit.UIScrollViewDelegate {
   @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
 }
-public struct STContentWish {
-  public let id: Swift.Int
-  public let audioItem: STContent
-  public let createdAt: Swift.String?
+public protocol STWishProtocol {
+  var id: Swift.Int { get }
+  var key: Swift.String { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
 }
-public struct STTrackWish {
-  public let id: Swift.Int
-  public let audioItem: STTrack
-  public let createdAt: Swift.String?
+public struct STWish<Item> {
+  public var id: Swift.Int
+  public var key: Swift.String
+  public var item: Item?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
 }
+extension STWish : STWishProtocol {
+}
+public typealias STTrackWish = STWish<STTrack>
+public typealias STContentWish = STWish<STContentLight>
 @_hasMissingDesignatedInitializers final public class STOffline : STFeature {
   public static func getInstance() throws -> STOffline
   final public var tracks: [STTrackOfflineItem] {
@@ -652,6 +534,27 @@ extension STOffline : STObservableProtocol {
 public protocol STOfflineObserver : AnyObject {
   func offlineContentsDidChange(to value: [STContentLightOfflineItem])
   func offlineTracksDidChange(to value: [STTrackOfflineItem])
+}
+@_hasMissingDesignatedInitializers final public class STTransactions : STFeature {
+  public static func getInstance() throws -> STTransactions
+  final public var contents: [STContentTransaction] {
+    get
+  }
+  final public var tracks: [STTrackTransaction] {
+    get
+  }
+  final public func getTransactions(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func create<Item>(transaction: STTransaction<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+extension STTransactions : STObservableProtocol {
+  final public func add(observer: STTransactionsObserver)
+  final public func remove(observer: STTransactionsObserver)
+  public typealias Observer = STTransactionsObserver
+}
+public protocol STTransactionsObserver : AnyObject {
+  func contentsDidChange(to value: [STContentTransaction])
+  func tracksDidChange(to value: [STTrackTransaction])
 }
 @objc open class STPlayerPage : UIKit.UITableViewController {
   @objc required dynamic public init()
@@ -677,7 +580,7 @@ extension STPlayerPage : STClassServerCompliant {
 }
 public protocol STInternalDownloadEventsProtocol : AnyObject {
   func downlaodShouldStart(for track: STTrack) -> Swift.Bool
-  func downloadWillStart(for track: STTrack) -> STPlayer.Source?
+  func downloadWillStart(for track: STTrack)
   func downloadDidFinish(for track: STTrack)
 }
 final public class StayTunedSDK {
@@ -719,6 +622,21 @@ public protocol STTrackingPlayerAdapter : STTrackingAdapter {
   func positionDidChange(position: Swift.Double)
   func durationDidChange(duration: Foundation.TimeInterval)
   func percentilePlayed(percentile: Swift.Int)
+}
+@_hasMissingDesignatedInitializers final public class STMiniPlayer : STFeature {
+  public static func getInstance() throws -> STMiniPlayer
+  final public var isDisplayed: Swift.Bool {
+    get
+  }
+  final public func set(in viewController: UIKit.UIViewController)
+  final public func display(_ visible: Swift.Bool)
+  @objc deinit
+}
+public struct STAdsConfiguration {
+  public var getVastUrl: (STContent, STTrack, @escaping (Swift.String?) -> Swift.Void) -> Swift.Void
+  public init(getVastUrl: @escaping ((STContent, STTrack, @escaping (Swift.String?) -> Swift.Void) -> Swift.Void) = { content, _, completion  in
+        completion(content.vastUrl)
+    })
 }
 public protocol STUIFeatureInterface {
   func launchUI()
@@ -763,11 +681,20 @@ public enum STPlayerState {
   case playing
   case paused
   case loading
+  case playingAds
+  case pauseAds
   public static func == (a: STPlayerState, b: STPlayerState) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
   public func hash(into hasher: inout Swift.Hasher)
+}
+public struct STPlayerConfiguration {
+  public var isContentCellVisible: Swift.Bool
+  public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
+  public var preferredAudioQuality: STAudioQuality
+  public var shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)?
+  public init(isContentCellVisible: Swift.Bool = false, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil, preferredAudioQuality: STAudioQuality = .normal, shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)? = nil)
 }
 public struct STTrack {
   public let key: Swift.String
@@ -835,6 +762,71 @@ open class STClassServer {
   open func classFor<ClassType>(_ type: ClassType.Type) -> Any.Type?
   @objc deinit
 }
+public struct STAVPlayerSource {
+  public let url: Foundation.URL
+  public var audioQuality: STAudioQuality {
+    get
+  }
+  public init(track: STTrack, preferredQuality: STAudioQuality, appendURL queryItems: Swift.String = "") throws
+}
+@_hasMissingDesignatedInitializers final public class STPlayer {
+  final public var currentList: STPlaylist? {
+    get
+  }
+  @Observable @_projectedValueProperty($currentTrack) final public var currentTrack: STTrack? {
+    get
+  }
+  final public var $currentTrack: Observable<STTrack?> {
+    get
+  }
+  final public var currentTrackAudioQuality: STAudioQuality? {
+    get
+  }
+  @Observable @_projectedValueProperty($currentContent) final public var currentContent: STContent? {
+    get
+  }
+  final public var $currentContent: Observable<STContent?> {
+    get
+  }
+  @Observable @_projectedValueProperty($currentTime) final public var currentTime: Swift.Double? {
+    get
+  }
+  final public var $currentTime: Observable<Swift.Double?> {
+    get
+  }
+  final public var currentState: STPlayerState {
+    get
+  }
+  @Observable @_projectedValueProperty($rate) final public var rate: Swift.Float {
+    get
+  }
+  final public var $rate: Observable<Swift.Float> {
+    get
+  }
+  final public var configuration: STPlayerConfiguration {
+    get
+  }
+  final public var timerRemainingDuration: Foundation.TimeInterval? {
+    get
+  }
+  @objc deinit
+}
+extension STPlayer {
+  final public func resume()
+}
+extension STPlayer {
+  final public func add(observer: STPlayerObserver)
+  final public func remove(observer: STPlayerObserver)
+}
+public struct STWallet {
+  public let paymentType: Swift.String?
+  public let amount: Swift.Double?
+  public let currency: Swift.String?
+  public let lastSupplyAmount: Swift.Double?
+  public let lastSupplyDate: Foundation.Date?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+}
 public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
   case livetrack
@@ -854,18 +846,6 @@ public enum STTrackTypeOfElement : Swift.String, Swift.Codable {
   public var rawValue: Swift.String {
     get
   }
-}
-extension STHelpersNameSpace {
-  public struct STSectionLayoutInfos {
-    public let itemImageFormat: CoreGraphics.CGFloat
-    public let minimumLineSpacing: CoreGraphics.CGFloat
-    public let numberOfItemsinScreenWidth: CoreGraphics.CGFloat
-    public let imageSrcFormat: STHelpersNameSpace.STFormat
-    public var itemSize: CoreGraphics.CGSize?
-    public init(itemImageFormat: CoreGraphics.CGFloat, minimumLineSpacing: CoreGraphics.CGFloat, numberOfItemsinScreenWidth: CoreGraphics.CGFloat, imageSrcFormat: STHelpersNameSpace.STFormat)
-  }
-}
-public enum STHelpersNameSpace {
 }
 extension STPlayer {
   public static func getInstance() throws -> STPlayer
@@ -888,13 +868,27 @@ extension STPlayer {
   final public func isLoading() -> Swift.Bool
 }
 extension STPlayer {
-  @available(*, deprecated, message: "Use STExpand feature istead")
+  @available(*, deprecated, message: "Use STExpand feature instead")
   final public func openExpand(presenter viewController: UIKit.UIViewController)
-  @available(*, deprecated, message: "Use STFloatingChip feature istead")
+  @available(*, deprecated, message: "Use STFloatingChip feature instead")
   @discardableResult
   final public func displayChip(in controller: UIKit.UIViewController) -> UIKit.UIView
+  @available(*, deprecated, renamed: "STMiniPlayer.set(in:)", message: "This method will be removed")
   final public func setMiniPlayer(in viewController: UIKit.UIViewController)
+  @available(*, deprecated, renamed: "STMiniPlayer.display(_:)", message: "This method will be removed")
   final public func displayMiniPlayer(_ value: Swift.Bool)
+}
+extension STHelpersNameSpace {
+  public struct STSectionLayoutInfos {
+    public let itemImageFormat: CoreGraphics.CGFloat
+    public let minimumLineSpacing: CoreGraphics.CGFloat
+    public let numberOfItemsinScreenWidth: CoreGraphics.CGFloat
+    public let imageSrcFormat: STHelpersNameSpace.STFormat
+    public var itemSize: CoreGraphics.CGSize?
+    public init(itemImageFormat: CoreGraphics.CGFloat, minimumLineSpacing: CoreGraphics.CGFloat, numberOfItemsinScreenWidth: CoreGraphics.CGFloat, imageSrcFormat: STHelpersNameSpace.STFormat)
+  }
+}
+public enum STHelpersNameSpace {
 }
 public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
   case content
@@ -917,24 +911,52 @@ public enum STSectionType : Swift.String, Swift.Codable {
     get
   }
 }
-public struct STContentTransaction {
-  public let audioItem: STContent
-  public let paymentType: Swift.String?
-  public let amount: Swift.Int
-  public let currency: Swift.String?
-  public let status: Swift.String?
-  public let createdAt: Swift.String?
+public protocol STTransactionProtocol {
+  var key: Swift.String { get }
+  var paymentType: Swift.String? { get }
+  var amount: Swift.Double? { get }
+  var taxPercent: Swift.Double? { get }
+  var currency: Swift.String? { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
 }
-public struct STTrackTransaction {
-  public let audioItem: STTrack
+public struct STTransaction<Item> {
+  public let key: Swift.String
   public let paymentType: Swift.String?
-  public let amount: Swift.Int
+  public let amount: Swift.Double?
+  public let taxPercent: Swift.Double?
   public let currency: Swift.String?
-  public let status: Swift.String?
-  public let createdAt: Swift.String?
+  public let item: Item?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
 }
+extension STTransaction : STTransactionProtocol {
+}
+public typealias STContentTransaction = STTransaction<STContentLight>
+public typealias STTrackTransaction = STTransaction<STTrack>
 extension STHistoryItemMO {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<STHistoryItemMO>
+}
+@_hasMissingDesignatedInitializers final public class STAds : STFeature {
+  public static func getInstance() throws -> STAds
+  @objc deinit
+}
+extension STAds {
+  final public var configuration: STAdsConfiguration {
+    get
+  }
+  final public func setConfiguration(_ configuration: STAdsConfiguration)
+}
+extension STAds : STObservableProtocol {
+  final public func add(observer: STAdsObserver)
+  final public func remove(observer: STAdsObserver)
+  public typealias Observer = STAdsObserver
+}
+public protocol STAdsObserver : AnyObject {
+  func stAdsDidStart()
+  func stAdsDidPaused()
+  func stAdsDidFinished()
+  func stAdsDidFailed()
 }
 extension STHelpersNameSpace {
   public class MigrationBypassing {
@@ -996,6 +1018,33 @@ public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
   }
   public init?(rawValue: Swift.String)
 }
+public struct STSection {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let type: STSectionType?
+  public let linkedContentType: STSectionLinkedContentType?
+  public let order: Swift.Int?
+  public let highlighted: Swift.Bool?
+  public let searchable: Swift.Bool?
+  public let grouped: Swift.Bool?
+  public let numberOfItems: Swift.Int?
+  public let imgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let hdImgSrc: Swift.String?
+  public let hdLandscapeImgSrc: Swift.String?
+  public let linkedContents: [STContentLight]?
+  public var linkedElements: [STTrack]?
+  public init(id: Swift.Int, name: Swift.String, type: STSectionType?, linkedContentType: STSectionLinkedContentType?, order: Swift.Int?, highlighted: Swift.Bool?, searchable: Swift.Bool?, grouped: Swift.Bool?, numberOfItems: Swift.Int?, imgSrc: Swift.String?, landscapeImgSrc: Swift.String?, hdImgSrc: Swift.String?, hdLandscapeImgSrc: Swift.String?, linkedContents: [STContentLight]?, linkedElements: [STTrack]?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension STSection : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: STSection, b: STSection) -> Swift.Bool
+}
 extension STHelpersNameSpace {
   @_hasMissingDesignatedInitializers public class STPublicAPI {
     public class func searchContents(title: Swift.String? = nil, author: Swift.String? = nil, narrator: Swift.String? = nil, completion: ((Swift.Result<[STContentLight], Swift.Error>) -> Swift.Void)? = nil)
@@ -1006,14 +1055,14 @@ extension STHelpersNameSpace {
 extension STHelpersNameSpace {
   @_hasMissingDesignatedInitializers public class STImagesManager {
     public static var shared: STHelpersNameSpace.STImagesManager
+    public static func image(for name: Swift.String, style: STUIOptions.UserInterfaceStyle? = nil) -> UIKit.UIImage?
     public func setBundles(_ bundles: [Foundation.Bundle]?)
     public func image(for name: Swift.String) -> UIKit.UIImage?
     @objc deinit
   }
 }
 public struct STExpandConfiguration {
-  public let halfExpand: Swift.Bool
-  public init(halfExpand: Swift.Bool = true)
+  public init()
 }
 @propertyWrapper public class Observable<Value> {
   @available(*, deprecated, message: "Observation will be removed in 1.1.0. Please use delegate pattern.")
@@ -1058,7 +1107,6 @@ public enum STObservable {
 }
 extension STAuth {
   final public func connect(partnerKey: Swift.String, partnerToken: Swift.String, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
-  final public func refresh(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
   final public func connectAnonymous(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
 }
 extension STAuth : STObservableProtocol {
@@ -1130,6 +1178,7 @@ public struct STContentLight {
   public let author: Swift.String?
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
+  public init(key: Swift.String, type: STContentModelType, title: Swift.String, imgSrc: Swift.String)
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1173,7 +1222,7 @@ extension STMediaMO {
   }
 }
 public protocol STInternalPlayerEventsProtocol : AnyObject {
-  func playerWillStart(for track: STTrack) -> STPlayer.Source?
+  func playerWillStart(for track: STTrack)
   func playerDidFinish(for track: STTrack)
   func didFailedToloadItem(for itemUrl: Swift.String, error: Swift.String)
 }
@@ -1205,20 +1254,18 @@ extension STContentLight : Swift.Decodable {}
 extension STContentLight : STAudioItemInterface {}
 extension STError : Swift.Equatable {}
 extension STError : Swift.Hashable {}
-extension STKeychainWrapperKeys : Swift.Equatable {}
-extension STKeychainWrapperKeys : Swift.Hashable {}
-extension STKeychainWrapperKeys : Swift.RawRepresentable {}
 extension STTrack : Swift.Encodable {}
 extension STTrack : Swift.Decodable {}
 extension STTrack : STAudioItemInterface {}
-extension STAudioQuality : Swift.Equatable {}
-extension STAudioQuality : Swift.Hashable {}
-extension STPlayer : STFeature {}
 extension STPlaylist : Swift.Encodable {}
 extension STPlaylist : Swift.Decodable {}
+extension STAudioQuality : Swift.Equatable {}
+extension STAudioQuality : Swift.Hashable {}
 extension STContent : Swift.Encodable {}
 extension STContent : Swift.Decodable {}
 extension STContent : STAudioItemInterface {}
+extension STUIOptions.UserInterfaceStyle : Swift.Equatable {}
+extension STUIOptions.UserInterfaceStyle : Swift.Hashable {}
 extension STListLinkedContentType : Swift.Equatable {}
 extension STListLinkedContentType : Swift.Hashable {}
 extension STListLinkedContentType : Swift.RawRepresentable {}
@@ -1231,6 +1278,7 @@ extension STTrackOfflineItem : Swift.Encodable {}
 extension STTrackOfflineItem : Swift.Decodable {}
 extension STPlayerState : Swift.Equatable {}
 extension STPlayerState : Swift.Hashable {}
+extension STPlayer : STFeature {}
 extension STTrackModelType : Swift.Equatable {}
 extension STTrackModelType : Swift.Hashable {}
 extension STTrackModelType : Swift.RawRepresentable {}
