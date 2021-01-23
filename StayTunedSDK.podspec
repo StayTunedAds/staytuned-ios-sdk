@@ -33,7 +33,6 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { :git => "https://github.com/StayTunedAds/staytuned-ios-sdk.git", :tag => "#{s.version}" }
-
-  #s.framework  = "StayTunedCore"
+  s.dependency 'GoogleAds-IMA-iOS-SDK', '3.13.0'
 
 end
