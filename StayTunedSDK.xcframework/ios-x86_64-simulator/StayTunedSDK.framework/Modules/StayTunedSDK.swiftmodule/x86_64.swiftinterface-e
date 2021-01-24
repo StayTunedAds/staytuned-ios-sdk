@@ -39,10 +39,6 @@ public typealias STTrackList = StayTunedSDK.STList<StayTunedSDK.STTrack>
 public typealias STContentList = StayTunedSDK.STList<StayTunedSDK.STContentLight>
 public typealias STTrackListItem = StayTunedSDK.STListItem<StayTunedSDK.STTrack>
 public typealias STContentListItem = StayTunedSDK.STListItem<StayTunedSDK.STContentLight>
-@_inheritsConvenienceInitializers @objc(STMediaMO) public class STMediaMO : CoreData.NSManagedObject {
-  @objc deinit
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
-}
 public enum STError : Swift.Error {
   case notInitException
   case alreadyInitException
@@ -265,10 +261,6 @@ public struct STUIOptions {
   public let interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle
   public init(brandColor: UIKit.UIColor = .black, interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle = .app)
 }
-@_inheritsConvenienceInitializers @objc(STBlobMO) public class STBlobMO : CoreData.NSManagedObject {
-  @objc deinit
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
-}
 #warning("TODO: STTrackingNavigationAdapter")
 extension STHelpersNameSpace {
   @_hasMissingDesignatedInitializers public class STUIDelegate {
@@ -485,10 +477,6 @@ public struct STOptions {
   final public func getWallets(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(STLocalListItemMO) public class STLocalListItemMO : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
-  @objc deinit
-}
 extension STHelpersNameSpace {
   @objc @_hasMissingDesignatedInitializers public class STPageViewController : UIKit.UIPageViewController {
     public var numberOfScreens: Swift.Int?
@@ -604,16 +592,6 @@ extension STHistory : StayTunedSDK.STObservableProtocol {
   final public func add(observer: StayTunedSDK.STHistoryObserver)
   final public func remove(observer: StayTunedSDK.STHistoryObserver)
   public typealias Observer = StayTunedSDK.STHistoryObserver
-}
-extension STBlobMO {
-  @objc @NSManaged dynamic public var blob: Foundation.Data? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var media: StayTunedSDK.STMediaMO? {
-    @objc get
-    @objc set
-  }
 }
 public protocol STTrackingAdapter {
 }
@@ -934,9 +912,6 @@ extension STTransaction : StayTunedSDK.STTransactionProtocol {
 }
 public typealias STContentTransaction = StayTunedSDK.STTransaction<StayTunedSDK.STContentLight>
 public typealias STTrackTransaction = StayTunedSDK.STTransaction<StayTunedSDK.STTrack>
-extension STHistoryItemMO {
-  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<StayTunedSDK.STHistoryItemMO>
-}
 @_hasMissingDesignatedInitializers final public class STAds : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STAds
   @objc deinit
@@ -1062,7 +1037,7 @@ extension STHelpersNameSpace {
   }
 }
 public struct STExpandConfiguration {
-  public init()
+  public init(halfExpand: Swift.Bool = false)
 }
 @propertyWrapper public class Observable<Value> {
   @available(*, deprecated, message: "Observation will be removed in 1.1.0. Please use delegate pattern.")
@@ -1131,10 +1106,6 @@ public protocol STAuthObserver : AnyObject {
 }
 extension STEpisodePage : StayTunedSDK.STPageServerPageProtocol {
 }
-@_inheritsConvenienceInitializers @objc(STHistoryItemMO) public class STHistoryItemMO : CoreData.NSManagedObject {
-  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
-  @objc deinit
-}
 open class STPageServer {
   public init()
   open func trackPageType() -> StayTunedSDK.STPageServerPageProtocol.Type
@@ -1198,28 +1169,6 @@ public struct STTrackOfflineItem {
   public var state: StayTunedSDK.STOfflineState
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
-}
-extension STMediaMO {
-  @objc @NSManaged dynamic public var url: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var updatedAt: Foundation.Date? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var size: Swift.Int64 {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var status: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @NSManaged dynamic public var blob: StayTunedSDK.STBlobMO? {
-    @objc get
-    @objc set
-  }
 }
 public protocol STInternalPlayerEventsProtocol : AnyObject {
   func playerWillStart(for track: StayTunedSDK.STTrack)

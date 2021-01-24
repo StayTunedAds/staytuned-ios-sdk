@@ -188,7 +188,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import CoreData;
 @import Foundation;
 @import UIKit;
 #endif
@@ -211,21 +210,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-@class NSEntityDescription;
-@class NSManagedObjectContext;
-
-SWIFT_CLASS_NAMED("STBlobMO")
-@interface STBlobMO : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class STMediaMO;
-
-@interface STBlobMO (SWIFT_EXTENSION(StayTunedSDK))
-@property (nonatomic, copy) NSData * _Nullable blob;
-@property (nonatomic, strong) STMediaMO * _Nullable media;
-@end
 
 @class NSCoder;
 @class UITableView;
@@ -274,12 +258,12 @@ SWIFT_CLASS("_TtCO12StayTunedSDK18STHelpersNameSpace19STFanViewController")
 
 
 
+
+
 @interface STFanViewController (SWIFT_EXTENSION(StayTunedSDK)) <UIPageViewControllerDelegate>
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> * _Nonnull)pendingViewControllers;
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> * _Nonnull)previousViewControllers transitionCompleted:(BOOL)completed;
 @end
-
-
 
 @class UIGestureRecognizer;
 @class UITouch;
@@ -292,35 +276,6 @@ SWIFT_CLASS("_TtCO12StayTunedSDK18STHelpersNameSpace19STFanViewController")
 
 
 
-
-
-SWIFT_CLASS_NAMED("STHistoryItemMO")
-@interface STHistoryItemMO : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-SWIFT_CLASS_NAMED("STLocalListItemMO")
-@interface STLocalListItemMO : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-SWIFT_CLASS_NAMED("STMediaMO")
-@interface STMediaMO : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface STMediaMO (SWIFT_EXTENSION(StayTunedSDK))
-@property (nonatomic, copy) NSString * _Nullable url;
-@property (nonatomic, copy) NSDate * _Nullable updatedAt;
-@property (nonatomic) int64_t size;
-@property (nonatomic, copy) NSString * _Nullable status;
-@property (nonatomic, strong) STBlobMO * _Nullable blob;
-@end
 
 @class UIScrollView;
 
