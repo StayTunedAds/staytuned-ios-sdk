@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let _ = try? StayTunedSDK(
             appId: "831932a3-d0d9-40b3-b3f3-955e478052d1",
-            authToken: "95ab8c4d.bcaccc8b-4056-4da5-a9e9-12fe73a663b2",
+            authToken: "33882518.e81c873d-fc8d-4190-97bc-90b08731d0b1",
             options: .init(uiOptions: .init(brandColor: .purple))
         )
         
@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 isContentCellVisible: true,
                 onContentCellClick: { _ in
                     STExpand.shared?.dismiss(completion: nil )
-                }
+                },
+                preferredAudioQuality: .hd
             )
         )
         
