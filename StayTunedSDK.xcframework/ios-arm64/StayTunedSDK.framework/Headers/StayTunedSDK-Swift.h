@@ -283,6 +283,7 @@ SWIFT_CLASS("_TtCO12StayTunedSDK18STHelpersNameSpace19STFanViewController")
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
+@class UITraitCollection;
 
 SWIFT_CLASS("_TtC12StayTunedSDK12STPlayerPage")
 @interface STPlayerPage : UITableViewController
@@ -291,6 +292,7 @@ SWIFT_CLASS("_TtC12StayTunedSDK12STPlayerPage")
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;

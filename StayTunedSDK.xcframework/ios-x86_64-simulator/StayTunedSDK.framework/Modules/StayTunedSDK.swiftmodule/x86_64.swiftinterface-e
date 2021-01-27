@@ -135,14 +135,6 @@ public enum STPodcastDescriptionIdentityModels {
   public struct ContentData {
   }
 }
-extension STHelpersNameSpace {
-  public struct STTrackInContent : Swift.Equatable {
-    public let track: StayTunedSDK.STTrack
-    public let content: StayTunedSDK.STContent?
-    public init(track: StayTunedSDK.STTrack, inContent content: StayTunedSDK.STContent?)
-    public static func == (lhs: StayTunedSDK.STHelpersNameSpace.STTrackInContent, rhs: StayTunedSDK.STHelpersNameSpace.STTrackInContent) -> Swift.Bool
-  }
-}
 public protocol STAudioItemInterface : Swift.Equatable {
   var key: Swift.String { get }
 }
@@ -227,15 +219,6 @@ open class STInternalEventsDefaultDelegate : StayTunedSDK.STInternalEventsProtoc
   open func didFailedToloadItem(for itemUrl: Swift.String, error: Swift.String)
   @objc deinit
 }
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class STColorsManager {
-    public static var shared: StayTunedSDK.STHelpersNameSpace.STColorsManager
-    public static func color(for name: Swift.String, style: StayTunedSDK.STUIOptions.UserInterfaceStyle? = nil) -> UIKit.UIColor?
-    public func setBundles(_ bundles: [Foundation.Bundle]?)
-    public func color(for name: Swift.String) -> UIKit.UIColor?
-    @objc deinit
-  }
-}
 @_hasMissingDesignatedInitializers final public class STExpand : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STExpand
   final public var configuration: StayTunedSDK.STExpandConfiguration {
@@ -259,23 +242,9 @@ public struct STUIOptions {
   }
   public let brandColor: UIKit.UIColor
   public let interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle
-  public init(brandColor: UIKit.UIColor = .black, interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle = .app)
+  public init(brandColor: UIKit.UIColor = UIColor.systemPink, interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle = .app)
 }
 #warning("TODO: STTrackingNavigationAdapter")
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class STUIDelegate {
-    public static var shared: StayTunedSDK.STHelpersNameSpace.STUIDelegate {
-      get
-    }
-    public func imageFormat(forSectionType sectionType: StayTunedSDK.STSectionType) -> StayTunedSDK.STHelpersNameSpace.STFormat
-    public func layout(forSectionType sectionType: StayTunedSDK.STSectionType) -> StayTunedSDK.STHelpersNameSpace.STSectionLayoutInfos
-    public func sectionItemTitle(forContent content: StayTunedSDK.STContent) -> Swift.String?
-    public func sectionItemTitle(forContent content: StayTunedSDK.STContentLight) -> Swift.String?
-    public func sectionItemSubtitle(forContent content: StayTunedSDK.STContent, forSectionType sectionType: StayTunedSDK.STSectionType?) -> Swift.String?
-    public func sectionItemSubtitle(forContentLight content: StayTunedSDK.STContentLight, forSectionType sectionType: StayTunedSDK.STSectionType?) -> Swift.String?
-    @objc deinit
-  }
-}
 @_hasMissingDesignatedInitializers final public class STWishes : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STWishes
   final public var contents: [StayTunedSDK.STContentWish] {
@@ -404,11 +373,6 @@ public struct STFloatingChipConfiguration {
   public let animate: Swift.Bool
   public init(size: StayTunedSDK.STFloatingChipConfiguration.Size = .medium, position: StayTunedSDK.STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
 }
-extension STHelpersNameSpace {
-  public struct STCoreConfiguration {
-    public init(apiKey: Swift.String, audioDownloadIsSequential: Swift.Bool = false, defaultImage: UIKit.UIImage? = nil, localizationOptions: [(bundle: Foundation.Bundle, tableName: Swift.String)]? = nil, assetsBundles: [Foundation.Bundle]?)
-  }
-}
 @_hasMissingDesignatedInitializers final public class STFloatingChip : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STFloatingChip
   @discardableResult
@@ -429,28 +393,6 @@ extension STSections {
 }
 extension STTracking {
   final public func inject(adapters: [StayTunedSDK.STTrackingAdapter])
-}
-extension STHelpersNameSpace {
-  @objc public class STImageView : UIKit.UIView {
-    @objc dynamic public init()
-    @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-    final public let uiimageView: UIKit.UIImageView
-    public var imageContentMode: UIKit.UIView.ContentMode {
-      get
-      set
-    }
-    public var spinAnimationColor: UIKit.UIColor? {
-      get
-      set
-    }
-    public var url: Foundation.URL? {
-      get
-      set
-    }
-    public func setFirstAvailableImage(forUrls urls: [Foundation.URL?])
-    @objc override dynamic public init(frame: CoreGraphics.CGRect)
-    @objc deinit
-  }
 }
 public struct STTrackHistoryItem {
   public let audioItem: StayTunedSDK.STTrack
@@ -476,17 +418,6 @@ public struct STOptions {
   }
   final public func getWallets(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
   @objc deinit
-}
-extension STHelpersNameSpace {
-  @objc @_hasMissingDesignatedInitializers public class STPageViewController : UIKit.UIPageViewController {
-    public var numberOfScreens: Swift.Int?
-    public var currentPageIndex: Swift.Int?
-    @objc deinit
-    @objc override dynamic public init(transitionStyle style: UIKit.UIPageViewController.TransitionStyle, navigationOrientation: UIKit.UIPageViewController.NavigationOrientation, options: [UIKit.UIPageViewController.OptionsKey : Any]? = nil)
-  }
-}
-extension STHelpersNameSpace.STPageViewController : UIKit.UIScrollViewDelegate {
-  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
 }
 public protocol STWishProtocol {
   var id: Swift.Int { get }
@@ -550,6 +481,7 @@ public protocol STTransactionsObserver : AnyObject {
   @objc override dynamic open func viewDidLoad()
   @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc override dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
@@ -632,28 +564,6 @@ public protocol STUIFeatureInterface {
   final public func deleteItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Result<Swift.Int?, Swift.Error>) -> Swift.Void)
   final public func syncItems<Item>(listId: Swift.Int, items: [StayTunedSDK.STListItem<Item>], completion: @escaping (Swift.Result<[StayTunedSDK.STListItem<Item>], Swift.Error>) -> Swift.Void)
   @objc deinit
-}
-extension STHelpersNameSpace {
-  @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class STFanViewController : StayTunedSDK.STHelpersNameSpace.STPageViewController {
-    @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
-      @objc get
-    }
-    public func dismiss(completion: (() -> Swift.Void)?)
-    public func update(screens: [UIKit.UINavigationController])
-    @objc deinit
-  }
-}
-extension STHelpersNameSpace.STFanViewController : UIKit.UIViewControllerTransitioningDelegate {
-  @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
-}
-extension STHelpersNameSpace.STFanViewController : UIKit.UIGestureRecognizerDelegate {
-  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
-  @objc dynamic public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-}
-extension STHelpersNameSpace.STFanViewController : UIKit.UIPageViewControllerDelegate {
-  @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, willTransitionTo pendingViewControllers: [UIKit.UIViewController])
-  @objc dynamic public func pageViewController(_ pageViewController: UIKit.UIPageViewController, didFinishAnimating finished: Swift.Bool, previousViewControllers: [UIKit.UIViewController], transitionCompleted completed: Swift.Bool)
 }
 public enum STPlayerState {
   case playing
@@ -856,18 +766,6 @@ extension STPlayer {
   @available(*, deprecated, renamed: "STMiniPlayer.display(_:)", message: "This method will be removed")
   final public func displayMiniPlayer(_ value: Swift.Bool)
 }
-extension STHelpersNameSpace {
-  public struct STSectionLayoutInfos {
-    public let itemImageFormat: CoreGraphics.CGFloat
-    public let minimumLineSpacing: CoreGraphics.CGFloat
-    public let numberOfItemsinScreenWidth: CoreGraphics.CGFloat
-    public let imageSrcFormat: StayTunedSDK.STHelpersNameSpace.STFormat
-    public var itemSize: CoreGraphics.CGSize?
-    public init(itemImageFormat: CoreGraphics.CGFloat, minimumLineSpacing: CoreGraphics.CGFloat, numberOfItemsinScreenWidth: CoreGraphics.CGFloat, imageSrcFormat: StayTunedSDK.STHelpersNameSpace.STFormat)
-  }
-}
-public enum STHelpersNameSpace {
-}
 public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
   case content
   case element
@@ -933,28 +831,6 @@ public protocol STAdsObserver : AnyObject {
   func stAdsDidFinished()
   func stAdsDidFailed()
 }
-extension STHelpersNameSpace {
-  public class MigrationBypassing {
-    public init()
-    public func setHistory(value: Swift.Double, for track: StayTunedSDK.STTrack) throws
-    public func saveAudio(url: Swift.String, data: Foundation.Data)
-    @objc deinit
-  }
-}
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class StayTunedCore {
-    public static var development: Swift.Bool
-    public static let bundle: Foundation.Bundle
-    public static var shared: StayTunedSDK.STHelpersNameSpace.StayTunedCore!
-    public var classServer: StayTunedSDK.STClassServer
-    public var pageServer: StayTunedSDK.STPageServer
-    public var internalEvents: StayTunedSDK.STInternalEvents
-    public var displayRootViewController: UIKit.UIViewController?
-    public func setConfiguration(_ configurations: StayTunedSDK.STHelpersNameSpace.STCoreConfiguration)
-    public func application(_ application: UIKit.UIApplication, handleEventsForBackgroundURLSession identifier: Swift.String, completionHandler: @escaping () -> Swift.Void)
-    @objc deinit
-  }
-}
 public enum STContentModelType : Swift.String, Swift.Codable {
   case podcast
   case audiobook
@@ -1019,22 +895,6 @@ extension STSection : Swift.Hashable {
     get
   }
   public static func == (a: StayTunedSDK.STSection, b: StayTunedSDK.STSection) -> Swift.Bool
-}
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class STPublicAPI {
-    public class func searchContents(title: Swift.String? = nil, author: Swift.String? = nil, narrator: Swift.String? = nil, completion: ((Swift.Result<[StayTunedSDK.STContentLight], Swift.Error>) -> Swift.Void)? = nil)
-    public class func searchElements(title: Swift.String? = nil, completion: ((Swift.Result<[StayTunedSDK.STTrack], Swift.Error>) -> Swift.Void)? = nil)
-    @objc deinit
-  }
-}
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class STImagesManager {
-    public static var shared: StayTunedSDK.STHelpersNameSpace.STImagesManager
-    public static func image(for name: Swift.String, style: StayTunedSDK.STUIOptions.UserInterfaceStyle? = nil) -> UIKit.UIImage?
-    public func setBundles(_ bundles: [Foundation.Bundle]?)
-    public func image(for name: Swift.String) -> UIKit.UIImage?
-    @objc deinit
-  }
 }
 public struct STExpandConfiguration {
   public init(halfExpand: Swift.Bool = false)
@@ -1122,21 +982,6 @@ public protocol STPageServerContentProtocol : UIKit.UIViewController {
 }
 public protocol STPageServerLibraryProtocol : UIKit.UIViewController {
 }
-extension STHelpersNameSpace {
-  public enum STFormat {
-    case square
-    case portrait
-    case landscape
-    public var ratio: CoreGraphics.CGFloat {
-      get
-    }
-    public static func == (a: StayTunedSDK.STHelpersNameSpace.STFormat, b: StayTunedSDK.STHelpersNameSpace.STFormat) -> Swift.Bool
-    public var hashValue: Swift.Int {
-      get
-    }
-    public func hash(into hasher: inout Swift.Hasher)
-  }
-}
 public struct STContentLight {
   public let key: Swift.String
   public let type: StayTunedSDK.STContentModelType?
@@ -1152,17 +997,6 @@ public struct STContentLight {
   public init(key: Swift.String, type: StayTunedSDK.STContentModelType, title: Swift.String, imgSrc: Swift.String)
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-}
-extension STHelpersNameSpace {
-  @_hasMissingDesignatedInitializers public class STLocalization {
-    public static var shared: StayTunedSDK.STHelpersNameSpace.STLocalization {
-      get
-    }
-    public func localized(key: Swift.String, with arguments: Swift.CVarArg...) -> Swift.String?
-    public func localized(key: Swift.String, with argument: Swift.CVarArg) -> Swift.String?
-    public func localized(key: Swift.String) -> Swift.String?
-    @objc deinit
-  }
 }
 public struct STTrackOfflineItem {
   public let audioItem: StayTunedSDK.STTrack
@@ -1254,5 +1088,3 @@ extension StayTunedSDK.STContentDisponibilityStatus : Swift.Hashable {}
 extension StayTunedSDK.STContentDisponibilityStatus : Swift.RawRepresentable {}
 extension StayTunedSDK.STAuth.Status : Swift.Equatable {}
 extension StayTunedSDK.STAuth.Status : Swift.Hashable {}
-extension StayTunedSDK.STHelpersNameSpace.STFormat : Swift.Equatable {}
-extension StayTunedSDK.STHelpersNameSpace.STFormat : Swift.Hashable {}
