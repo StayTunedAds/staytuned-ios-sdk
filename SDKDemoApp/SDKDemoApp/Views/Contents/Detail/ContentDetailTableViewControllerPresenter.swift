@@ -100,7 +100,7 @@ final class ContentDetailTableViewControllerPresenter {
         let cells = cellStates?.map { state -> ContentDetailTableViewControllerViewModel.CellOfflineProgress in
             switch state {
             case .downloading(let progress):
-                return .init(progressViewIsHidden: false, progressValue: progress, setProgressIsAnimated: true)
+                return .init(progressViewIsHidden: false, progressValue: progress ?? 0, setProgressIsAnimated: true)
             case .downloaded:
                 return .init(progressViewIsHidden: false, progressValue: 1, setProgressIsAnimated: false)
             default:

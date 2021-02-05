@@ -39,13 +39,17 @@ class Favorites {
 }
 
 extension Favorites: STAuthObserver {
-    func didConnect() {
-        self.initialization()
+    
+    func authStatusDidChange(to status: STAuth.Status) {
+        switch status {
+        case .authenticated:
+            self.initialization()
+        default:
+            break
+        }
     }
     
-    func didRefresh() {
-        self.initialization()
-    }
+    func didConnect() {}
 }
 
 protocol FavoritesObserver: class {
