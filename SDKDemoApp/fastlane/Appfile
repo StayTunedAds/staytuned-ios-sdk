@@ -1,0 +1,5 @@
+app_identifier("io.staytuned.ios.sdk.demo") # The bundle identifier of your app
+apple_id("admin@staytuned.io") # Your Apple email address
+
+itc_team_id("120310140") # App Store Connect Team ID
+team_id("Z75SSV39X4") # Developer Portal Team ID

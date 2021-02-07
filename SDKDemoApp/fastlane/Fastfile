@@ -1,0 +1,113 @@
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do |lane, options|
+    if is_ci?
+        xcode_select("/Applications/Xcode_12.3.app")
+    end
+  end
+
+  # error block is executed when a error occurs
+  error do |lane, exception|
+    if is_ci?
+      slack(
+          message: exception.message, 
+          success: false, 
+          payload: { "Output" => exception.message } 
+      )
+    end
+  end
+
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do |lane|
+
+    sendMessage(
+      message: "🥶🥶 Start deployement of SDKDemoApp (v#{ lane[:version] })"
+    )
+
+    cocoapods()
+
+    sign(
+      keyId: ENV["STAYTUNED_API_KEY_ID"],
+      issuerId: ENV["STAYTUNED_API_KEY_ISSUER_ID"],
+      keyContent: ENV["STAYTUNED_API_KEY_P8"],
+      githubToken: ENV["GIT_TOKEN"]
+    )
+
+    increment_version(
+      version: lane[:version],
+      buildNumber: lane[:build]
+    )
+
+    build_app(
+      workspace: "SDKDemoApp.xcworkspace",
+      scheme: "SDKDemoApp"
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+
+    sendMessage(
+      message: "👍👍 SDKDemoApp (v#{ lane[:version] }) has been deployed!"
+    )
+  end
+
+  ############################################################
+  desc "Get certificates and profiles"
+  private_lane :sign do |lane|
+    if is_ci?
+      create_keychain(
+          name: "deploy_keychain",
+          password: "meow",
+          default_keychain: true,
+          unlock: true,
+          timeout: 3600,
+          lock_when_sleeps: false
+      )
+    end
+
+    app_store_connect_api_key(
+      key_id: lane[:keyId],
+      issuer_id: lane[:issuerId],
+      key_content: lane[:keyContent],
+      in_house: false
+    )
+
+    match(
+      git_basic_authorization: lane[:githubToken],
+      keychain_name:  is_ci? ? "deploy_keychain" : nil,
+      keychain_password: is_ci? ? "meow" : nil,
+      readonly: false
+    )
+  end
+
+  ############################################################
+  desc "Increment version and build numbers"
+  private_lane :increment_version do |lane|
+    increment_version_number(
+      version_number: lane[:version],
+      xcodeproj: "SDKDemoApp.xcodeproj"
+    )
+
+    increment_build_number(
+      build_number: lane[:buildNumber],
+      xcodeproj: "SDKDemoApp.xcodeproj"
+    )
+  end
+
+  ############################################################
+  desc "Send message to Slack"
+  private_lane :sendMessage do |lane|
+    if !is_ci?
+      next
+    end
+    
+    slack(
+      message: lane[:message]
+    )
+  end
+
+end
