@@ -23,15 +23,15 @@ final class ContentDetailTableViewControllerPresenter {
     private weak var viewController: ContentDetailTableViewControllerInput?
     private var observationRetainers: [STObservable.Cancellable?] = []
     
-    private lazy var stContent: STContents? = {
+    private lazy var contentsFeature: STContents? = {
         return try? STContents.getInstance()
     }()
 
-    private lazy var stPlayer: STPlayer? = {
+    private lazy var player: STPlayer? = {
         return try? STPlayer.getInstance()
     }()
     
-    private lazy var stOffline: STOffline? = {
+    private lazy var offline: STOffline? = {
         return try? STOffline.getInstance()
     }()
     
@@ -62,7 +62,7 @@ final class ContentDetailTableViewControllerPresenter {
     }
     
     private func retrieveContent(by key: String) {
-        self.stContent?.getContent(by: key, completion: { [weak self] result in
+        self.contentsFeature?.getContent(by: key, completion: { [weak self] result in
             switch result {
             case .success(let content):
                 self?.content = content
@@ -137,7 +137,7 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
     }
     
     func loadOfflineTracks() {
-        self.offlineTracks = self.stOffline?.tracks
+        self.offlineTracks = self.offline?.tracks
     }
     
     func loadFavoritesTracks() {
@@ -150,7 +150,7 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
         guard let content = self.content else {
             return
         }
-        self.stPlayer?.play(playlist: STPlaylist(content: content), at: index)
+        self.player?.play(playlist: STPlaylist(content: content), at: index)
         self.viewController?.displayMiniPlayer()
     }
     
@@ -160,12 +160,12 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
             tracks.count > trackIndex else { return }
         
         let track = tracks[trackIndex]
-        if self.stOffline?.tracks.contains(where: { item -> Bool in
+        if self.offline?.tracks.contains(where: { item -> Bool in
             item.audioItem.key == track.key
         }) ?? false {
-            try? self.stOffline?.remove(track: track)
+            try? self.offline?.remove(track: track)
         } else {
-            self.stOffline?.add(track: track) { result in
+            self.offline?.add(track: track) { result in
                 switch result {
                 case .success():
                     break
@@ -199,10 +199,10 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
 }
 
 extension ContentDetailTableViewControllerPresenter: STOfflineObserver {
-    func offlineContentsDidChange(to value: [STContentLightOfflineItem]) {}
+    func offlineContentItemDidChange(_ item: STContentLightOfflineItem) {}
     
-    func offlineTracksDidChange(to value: [STTrackOfflineItem]) {
-        self.offlineTracks = value
+    func offlineTrackItemDidChange(_ item: STTrackOfflineItem) {
+        self.offlineTracks = self.offline?.tracks
     }
 }
 

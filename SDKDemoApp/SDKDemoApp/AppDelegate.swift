@@ -25,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         STPlayer.shared?.setConfiguration(
             .init(
                 isContentCellVisible: true,
-                onContentCellClick: { _ in
-                    STExpand.shared?.dismiss(completion: nil )
-                },
                 preferredAudioQuality: .hd
             )
         )
