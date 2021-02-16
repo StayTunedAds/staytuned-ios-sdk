@@ -1,0 +1,22 @@
+name: Deploy on TestFlight
+on:
+  push:
+    tags: 
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | egrep -o '[0-9]+.[0-9]+.[0-9]+')
+    - name: Deploy App
+      env:
+        STAYTUNED_API_KEY_P8: ${{ secrets.STAYTUNED_API_KEY_P8 }}
+        STAYTUNED_API_KEY_ISSUER_ID: ${{ secrets.STAYTUNED_API_KEY_ISSUER_ID }}
+        STAYTUNED_API_KEY_ID: ${{ secrets.STAYTUNED_API_KEY_ID }}
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+      run:
+        cd SDKDemoApp/ && fastlane ios beta version:${{ steps.get_version.outputs.VERSION }} build:1 --verbose

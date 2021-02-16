@@ -1,0 +1,5 @@
+git_url("https://github.com/StayTunedAds/staytuned-mobile-certificates.git")
+storage_mode("git")
+type("appstore")
+username("admin@staytuned.io")
+git_branch("master")
