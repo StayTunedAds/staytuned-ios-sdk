@@ -1,0 +1,1213 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StayTunedSDK
+import AVKit
+import CoreData
+import Foundation
+import GoogleInteractiveMediaAds
+import MediaPlayer
+import MobileCoreServices
+import Swift
+import SystemConfiguration
+import UIKit
+public struct STContentLightOfflineItem {
+  public let audioItem: STContentLight
+  public var state: STOfflineState
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol STObservableProtocol {
+  associatedtype Observer
+  func add(observer: Self.Observer)
+  func remove(observer: Self.Observer)
+}
+@_hasMissingDesignatedInitializers final public class STLocalLists : STFeature {
+  public static func getInstance() throws -> STLocalLists
+  final public func getLists(completion: @escaping (Swift.Result<[STListProtocol], Swift.Error>) -> Swift.Void)
+  final public func create<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func createOrGet<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func update<Item>(_ list: STList<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func delete(listId: Swift.Int, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func updateItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func addItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func deleteItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Int?, Swift.Error>) -> Swift.Void)
+  final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+public typealias STTrackList = STList<STTrack>
+public typealias STContentList = STList<STContentLight>
+public typealias STTrackListItem = STListItem<STTrack>
+public typealias STContentListItem = STListItem<STContentLight>
+public enum STError : Swift.Error {
+  case notInitException
+  case alreadyInitException
+  case featureNotAvailable
+  case missingRefreshTokenInKeychain
+  case missingAnonymousCredentialsInKeychain
+  case unknowned
+  public static func == (a: STError, b: STError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc open class STPodcastPage : UIKit.UITableViewController {
+  required public init(content: STContent)
+  required public init(contentLight: STContentLight)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc deinit
+  @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension STPodcastPage : STPageServerContentProtocol {
+}
+public protocol STPlayerObserver : AnyObject {
+  func playerCurrentTrackDidChange(to track: STTrack)
+  func playerCurrentTrackAudioQualityDidChange(to value: STAudioQuality)
+  func playerCurrentContentDidChange(to content: STContent)
+  func playerStateDidChange(to value: STPlayerState)
+  func playerCurrentTimeDidChange(to value: Swift.Double)
+  func playerWillSeek(from beginTime: Swift.Double?)
+  func playerDidSeek(to endTime: Swift.Double)
+  func playerRateDidChange(to value: Swift.Float)
+  func playerTimerDidChange(to value: Foundation.TimeInterval?)
+  func playerTrackDidEnd(_ track: STTrack)
+  func playerFailed(for track: STTrack)
+}
+extension String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue: Swift.Int)
+}
+public class STWeakRef {
+  weak public var value: Swift.AnyObject? {
+    get
+  }
+  public init(value: Swift.AnyObject?)
+  @objc deinit
+}
+final public class STPlaylist {
+  final public var tracks: [STTrack]
+  final public var hasNext: Swift.Bool {
+    get
+  }
+  final public var hasPrevious: Swift.Bool {
+    get
+  }
+  public init(tracks: [STTrack])
+  convenience public init(content: STContent)
+  @discardableResult
+  final public func next() -> STTrack?
+  @discardableResult
+  final public func previous() -> STTrack?
+  @objc deinit
+  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: Swift.Encoder) throws
+}
+public struct STContentsConfiguration {
+  public var cachingOptions: STContentCachingOptions
+  public var getContentByKey: ((Swift.String, @escaping (STContent?) -> Swift.Void) -> Swift.Void)?
+  public init(cachingOptions: STContentCachingOptions = .init(), getContentByKey: ((Swift.String, @escaping (STContent?) -> Swift.Void) -> Swift.Void)? = nil)
+}
+public struct STContentCachingOptions {
+  public var enabledContentCaching: Swift.Bool
+  public var maxCachedContent: Swift.Int
+  public init(enabledContentCaching: Swift.Bool = false, maxCachedContent: Swift.Int = 0)
+}
+public enum STPodcastDescriptionIdentityModels {
+  public struct Style {
+  }
+  public struct ContentData {
+  }
+}
+public protocol STAudioItemInterface : Swift.Equatable {
+  var key: Swift.String { get }
+}
+extension STAudioItemInterface {
+  public static func == (lhs: Self, rhs: Self) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers final public class STContents : STFeature {
+  public static func getInstance() throws -> STContents
+  @objc deinit
+}
+extension STContents {
+  final public func setConfiguration(_ configuration: STContentsConfiguration)
+  final public func getContent(by key: Swift.String, completion: @escaping (Swift.Result<STContent, Swift.Error>) -> Swift.Void)
+  final public func getContents(completion: @escaping (Swift.Result<[STContentLight], Swift.Error>) -> Swift.Void)
+}
+public enum STAudioQuality {
+  case normal
+  case hd
+  public static func == (a: STAudioQuality, b: STAudioQuality) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct STContent {
+  public let key: Swift.String
+  public let type: STContentModelType?
+  public let title: Swift.String
+  public let ean: Swift.String?
+  public let imgSrc: Swift.String?
+  public let portraitImgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let narrator: Swift.String?
+  public let author: Swift.String?
+  public let authorBibliographicalNote: Swift.String?
+  public let publishingHouse: Swift.String?
+  public let imprintName: Swift.String?
+  public let advertiser: Swift.String?
+  public let language: Swift.String?
+  public let descriptionText: Swift.String?
+  public let mediaType: STContentMediaType?
+  public let diffusionMode: STContentDiffusionMode?
+  public let disponibilityStatus: STContentDisponibilityStatus?
+  public let complete: Swift.Bool?
+  #warning("TODO: documentation")
+  public let isExplicitContent: Swift.Bool?
+  #warning("TODO: documentation, add usage example")
+  public let categories: Swift.String?
+  public let copyright: Swift.String?
+  public let websiteUrl: Swift.String?
+  public let rssFeedUrl: Swift.String?
+  public let vastUrl: Swift.String?
+  public let pdfUrl: Swift.String?
+  public let publicationDate: Foundation.Date?
+  public let overallDuration: Swift.Int?
+  public let elementList: [STTrack]?
+  public init(key: Swift.String, type: STContentModelType? = nil, title: Swift.String, ean: Swift.String? = nil, imgSrc: Swift.String? = nil, portraitImgSrc: Swift.String? = nil, landscapeImgSrc: Swift.String? = nil, narrator: Swift.String? = nil, author: Swift.String? = nil, authorBibliographicalNote: Swift.String? = nil, publishingHouse: Swift.String? = nil, imprintName: Swift.String? = nil, advertiser: Swift.String? = nil, language: Swift.String? = nil, descriptionText: Swift.String? = nil, mediaType: STContentMediaType? = nil, diffusionMode: STContentDiffusionMode? = nil, disponibilityStatus: STContentDisponibilityStatus? = nil, complete: Swift.Bool? = nil, isExplicitContent: Swift.Bool? = nil, categories: Swift.String? = nil, copyright: Swift.String? = nil, websiteUrl: Swift.String? = nil, rssFeedUrl: Swift.String? = nil, vastUrl: Swift.String? = nil, pdfUrl: Swift.String? = nil, publicationDate: Foundation.Date? = nil, overallDuration: Swift.Int? = nil, elementList: [STTrack]? = nil)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension STContent {
+  public var contentLight: STContentLight {
+    get
+  }
+  public var offlineStatus: STOfflineState {
+    get
+  }
+}
+extension STContent : Swift.Hashable {
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol STFeature {
+  static func getInstance() throws -> Self
+  static var shared: Self? { get }
+}
+extension STFeature {
+  public static var shared: Self? {
+    get
+  }
+}
+public typealias STInternalEventsProtocols = STInternalDownloadEventsProtocol & STInternalPlayerEventsProtocol
+public class STInternalEvents {
+  public init(with manager: STInternalEventsProtocols? = nil)
+  @objc deinit
+}
+open class STInternalEventsDefaultDelegate : STInternalEventsProtocols {
+  public init()
+  open func downlaodShouldStart(for track: STTrack) -> Swift.Bool
+  open func downloadWillStart(for track: STTrack)
+  open func downloadDidFinish(for track: STTrack)
+  open func playerWillStart(for track: STTrack)
+  open func playerDidFinish(for track: STTrack)
+  open func didFailedToloadItem(for itemUrl: Swift.String, error: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class STExpand : STFeature {
+  public static func getInstance() throws -> STExpand
+  final public var configuration: STExpandConfiguration {
+    get
+    set
+  }
+  final public func present(from presenter: UIKit.UIViewController)
+  final public func dismiss(completion: (() -> Swift.Void)?)
+  @objc deinit
+}
+public struct STUIOptions {
+  public enum UserInterfaceStyle {
+    case app
+    case light
+    case dark
+    public static func == (a: STUIOptions.UserInterfaceStyle, b: STUIOptions.UserInterfaceStyle) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public let brandColor: UIKit.UIColor
+  public let interfaceStyle: STUIOptions.UserInterfaceStyle
+  public init(brandColor: UIKit.UIColor = UIColor.systemPink, interfaceStyle: STUIOptions.UserInterfaceStyle = .app)
+}
+#warning("TODO: STTrackingNavigationAdapter")
+@_hasMissingDesignatedInitializers final public class STWishes : STFeature {
+  public static func getInstance() throws -> STWishes
+  final public var contents: [STContentWish] {
+    get
+  }
+  final public var tracks: [STTrackWish] {
+    get
+  }
+  final public func getWishes(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  final public func add<Item>(wish: STWish<Item>, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  final public func delete<Item>(wish: STWish<Item>, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @objc deinit
+}
+extension STWishes : STObservableProtocol {
+  final public func add(observer: STWishesObserver)
+  final public func remove(observer: STWishesObserver)
+  public typealias Observer = STWishesObserver
+}
+public protocol STWishesObserver : AnyObject {
+  func didGetWishes()
+  func contentsDidChange(to value: [STContentWish])
+  func tracksDidChange(to value: [STTrackWish])
+}
+public enum STListType {
+  case bookmark, playlist, favorite, queue, custom(Swift.String)
+}
+extension STListType : Swift.Equatable {
+  public static func == (lhs: STListType, rhs: STListType) -> Swift.Bool
+}
+public enum STListLinkedContentType : Swift.String {
+  case content
+  case track
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol STListProtocol {
+  var id: Swift.Int? { get }
+  var name: Swift.String? { get set }
+  var type: STListType? { get set }
+  var imgSrc: Swift.String? { get set }
+  var linkedContentType: STListLinkedContentType? { get }
+  var numberOfItems: Swift.Int? { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
+  func delete(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func getItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func update(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  func syncItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+}
+public struct STList<Item> : STListProtocol {
+  public var isLocal: Swift.Bool {
+    get
+  }
+  public var id: Swift.Int? {
+    get
+  }
+  public var name: Swift.String? {
+    get
+    set
+  }
+  public var type: STListType? {
+    get
+    set
+  }
+  public var imgSrc: Swift.String? {
+    get
+    set
+  }
+  public var linkedContentType: STListLinkedContentType? {
+    get
+  }
+  public var numberOfItems: Swift.Int? {
+    get
+  }
+  public var items: [STListItem<Item>] {
+    get
+    set
+  }
+  public var createdAt: Foundation.Date? {
+    get
+  }
+  public var updatedAt: Foundation.Date? {
+    get
+  }
+  public init(name: Swift.String, type: STListType)
+}
+extension STList {
+  public func delete(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func getItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func update(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func updateItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func updateItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func addItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func addItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func deleteItems(_ items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func deleteItem(_ item: STListItem<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  public func syncItems(completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+}
+extension STList : STObservableProtocol {
+  public func add(observer: STListObserver)
+  public func remove(observer: STListObserver)
+  public typealias Observer = STListObserver
+}
+public protocol STListObserver : AnyObject {
+  func itemsDidChange<Item>(to value: [STListItem<Item>])
+}
+public enum STAPIDownloadError : Swift.Error {
+  case responseDataMissing
+  case responseFailed
+  case requestMissing
+  case requestMissingPath
+  case requestMissingURL
+  public static func == (a: STAPIDownloadError, b: STAPIDownloadError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct STFloatingChipConfiguration {
+  public enum Size : CoreGraphics.CGFloat {
+    case small
+    case medium
+    case large
+    public typealias RawValue = CoreGraphics.CGFloat
+    public var rawValue: CoreGraphics.CGFloat {
+      get
+    }
+    public init?(rawValue: CoreGraphics.CGFloat)
+  }
+  public enum Position {
+    case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+    case bottomLeft(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
+  }
+  public let size: STFloatingChipConfiguration.Size
+  public let position: STFloatingChipConfiguration.Position
+  public let animate: Swift.Bool
+  public init(size: STFloatingChipConfiguration.Size = .medium, position: STFloatingChipConfiguration.Position = .bottomRight(horizontalMargin: 10, verticalMargin: 10), animate: Swift.Bool = true)
+}
+@_hasMissingDesignatedInitializers final public class STFloatingChip : STFeature {
+  public static func getInstance() throws -> STFloatingChip
+  @discardableResult
+  final public func display(in viewController: UIKit.UIViewController, with configuration: STFloatingChipConfiguration) -> UIKit.UIView
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class STSections : STFeature {
+  public static func getInstance() throws -> STSections
+  @objc deinit
+}
+extension STSections {
+  final public func getSections(completion: @escaping (Swift.Result<[STSection], Swift.Error>) -> Swift.Void)
+  final public func getSection(by id: Swift.Int, completion: @escaping (Swift.Result<STSection, Swift.Error>) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers final public class STTracking : STFeature {
+  public static func getInstance() throws -> STTracking
+  @objc deinit
+}
+extension STTracking {
+  final public func inject(adapters: [STTrackingAdapter])
+}
+public struct STTrackHistoryItem {
+  public let audioItem: STTrack
+  public var time: Swift.Double
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date
+}
+extension STTrackHistoryItem {
+  public static func updateOrder(lhs: STTrackHistoryItem, rhs: STTrackHistoryItem) -> Swift.Bool
+}
+extension STTrackHistoryItem : Swift.Equatable {
+  public static func == (a: STTrackHistoryItem, b: STTrackHistoryItem) -> Swift.Bool
+}
+public struct STContentHistoryItem {
+  public let audioItem: STContent
+  public var time: Swift.Double
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date
+}
+extension STContentHistoryItem {
+  public static func updateOrder(lhs: STContentHistoryItem, rhs: STContentHistoryItem) -> Swift.Bool
+}
+public struct STOptions {
+  public let uiOptions: STUIOptions
+  public let trackPlayUrlExtra: Swift.String
+  public let trackDownloadUrlExtra: Swift.String
+  public let requestHeaders: [Swift.String : Swift.String]
+  public init(uiOptions: STUIOptions = STUIOptions(), trackPlayUrlExtra: Swift.String = "", trackDownloadUrlExtra: Swift.String = "", requestHeaders: [Swift.String : Swift.String] = [:])
+}
+@_hasMissingDesignatedInitializers final public class STWallets : STFeature {
+  public static func getInstance() throws -> STWallets
+  final public var wallets: [STWallet] {
+    get
+  }
+  final public func getWallets(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @objc deinit
+}
+extension STWallets : STObservableProtocol {
+  final public func add(observer: STWalletsObserver)
+  final public func remove(observer: STWalletsObserver)
+  public typealias Observer = STWalletsObserver
+}
+public protocol STWalletsObserver : AnyObject {
+  func walletsDidChange(to value: [STWallet])
+}
+public protocol STWishProtocol {
+  var id: Swift.Int? { get }
+  var key: Swift.String { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
+}
+public struct STWish<Item> {
+  public var id: Swift.Int?
+  public var key: Swift.String
+  public var item: Item?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+}
+extension STWish : STWishProtocol {
+}
+extension STWish {
+  public static func updateOrder(lhs: STWish<Item>, rhs: STWish<Item>) -> Swift.Bool
+}
+extension STWish where Item == STTrack {
+  public init(track: STTrack)
+}
+extension STWish where Item == STContentLight {
+  public init(content: STContentLight)
+}
+public typealias STTrackWish = STWish<STTrack>
+public typealias STContentWish = STWish<STContentLight>
+@_hasMissingDesignatedInitializers final public class STOffline : STFeature {
+  public static func getInstance() throws -> STOffline
+  final public func remove(content: STContent) throws
+  final public func add(content: STContent) throws
+  final public func cancel(content: STContent) throws
+  final public var tracks: [STTrackOfflineItem] {
+    get
+  }
+  final public func add(track: STTrack, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil)
+  final public func remove(track: STTrack) throws
+  final public func cancel(track: STTrack) throws
+  @objc deinit
+}
+extension STOffline : STObservableProtocol {
+  final public func add(observer: STOfflineObserver)
+  final public func remove(observer: STOfflineObserver)
+  public typealias Observer = STOfflineObserver
+}
+public protocol STOfflineObserver : AnyObject {
+  func offlineContentItemDidChange(_ item: STContentLightOfflineItem)
+  func offlineTrackItemDidChange(_ item: STTrackOfflineItem)
+}
+public enum STOfflineError : Swift.Error {
+  case lowMemory
+  public static func == (a: STOfflineError, b: STOfflineError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers final public class STTransactions : STFeature {
+  public static func getInstance() throws -> STTransactions
+  final public var contents: [STContentTransaction] {
+    get
+  }
+  final public var tracks: [STTrackTransaction] {
+    get
+  }
+  final public func getTransactions(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  final public func create<Item>(transaction: STTransaction<Item>, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @objc deinit
+}
+extension STTransactions : STObservableProtocol {
+  final public func add(observer: STTransactionsObserver)
+  final public func remove(observer: STTransactionsObserver)
+  public typealias Observer = STTransactionsObserver
+}
+public protocol STTransactionsObserver : AnyObject {
+  func contentsDidChange(to value: [STContentTransaction])
+  func tracksDidChange(to value: [STTrackTransaction])
+}
+@objc open class STPlayerPage : UIKit.UITableViewController {
+  @objc required dynamic public init()
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc override dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc deinit
+  @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public protocol STPlayerPageProtocol {
+  init()
+}
+extension STPlayerPage : STPlayerPageProtocol {
+}
+extension STPlayerPage : STClassServerCompliant {
+  public typealias Constraint = STPlayerPageProtocol
+}
+public enum STAPIDecodableError : Swift.Error {
+  case emptyDataResponse
+  case nilHTTPResponse
+  case unsuccessfulHTTPStatusCode
+  case jsonDecoding(Swift.DecodingError)
+  case generalError(Swift.Error)
+}
+public protocol STInternalDownloadEventsProtocol : AnyObject {
+  func downlaodShouldStart(for track: STTrack) -> Swift.Bool
+  func downloadWillStart(for track: STTrack)
+  func downloadDidFinish(for track: STTrack)
+}
+@_hasMissingDesignatedInitializers final public class STAppUser : STFeature {
+  public static func getInstance() throws -> STAppUser
+  final public var user: STUser? {
+    get
+  }
+  final public func getUser(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  final public func updateUser(_ user: STUser, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @objc deinit
+}
+final public class StayTunedSDK {
+  @discardableResult
+  public init(appId: Swift.String, authToken: Swift.String, options: STOptions = STOptions()) throws
+  public static func getInstance() throws -> StayTunedSDK
+  final public func reset()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class STHistory : STFeature {
+  public static func getInstance() throws -> STHistory
+  final public var contents: [STContentHistoryItem] {
+    get
+  }
+  final public var tracks: [STTrackHistoryItem] {
+    get
+  }
+  @objc deinit
+}
+public protocol STHistoryObserver : AnyObject {
+  func historyDidSync()
+  func historyContentItemDidChange(_ item: STContentHistoryItem)
+  func historyTrackItemDidChange(_ item: STTrackHistoryItem)
+}
+extension STHistory : STObservableProtocol {
+  final public func add(observer: STHistoryObserver)
+  final public func remove(observer: STHistoryObserver)
+  public typealias Observer = STHistoryObserver
+}
+public protocol STTrackingAdapter {
+}
+public protocol STTrackingPlayerAdapter : STTrackingAdapter {
+  func trackDidStart(track: STTrack)
+  func positionDidChange(position: Swift.Double)
+  func durationDidChange(duration: Foundation.TimeInterval)
+  func percentilePlayed(percentile: Swift.Int)
+}
+@_hasMissingDesignatedInitializers final public class STMiniPlayer : STFeature {
+  public static func getInstance() throws -> STMiniPlayer
+  final public var isDisplayed: Swift.Bool {
+    get
+  }
+  final public func set(in viewController: UIKit.UIViewController)
+  final public func display(_ visible: Swift.Bool)
+  @objc deinit
+}
+public struct STAdsConfiguration {
+  public var getVastUrl: (STContent, STTrack, @escaping (Swift.String?) -> Swift.Void) -> Swift.Void
+  public init(getVastUrl: @escaping ((STContent, STTrack, @escaping (Swift.String?) -> Swift.Void) -> Swift.Void) = { content, _, completion  in
+        completion(content.vastUrl)
+    })
+}
+public protocol STUIFeatureInterface {
+  func launchUI()
+}
+@_hasMissingDesignatedInitializers final public class STLists : STFeature {
+  public static func getInstance() throws -> STLists
+  final public func getLists(completion: @escaping (Swift.Result<[STListProtocol], Swift.Error>) -> Swift.Void)
+  final public func create<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func createOrGet<Item>(name: Swift.String, type: STListType, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func getList<Item>(by id: Swift.Int, completion: @escaping (Swift.Result<STList<Item>, Swift.Error>) -> Swift.Void)
+  final public func update<Item>(_ list: STList<Item>, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func delete(listId: Swift.Int, completion: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public func updateItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func addItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  final public func deleteItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<Swift.Int?, Swift.Error>) -> Swift.Void)
+  final public func syncItems<Item>(listId: Swift.Int, items: [STListItem<Item>], completion: @escaping (Swift.Result<[STListItem<Item>], Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+public enum STPlayerState {
+  case playing
+  case paused
+  case loading
+  case playingAds
+  case pauseAds
+  public static func == (a: STPlayerState, b: STPlayerState) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct STPlayerConfiguration {
+  public var isContentCellVisible: Swift.Bool
+  public var onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)?
+  public var preferredAudioQuality: STAudioQuality
+  public var shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)?
+  public init(isContentCellVisible: Swift.Bool = false, onContentCellClick: ((UIKit.UINavigationController) -> Swift.Void)? = nil, preferredAudioQuality: STAudioQuality = .normal, shouldResumeTrackFromHistory: ((STTrack, STTrackHistoryItem, ((Swift.Bool) -> Swift.Void)) -> Swift.Void)? = nil)
+}
+public struct STTrack {
+  public let key: Swift.String
+  public let contentKey: Swift.String
+  public let contentTitle: Swift.String?
+  public let type: STTrackModelType?
+  public let title: Swift.String
+  public let subtitle: Swift.String?
+  public let episode: Swift.Int?
+  public let season: Swift.Int?
+  public let elementNumber: Swift.Int?
+  public let chapter: Swift.Int?
+  public let chapterPart: Swift.Int?
+  public let websiteUrl: Swift.String?
+  public let typeOfElement: STTrackTypeOfElement?
+  public let publicationDate: Foundation.Date?
+  public let highlighted: Swift.Bool?
+  public let descriptionText: Swift.String?
+  public var imgSrc: Swift.String?
+  public let audioSrc: Swift.String?
+  public let audioSrcWeight: Swift.Int?
+  public let hdAudioSrc: Swift.String?
+  public let hdAudioSrcWeight: Swift.Int?
+  public let audioDuration: Swift.Int?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+  public init(key: Swift.String, contentKey: Swift.String, contentTitle: Swift.String?, type: STTrackModelType?, title: Swift.String, subtitle: Swift.String?, episode: Swift.Int?, season: Swift.Int?, elementNumber: Swift.Int?, chapter: Swift.Int?, chapterPart: Swift.Int?, websiteUrl: Swift.String?, typeOfElement: STTrackTypeOfElement?, publicationDate: Foundation.Date?, highlighted: Swift.Bool?, descriptionText: Swift.String?, imgSrc: Swift.String?, audioSrc: Swift.String?, audioSrcWeight: Swift.Int?, hdAudioSrc: Swift.String?, hdAudioSrcWeight: Swift.Int?, audioDuration: Swift.Int?, createdAt: Foundation.Date?, updatedAt: Foundation.Date?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension STTrack {
+  public var offlineStatus: STOfflineState {
+    get
+  }
+  public var history: Swift.Double? {
+    get
+  }
+}
+extension STTrack : Swift.Hashable {
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum STAPIResponseError : Swift.Error {
+  case error(Swift.Int, Foundation.Data?, Swift.Error)
+}
+public enum STOfflineState : Swift.Equatable, Swift.Codable {
+  case notDownloaded
+  case queued
+  case downloading(Swift.Float?)
+  case downloaded
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (a: STOfflineState, b: STOfflineState) -> Swift.Bool
+}
+public protocol STClassServerCompliant {
+  associatedtype Constraint
+  static var FromClassServer: Any.Type? { get }
+}
+extension STClassServerCompliant where Self : AnyObject {
+  public static var FromClassServer: Any.Type? {
+    get
+  }
+}
+open class STClassServer {
+  public init()
+  open func classFor<ClassType>(_ type: ClassType.Type) -> Any.Type?
+  @objc deinit
+}
+public struct STAVPlayerSource {
+  public let url: Foundation.URL
+  public var audioQuality: STAudioQuality {
+    get
+  }
+  public init(track: STTrack, preferredQuality: STAudioQuality, appendURL queryItems: Swift.String = "") throws
+}
+@_hasMissingDesignatedInitializers final public class STPlayer {
+  final public var currentList: STPlaylist? {
+    get
+  }
+  @Observable @_projectedValueProperty($currentTrack) final public var currentTrack: STTrack? {
+    get
+  }
+  final public var $currentTrack: Observable<STTrack?> {
+    get
+  }
+  final public var currentTrackAudioQuality: STAudioQuality? {
+    get
+  }
+  @Observable @_projectedValueProperty($currentContent) final public var currentContent: STContent? {
+    get
+  }
+  final public var $currentContent: Observable<STContent?> {
+    get
+  }
+  @Observable @_projectedValueProperty($currentTime) final public var currentTime: Swift.Double? {
+    get
+  }
+  final public var $currentTime: Observable<Swift.Double?> {
+    get
+  }
+  final public var currentState: STPlayerState {
+    get
+  }
+  @Observable @_projectedValueProperty($rate) final public var rate: Swift.Float {
+    get
+  }
+  final public var $rate: Observable<Swift.Float> {
+    get
+  }
+  final public var configuration: STPlayerConfiguration {
+    get
+  }
+  final public var timerRemainingDuration: Foundation.TimeInterval? {
+    get
+  }
+  @objc deinit
+}
+extension STPlayer {
+  final public func resume()
+}
+extension STPlayer {
+  final public func add(observer: STPlayerObserver)
+  final public func remove(observer: STPlayerObserver)
+}
+public struct STWallet {
+  public let paymentType: Swift.String?
+  public let amount: Swift.Float?
+  public let currency: Swift.String?
+  public let lastSupplyAmount: Swift.Float?
+  public let lastSupplyDate: Foundation.Date?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+}
+public enum STTrackModelType : Swift.String, Swift.Codable {
+  case track
+  case livetrack
+  case chapter
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STTrackTypeOfElement : Swift.String, Swift.Codable {
+  case full
+  case trailer
+  case bonus
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension STPlayer {
+  public static func getInstance() throws -> STPlayer
+  final public func setConfiguration(_ configuration: STPlayerConfiguration)
+  final public func setPreferredAudioQuality(_ preferredAudioQuality: STAudioQuality)
+  final public func play(playlist: STPlaylist, at index: Swift.Int)
+  final public func stop()
+  final public func next()
+  final public func prev()
+  final public func seekTo(time: Swift.Double)
+  final public func fastForward()
+  final public func rewind()
+  final public func setStopTimer(time: Swift.Double)
+  final public func setStopAtEndOfTrack()
+  final public func removeStopTimer()
+  final public func getAudioDuration() -> Swift.Double?
+  final public func getAudioCurrentTime() -> Swift.Double?
+  final public func isPlaying() -> Swift.Bool
+  final public func isPaused() -> Swift.Bool
+  final public func isLoading() -> Swift.Bool
+}
+extension STPlayer {
+  @available(*, deprecated, message: "Use STExpand feature instead")
+  final public func openExpand(presenter viewController: UIKit.UIViewController)
+  @available(*, deprecated, message: "Use STFloatingChip feature instead")
+  @discardableResult
+  final public func displayChip(in controller: UIKit.UIViewController) -> UIKit.UIView
+  @available(*, deprecated, renamed: "STMiniPlayer.set(in:)", message: "This method will be removed")
+  final public func setMiniPlayer(in viewController: UIKit.UIViewController)
+  @available(*, deprecated, renamed: "STMiniPlayer.display(_:)", message: "This method will be removed")
+  final public func displayMiniPlayer(_ value: Swift.Bool)
+}
+public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
+  case content
+  case element
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STSectionType : Swift.String, Swift.Codable {
+  case `default`
+  case new
+  case trailer
+  case highlight
+  case category
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct STUser {
+  public var appuserKey: Swift.String?
+  public var email: Swift.String?
+  public var firstName: Swift.String?
+  public var lastName: Swift.String?
+  public var emailSubscription: Swift.Bool?
+  public var partnerJsonObject: Swift.String?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+  public init()
+}
+public protocol STTransactionProtocol {
+  var key: Swift.String? { get }
+  var paymentType: Swift.String? { get }
+  var amount: Swift.Float? { get }
+  var taxPercent: Swift.Float? { get }
+  var currency: Swift.String? { get }
+  var createdAt: Foundation.Date? { get }
+  var updatedAt: Foundation.Date? { get }
+}
+public struct STTransaction<Item> {
+  public let key: Swift.String?
+  public let paymentType: Swift.String?
+  public let amount: Swift.Float?
+  public let taxPercent: Swift.Float?
+  public let currency: Swift.String?
+  public let item: Item?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+}
+extension STTransaction : STTransactionProtocol {
+}
+extension STTransaction {
+  public static func updateOrder(lhs: STTransaction<Item>, rhs: STTransaction<Item>) -> Swift.Bool
+}
+extension STTransaction where Item == STContentLight {
+  public init(content: STContentLight, paymentType: Swift.String)
+}
+extension STTransaction where Item == STTrack {
+  public init(track: STTrack, paymentType: Swift.String)
+}
+public typealias STContentTransaction = STTransaction<STContentLight>
+public typealias STTrackTransaction = STTransaction<STTrack>
+@_hasMissingDesignatedInitializers final public class STAds : STFeature {
+  public static func getInstance() throws -> STAds
+  @objc deinit
+}
+extension STAds {
+  final public var configuration: STAdsConfiguration {
+    get
+  }
+  final public func setConfiguration(_ configuration: STAdsConfiguration)
+}
+extension STAds : STObservableProtocol {
+  final public func add(observer: STAdsObserver)
+  final public func remove(observer: STAdsObserver)
+  public typealias Observer = STAdsObserver
+}
+public protocol STAdsObserver : AnyObject {
+  func stAdsDidStart()
+  func stAdsDidPaused()
+  func stAdsDidFinished()
+  func stAdsDidFailed()
+}
+public enum STContentModelType : Swift.String, Swift.Codable {
+  case podcast
+  case audiobook
+  case livestream
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum STContentMediaType : Swift.String, Swift.Codable {
+  case edito
+  case brand
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public enum STContentDiffusionMode : Swift.String, Swift.Codable {
+  case episodic
+  case serial
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
+  case forthcoming
+  case available
+  case stopped
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public struct STSection {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let type: STSectionType?
+  public let linkedContentType: STSectionLinkedContentType?
+  public let order: Swift.Int?
+  public let highlighted: Swift.Bool?
+  public let searchable: Swift.Bool?
+  public let grouped: Swift.Bool?
+  public let numberOfItems: Swift.Int?
+  public let imgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let hdImgSrc: Swift.String?
+  public let hdLandscapeImgSrc: Swift.String?
+  public let linkedContents: [STContentLight]?
+  public var linkedElements: [STTrack]?
+  public init(id: Swift.Int, name: Swift.String, type: STSectionType?, linkedContentType: STSectionLinkedContentType?, order: Swift.Int?, highlighted: Swift.Bool?, searchable: Swift.Bool?, grouped: Swift.Bool?, numberOfItems: Swift.Int?, imgSrc: Swift.String?, landscapeImgSrc: Swift.String?, hdImgSrc: Swift.String?, hdLandscapeImgSrc: Swift.String?, linkedContents: [STContentLight]?, linkedElements: [STTrack]?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension STSection : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: STSection, b: STSection) -> Swift.Bool
+}
+public struct STExpandConfiguration {
+  public var onContextButtonClick: ((UIKit.UIViewController) -> Swift.Void)?
+  public init(onContextButtonClick: ((UIKit.UIViewController) -> Swift.Void)? = nil)
+}
+@propertyWrapper public class Observable<Value> {
+  @available(*, deprecated, message: "Observation will be removed in 1.1.0. Please use delegate pattern.")
+  public var projectedValue: Observable<Value> {
+    get
+  }
+  @available(*, deprecated, message: "Observation will be removed in 1.1.0. Please use delegate pattern.")
+  public var wrappedValue: Value {
+    get
+    set
+  }
+  public init(wrappedValue: Value)
+  @objc deinit
+}
+extension Observable {
+  @discardableResult
+  @available(*, deprecated, message: "Observation will be removed in 1.1.0. Please use delegate pattern.")
+  public func observe(with closure: @escaping (Value) -> Swift.Void) -> STObservable.Cancellable
+}
+public enum STObservable {
+  @_hasMissingDesignatedInitializers final public class Cancellable {
+    @objc deinit
+    final public func cancel()
+  }
+}
+@_hasMissingDesignatedInitializers final public class STAuth : STFeature {
+  public enum Status {
+    case authenticating
+    case notAuthenticated
+    case authenticated
+    public static func == (a: STAuth.Status, b: STAuth.Status) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  final public var status: STAuth.Status {
+    get
+  }
+  public static func getInstance() throws -> STAuth
+  @objc deinit
+}
+extension STAuth {
+  final public func connect(partnerKey: Swift.String, partnerToken: Swift.String, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  final public func connectAnonymous(completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+}
+extension STAuth : STObservableProtocol {
+  final public func add(observer: STAuthObserver)
+  final public func remove(observer: STAuthObserver)
+  public typealias Observer = STAuthObserver
+}
+public protocol STAuthObserver : AnyObject {
+  @available(*, deprecated, message: "The method will be removed. Please use authStatusDidChange.")
+  func didConnect()
+  func authStatusDidChange(to status: STAuth.Status)
+}
+@objc open class STEpisodePage : UIKit.UITableViewController {
+  required public init(episode: STTrack)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc deinit
+  @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension STEpisodePage : STPageServerPageProtocol {
+}
+open class STPageServer {
+  public init()
+  open func trackPageType() -> STPageServerPageProtocol.Type
+  open func contentPageType() -> STPageServerContentProtocol.Type
+  open func libraryPageType() -> STPageServerLibraryProtocol.Type?
+  @objc deinit
+}
+public protocol STPageServerPageProtocol : UIKit.UIViewController {
+  init(episode: STTrack)
+}
+public protocol STPageServerContentProtocol : UIKit.UIViewController {
+  init(content: STContent)
+  init(contentLight: STContentLight)
+}
+public protocol STPageServerLibraryProtocol : UIKit.UIViewController {
+}
+public struct STContentLight {
+  public let key: Swift.String
+  public let type: STContentModelType?
+  public let title: Swift.String
+  public let ean: Swift.String?
+  public let imgSrc: Swift.String?
+  public let portraitImgSrc: Swift.String?
+  public let landscapeImgSrc: Swift.String?
+  public let narrator: Swift.String?
+  public let author: Swift.String?
+  public let publicationDate: Foundation.Date?
+  public let overallDuration: Swift.Int?
+  public init(key: Swift.String, type: STContentModelType, title: Swift.String, imgSrc: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension STContentLight : Swift.Hashable {
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct STTrackOfflineItem {
+  public let audioItem: STTrack
+  public var state: STOfflineState
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol STInternalPlayerEventsProtocol : AnyObject {
+  func playerWillStart(for track: STTrack)
+  func playerDidFinish(for track: STTrack)
+  func didFailedToloadItem(for itemUrl: Swift.String, error: Swift.String)
+}
+public struct STListItem<Item> {
+  public var id: Swift.Int?
+  public var key: Swift.String?
+  public var item: Item?
+  public var order: Swift.Int?
+  public var value: Swift.String?
+  public var createdAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+}
+extension STListItem : Swift.Equatable {
+  public static func == (lhs: STListItem<Item>, rhs: STListItem<Item>) -> Swift.Bool
+}
+extension STListItem {
+  public static func defaultOrder(lhs: STListItem<Item>, rhs: STListItem<Item>) -> Swift.Bool
+}
+extension STListItem where Item == STTrack {
+  public init(track: STTrack)
+}
+extension STListItem where Item == STContentLight {
+  public init(contentLight: STContentLight)
+}
+extension STContentLightOfflineItem : Swift.Encodable {}
+extension STContentLightOfflineItem : Swift.Decodable {}
+extension STContentLight : Swift.Encodable {}
+extension STContentLight : Swift.Decodable {}
+extension STContentLight : STAudioItemInterface {}
+extension STError : Swift.Equatable {}
+extension STError : Swift.Hashable {}
+extension STTrack : Swift.Encodable {}
+extension STTrack : Swift.Decodable {}
+extension STTrack : STAudioItemInterface {}
+extension STPlaylist : Swift.Encodable {}
+extension STPlaylist : Swift.Decodable {}
+extension STAudioQuality : Swift.Equatable {}
+extension STAudioQuality : Swift.Hashable {}
+extension STContent : Swift.Encodable {}
+extension STContent : Swift.Decodable {}
+extension STContent : STAudioItemInterface {}
+extension STUIOptions.UserInterfaceStyle : Swift.Equatable {}
+extension STUIOptions.UserInterfaceStyle : Swift.Hashable {}
+extension STListLinkedContentType : Swift.Equatable {}
+extension STListLinkedContentType : Swift.Hashable {}
+extension STListLinkedContentType : Swift.RawRepresentable {}
+extension STSection : Swift.Encodable {}
+extension STSection : Swift.Decodable {}
+extension STAPIDownloadError : Swift.Equatable {}
+extension STAPIDownloadError : Swift.Hashable {}
+extension STFloatingChipConfiguration.Size : Swift.Equatable {}
+extension STFloatingChipConfiguration.Size : Swift.Hashable {}
+extension STFloatingChipConfiguration.Size : Swift.RawRepresentable {}
+extension STTrackOfflineItem : Swift.Encodable {}
+extension STTrackOfflineItem : Swift.Decodable {}
+extension STOfflineError : Swift.Equatable {}
+extension STOfflineError : Swift.Hashable {}
+extension STPlayerState : Swift.Equatable {}
+extension STPlayerState : Swift.Hashable {}
+extension STPlayer : STFeature {}
+extension STTrackModelType : Swift.Equatable {}
+extension STTrackModelType : Swift.Hashable {}
+extension STTrackModelType : Swift.RawRepresentable {}
+extension STTrackTypeOfElement : Swift.Equatable {}
+extension STTrackTypeOfElement : Swift.Hashable {}
+extension STTrackTypeOfElement : Swift.RawRepresentable {}
+extension STSectionLinkedContentType : Swift.Equatable {}
+extension STSectionLinkedContentType : Swift.Hashable {}
+extension STSectionLinkedContentType : Swift.RawRepresentable {}
+extension STSectionType : Swift.Equatable {}
+extension STSectionType : Swift.Hashable {}
+extension STSectionType : Swift.RawRepresentable {}
+extension STContentModelType : Swift.Equatable {}
+extension STContentModelType : Swift.Hashable {}
+extension STContentModelType : Swift.RawRepresentable {}
+extension STContentMediaType : Swift.Equatable {}
+extension STContentMediaType : Swift.Hashable {}
+extension STContentMediaType : Swift.RawRepresentable {}
+extension STContentDiffusionMode : Swift.Equatable {}
+extension STContentDiffusionMode : Swift.Hashable {}
+extension STContentDiffusionMode : Swift.RawRepresentable {}
+extension STContentDisponibilityStatus : Swift.Equatable {}
+extension STContentDisponibilityStatus : Swift.Hashable {}
+extension STContentDisponibilityStatus : Swift.RawRepresentable {}
+extension STAuth.Status : Swift.Equatable {}
+extension STAuth.Status : Swift.Hashable {}
