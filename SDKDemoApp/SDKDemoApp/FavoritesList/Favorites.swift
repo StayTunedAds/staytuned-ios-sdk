@@ -26,7 +26,7 @@ class Favorites {
     }
 
     private func initialization() {
-        STLists.shared?.createOrGet(name: "DemoAppFavorites", type: .favorite, completion: { [weak self] (result: Result<STList<STTrack>, Error>) in
+        STLists.shared?.getOrCreate(name: "DemoAppFavorites", type: .favorite, completion: { [weak self] (result: Result<STList<STTrack>, Error>) in
             switch result {
             case .success(let list):
                 self?.list = list
