@@ -14,11 +14,10 @@ protocol ContentDetailTableViewControllerCoordinator {
     var lightContent: STContentLight! { get set }
 }
 
-protocol ContentDetailTableViewControllerInput: class {
+protocol ContentDetailTableViewControllerInput: AnyObject {
     func updateViewModel(_ viewModel: ContentDetailTableViewControllerViewModel.Content)
     func updateViewModel(_ viewModel: ContentDetailTableViewControllerViewModel.Offline)
     func updateViewModel(_ viewModel: ContentDetailTableViewControllerViewModel.Favorites)
-    func displayMiniPlayer()
 }
 
 final class ContentDetailTableViewController: UITableViewController, ContentDetailTableViewControllerCoordinator {
@@ -145,10 +144,6 @@ extension ContentDetailTableViewController: ContentDetailTableViewControllerInpu
     
     func updateViewModel(_ viewModel: ContentDetailTableViewControllerViewModel.Favorites) {
         self.favoritesModel = viewModel
-    }
-    
-    func displayMiniPlayer() {
-        STMiniPlayer.shared?.display(true)
     }
     
 }
