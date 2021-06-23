@@ -62,7 +62,7 @@ final class ContentDetailTableViewControllerPresenter {
     }
     
     private func retrieveContent(by key: String) {
-        self.contentsFeature?.getContent(by: key, completion: { [weak self] result in
+        self.contentsFeature?.get(by: key, completion: { [weak self] result in
             switch result {
             case .success(let content):
                 self?.content = content
@@ -151,7 +151,6 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
             return
         }
         self.player?.play(playlist: STPlaylist(content: content), at: index)
-        self.viewController?.displayMiniPlayer()
     }
     
     func toggleOffline(on trackIndex: Int) {

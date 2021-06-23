@@ -31,7 +31,7 @@ final class ContentsTableViewControllerPresenter {
     }
     
     private func retrieveContents() {
-        self.stContents?.getContents(completion: { [weak self] result in
+        self.stContents?.getAll(completion: { [weak self] result in
             switch result {
             case .success(let contents):
                 self?.contents = contents
