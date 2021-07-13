@@ -200,7 +200,7 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
 extension ContentDetailTableViewControllerPresenter: STOfflineObserver {
     func offlineContentItemDidChange(_ item: STContentLightOfflineItem) {}
     
-    func offlineTrackItemDidChange(_ item: STTrackOfflineItem) {
+    func offlineTrackItemsDidChange(_ items: [STTrackOfflineItem]) {
         self.offlineTracks = self.offline?.tracks
     }
 }
