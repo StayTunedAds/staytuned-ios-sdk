@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StayTunedSDK
 import AVKit
 import CoreData
@@ -71,10 +71,10 @@ public enum STError : Swift.Error {
   case missingAnonymousCredentialsInKeychain
   case unknowned
   public static func == (a: StayTunedSDK.STError, b: StayTunedSDK.STError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public protocol STPlayerObserver : AnyObject {
   func playerCurrentTrackDidChange(to track: StayTunedSDK.STTrack)
@@ -149,10 +149,10 @@ public enum STAudioQuality {
   case normal
   case hd
   public static func == (a: StayTunedSDK.STAudioQuality, b: StayTunedSDK.STAudioQuality) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public class STWeakRef {
   weak public var value: Swift.AnyObject? {
@@ -161,7 +161,8 @@ public class STWeakRef {
   public init(value: Swift.AnyObject?)
   @objc deinit
 }
-public struct STContent {
+public struct STContent : Swift.Hashable {
+  public static let EMPTY_PROPERTY: Swift.String
   public let key: Swift.String
   public let type: StayTunedSDK.STContentModelType?
   public let title: Swift.String
@@ -193,7 +194,13 @@ public struct STContent {
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
   public let elementList: [StayTunedSDK.STTrack]?
-  public init(key: Swift.String, type: StayTunedSDK.STContentModelType? = nil, title: Swift.String, ean: Swift.String? = nil, imgSrc: Swift.String? = nil, portraitImgSrc: Swift.String? = nil, landscapeImgSrc: Swift.String? = nil, narrator: Swift.String? = nil, author: Swift.String? = nil, authorBibliographicalNote: Swift.String? = nil, publishingHouse: Swift.String? = nil, imprintName: Swift.String? = nil, advertiser: Swift.String? = nil, language: Swift.String? = nil, descriptionText: Swift.String? = nil, mediaType: StayTunedSDK.STContentMediaType? = nil, diffusionMode: StayTunedSDK.STContentDiffusionMode? = nil, disponibilityStatus: StayTunedSDK.STContentDisponibilityStatus? = nil, complete: Swift.Bool? = nil, isExplicitContent: Swift.Bool? = nil, categories: Swift.String? = nil, copyright: Swift.String? = nil, websiteUrl: Swift.String? = nil, rssFeedUrl: Swift.String? = nil, vastUrl: Swift.String? = nil, pdfUrl: Swift.String? = nil, publicationDate: Foundation.Date? = nil, overallDuration: Swift.Int? = nil, elementList: [StayTunedSDK.STTrack]? = nil)
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+  public init(key: Swift.String, type: StayTunedSDK.STContentModelType? = nil, title: Swift.String, ean: Swift.String? = nil, imgSrc: Swift.String? = nil, portraitImgSrc: Swift.String? = nil, landscapeImgSrc: Swift.String? = nil, narrator: Swift.String? = nil, author: Swift.String? = nil, authorBibliographicalNote: Swift.String? = nil, publishingHouse: Swift.String? = nil, imprintName: Swift.String? = nil, advertiser: Swift.String? = nil, language: Swift.String? = nil, descriptionText: Swift.String? = nil, mediaType: StayTunedSDK.STContentMediaType? = nil, diffusionMode: StayTunedSDK.STContentDiffusionMode? = nil, disponibilityStatus: StayTunedSDK.STContentDisponibilityStatus? = nil, complete: Swift.Bool? = nil, isExplicitContent: Swift.Bool? = nil, categories: Swift.String? = nil, copyright: Swift.String? = nil, websiteUrl: Swift.String? = nil, rssFeedUrl: Swift.String? = nil, vastUrl: Swift.String? = nil, pdfUrl: Swift.String? = nil, publicationDate: Foundation.Date? = nil, overallDuration: Swift.Int? = nil, elementList: [StayTunedSDK.STTrack]? = nil, updatedAt: Foundation.Date? = nil, createdAt: Foundation.Date? = nil)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 extension STContent {
   public var contentLight: StayTunedSDK.STContentLight {
@@ -204,8 +211,8 @@ public enum STContentModelType : Swift.String, Swift.Codable {
   case podcast
   case audiobook
   case livestream
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -213,8 +220,8 @@ public enum STContentModelType : Swift.String, Swift.Codable {
 public enum STContentMediaType : Swift.String, Swift.Codable {
   case edito
   case brand
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -222,8 +229,8 @@ public enum STContentMediaType : Swift.String, Swift.Codable {
 public enum STContentDiffusionMode : Swift.String, Swift.Codable {
   case episodic
   case serial
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -232,20 +239,14 @@ public enum STContentDisponibilityStatus : Swift.String, Swift.Codable {
   case forthcoming
   case available
   case stopped
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
 extension STContent : Swift.Equatable {
   public static func == (lhs: StayTunedSDK.STContent, rhs: StayTunedSDK.STContent) -> Swift.Bool
-}
-extension STContent : Swift.Hashable {
-  public var hashValue: Swift.Int {
-    get
-  }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public protocol STFeature {
   static func getInstance() throws -> Self
@@ -291,10 +292,10 @@ public struct STUIOptions {
     case light
     case dark
     public static func == (a: StayTunedSDK.STUIOptions.UserInterfaceStyle, b: StayTunedSDK.STUIOptions.UserInterfaceStyle) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public let brandColor: UIKit.UIColor
   public let interfaceStyle: StayTunedSDK.STUIOptions.UserInterfaceStyle
@@ -329,8 +330,8 @@ extension STListType : Swift.Equatable {
 public enum STListLinkedContentType : Swift.String {
   case content
   case track
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -413,10 +414,10 @@ public enum STAPIDownloadError : Swift.Error {
   case requestMissingPath
   case requestMissingURL
   public static func == (a: StayTunedSDK.STAPIDownloadError, b: StayTunedSDK.STAPIDownloadError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @_hasMissingDesignatedInitializers final public class STTracks : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STTracks
@@ -430,11 +431,11 @@ public struct STFloatingChipConfiguration {
     case small
     case medium
     case large
+    public init?(rawValue: CoreGraphics.CGFloat)
     public typealias RawValue = CoreGraphics.CGFloat
     public var rawValue: CoreGraphics.CGFloat {
       get
     }
-    public init?(rawValue: CoreGraphics.CGFloat)
   }
   public enum Position {
     case bottomRight(horizontalMargin: CoreGraphics.CGFloat, verticalMargin: CoreGraphics.CGFloat)
@@ -562,8 +563,8 @@ public enum STContentTypeEnum : Swift.String, Swift.Codable {
   case podcast
   case livestream
   case audiobook
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -626,10 +627,10 @@ public protocol STOfflineObserver : AnyObject {
 public enum STOfflineError : Swift.Error {
   case lowMemory
   public static func == (a: StayTunedSDK.STOfflineError, b: StayTunedSDK.STOfflineError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @_hasMissingDesignatedInitializers final public class STTransactions : StayTunedSDK.STFeature {
   public static func getInstance() throws -> StayTunedSDK.STTransactions
@@ -663,8 +664,8 @@ public struct STTracksSearch {
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
-  @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 public enum STAPIDecodableError : Swift.Error {
   case emptyDataResponse
@@ -722,9 +723,9 @@ extension STHistory : StayTunedSDK.STObservableProtocol {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc override dynamic open func viewDidLoad()
   @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
-  @objc deinit
   @objc override dynamic public init(style: UIKit.UITableView.Style)
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 extension STContentViewController {
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
@@ -783,12 +784,12 @@ public enum STPlayerState : Swift.CaseIterable {
   case playingAds
   case pauseAds
   public static func == (a: StayTunedSDK.STPlayerState, b: StayTunedSDK.STPlayerState) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
   public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [StayTunedSDK.STPlayerState]
   public static var allCases: [StayTunedSDK.STPlayerState] {
+    get
+  }
+  public var hashValue: Swift.Int {
     get
   }
 }
@@ -831,30 +832,30 @@ public enum STTrackModelType : Swift.String, Swift.Codable {
   case track
   case livetrack
   case chapter
+  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
-  public init?(rawValue: Swift.String)
 }
 public enum STTrackTypeOfElement : Swift.String, Swift.Codable {
   case full
   case trailer
   case bonus
+  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
-  public init?(rawValue: Swift.String)
 }
 extension STTrack : Swift.Equatable {
   public static func == (lhs: StayTunedSDK.STTrack, rhs: StayTunedSDK.STTrack) -> Swift.Bool
 }
 extension STTrack : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 extension STTrack : Swift.Encodable {
   public func encode(to encoder: Swift.Encoder) throws
@@ -1010,8 +1011,8 @@ public enum STSectionType : Swift.String, Swift.Codable {
   case trailer
   case highlight
   case category
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -1043,10 +1044,10 @@ public struct STSection {
 }
 extension STSection : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: StayTunedSDK.STSection, b: StayTunedSDK.STSection) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
-  public static func == (a: StayTunedSDK.STSection, b: StayTunedSDK.STSection) -> Swift.Bool
 }
 public struct STTrackViewConfiguration : StayTunedSDK.STUIInstantiableConfiguration {
   public let track: StayTunedSDK.STTrack
@@ -1058,8 +1059,8 @@ public protocol STUIInjectionTrackView : UIKit.UIViewController {
 public enum STSectionLinkedContentType : Swift.String, Swift.Codable {
   case content
   case element
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -1084,10 +1085,10 @@ public protocol STUIInstantiableConfiguration {
     case notAuthenticated
     case authenticated
     public static func == (a: StayTunedSDK.STAuth.Status, b: StayTunedSDK.STAuth.Status) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   final public var retryHandler: ((((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?) -> Swift.Void)? {
     get
@@ -1122,9 +1123,9 @@ public protocol STAuthObserver : AnyObject {
   @objc override dynamic open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @objc override dynamic open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
-  @objc deinit
   @objc override dynamic public init(style: UIKit.UITableView.Style)
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 public struct STContentLight {
   public let key: Swift.String
@@ -1138,16 +1139,18 @@ public struct STContentLight {
   public let author: Swift.String?
   public let publicationDate: Foundation.Date?
   public let overallDuration: Swift.Int?
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
   public init(key: Swift.String, type: StayTunedSDK.STContentModelType, title: Swift.String, imgSrc: Swift.String)
 }
 extension STContentLight : Swift.Equatable {
   public static func == (lhs: StayTunedSDK.STContentLight, rhs: StayTunedSDK.STContentLight) -> Swift.Bool
 }
 extension STContentLight : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct STTrackOfflineItem : Swift.Codable {
   public let audioItem: StayTunedSDK.STTrack
