@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "StayTuned"
-  s.version      = "1.0.42"
+  s.version      = "1.0.43"
   s.summary      = "StayTuned SDK © - Embedded"
   s.description  = "This pod allows you to add a podcast player in your app"
   s.homepage     = "https://www.staytuned.io"
