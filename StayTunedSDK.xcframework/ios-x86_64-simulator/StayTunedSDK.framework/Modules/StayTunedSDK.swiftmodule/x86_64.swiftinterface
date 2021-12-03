@@ -635,6 +635,7 @@ public enum STOfflineError : Swift.Error {
 @_hasMissingDesignatedInitializers final public class STTransactions : STFeature {
   public static func getInstance() throws -> STTransactions
   final public func get(completion: ((Swift.Result<(contents: [STContentTransaction], tracks: [STTrackTransaction]), Swift.Error>) -> Swift.Void)?)
+  final public func fetch(completion: ((Swift.Result<(contents: [STContentTransaction], tracks: [STTrackTransaction]), Swift.Error>) -> Swift.Void)?)
   final public func create<Item>(transaction: STTransaction<Item>, completion: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
   final public func reset()
   @objc deinit
@@ -1098,6 +1099,7 @@ public protocol STUIInstantiableConfiguration {
     get
   }
   public static func getInstance() throws -> STAuth
+  final public func getHeaders() -> [Swift.String : Swift.String]
   @objc deinit
 }
 extension STAuth {
