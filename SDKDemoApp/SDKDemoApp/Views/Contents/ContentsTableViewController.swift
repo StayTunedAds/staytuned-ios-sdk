@@ -9,7 +9,7 @@
 import UIKit
 import StayTunedSDK
 
-protocol ContentsTableViewControllerInput: class {
+protocol ContentsTableViewControllerInput: AnyObject {
     func updateViewModel(_ viewModel: ContentsTableViewControllerViewModel.Content)
     func show(content: STContentLight)
 }

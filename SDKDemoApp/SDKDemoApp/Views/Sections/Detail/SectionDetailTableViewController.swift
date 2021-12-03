@@ -13,7 +13,7 @@ protocol SectionDetailTableViewControllerCoordinator {
     var section: STSection! { get set }
 }
 
-protocol SectionDetailTableViewControllerInput: class {
+protocol SectionDetailTableViewControllerInput: AnyObject {
     func updatedViewModel(_ viewModel: SectionDetailTableViewModel.Content)
     func show(lightContent: STContentLight)
 }

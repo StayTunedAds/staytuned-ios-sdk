@@ -10,7 +10,7 @@ import UIKit
 import StayTunedSDK
 import SDWebImage
 
-protocol MiniPlayerInput: class {
+protocol MiniPlayerInput: AnyObject {
     func update(with model: MiniPlayerModel.Style)
     func update(with model: MiniPlayerModel.Content)
     func update(with model: MiniPlayerModel.AudioStatus)

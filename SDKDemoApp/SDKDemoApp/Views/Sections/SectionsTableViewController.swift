@@ -9,7 +9,7 @@
 import UIKit
 import StayTunedSDK
 
-protocol SectionsTableViewControllerInput: class {
+protocol SectionsTableViewControllerInput: AnyObject {
     func updateViewModel(_ viewModel: SectionsTableViewControllerViewModel.Content)
     func show(section: STSection)
 }

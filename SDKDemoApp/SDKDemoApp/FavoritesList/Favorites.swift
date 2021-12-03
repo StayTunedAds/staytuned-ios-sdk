@@ -52,7 +52,7 @@ extension Favorites: STAuthObserver {
     func didConnect() {}
 }
 
-protocol FavoritesObserver: class {
+protocol FavoritesObserver: AnyObject {
     func itemsDidChange(to value: [STTrackListItem])
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-protocol ContentTrackTableViewCellDelegate: class {
+protocol ContentTrackTableViewCellDelegate: AnyObject {
     func didTapToggleOffline(on cell: UITableViewCell)
     func didTapToggleFavorite(on cell: UITableViewCell)
 }
