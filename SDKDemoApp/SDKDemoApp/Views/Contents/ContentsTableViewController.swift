@@ -15,13 +15,13 @@ protocol ContentsTableViewControllerInput: AnyObject {
 }
 
 final class ContentsTableViewController: UITableViewController {
-    
+
     private var presenter: ContentsTableViewControllerPresenterInput!
-    
+
     private var viewModel: ContentsTableViewControllerViewModel.Content? {
         didSet { self.viewModelUpdated() }
     }
-    
+
     override func loadView() {
         super.loadView()
         self.presenter = ContentsTableViewControllerPresenter(viewController: self)
@@ -32,7 +32,7 @@ final class ContentsTableViewController: UITableViewController {
         self.tableView.loading(true)
         self.presenter.loadContent()
     }
-    
+
     private func viewModelUpdated() {
         guard let viewModel = viewModel else {
             return
@@ -41,7 +41,7 @@ final class ContentsTableViewController: UITableViewController {
         self.title = viewModel.title
         self.tableView.reloadData()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let content = sender as? STContentLight else {
             return
@@ -55,7 +55,7 @@ final class ContentsTableViewController: UITableViewController {
 
 // MARK: - UITableViewDelegate & UITableViewDatasource
 extension ContentsTableViewController {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,7 +63,7 @@ extension ContentsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.cells?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let model = self.viewModel?.cells?[indexPath.row],
@@ -73,19 +73,19 @@ extension ContentsTableViewController {
         cell.setViewModel(model)
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.userDidSelectRow(at: indexPath.row)
     }
-    
+
 }
 
 extension ContentsTableViewController: ContentsTableViewControllerInput {
-    
+
     func updateViewModel(_ viewModel: ContentsTableViewControllerViewModel.Content) {
         self.viewModel = viewModel
     }
-    
+
     func show(content: STContentLight) {
         self.performSegue(withIdentifier: "showContent", sender: content)
     }

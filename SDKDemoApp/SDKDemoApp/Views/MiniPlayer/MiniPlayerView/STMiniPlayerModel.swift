@@ -9,7 +9,7 @@
 import UIKit
 
 struct MiniPlayerModel {
-    
+
     struct Style {
         let backgroundColor: UIColor?
         let progressTintColor: UIColor?
@@ -21,20 +21,20 @@ struct MiniPlayerModel {
         let subtitleFont: UIFont?
         let subtitleColor: UIColor?
     }
-    
+
     struct Content {
         let image: URL?
         let title: String?
         let subtitle: String?
     }
-    
+
     struct AudioStatus {
         let playButtonIsDisplayed: Bool
         let pauseButtonIsDisplayed: Bool
     }
-    
+
     struct AudioPosition {
         let progressValue: Float
     }
-    
+
 }

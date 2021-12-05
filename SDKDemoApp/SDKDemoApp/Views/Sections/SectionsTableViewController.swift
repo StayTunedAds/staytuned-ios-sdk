@@ -15,24 +15,24 @@ protocol SectionsTableViewControllerInput: AnyObject {
 }
 
 final class SectionsTableViewController: UITableViewController {
-    
+
     private var viewModel: SectionsTableViewControllerViewModel.Content? {
         didSet { self.viewModelUpdated() }
     }
-    
+
     private var presenter: SectionsTableViewControllerPresenterInput!
 
     override func loadView() {
         super.loadView()
         self.presenter = SectionsTableViewControllerPresenter(viewController: self)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.loading(true)
         self.presenter.loadContent()
     }
-    
+
     private func viewModelUpdated() {
         guard let viewModel = self.viewModel else {
             return
@@ -41,7 +41,7 @@ final class SectionsTableViewController: UITableViewController {
         self.title = viewModel.title
         self.tableView.reloadData()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let section = sender as? STSection else {
             return
@@ -55,7 +55,7 @@ final class SectionsTableViewController: UITableViewController {
 
 // MARK: - UITableViewDelegate & UITableViewDatasource
 extension SectionsTableViewController {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,7 +63,7 @@ extension SectionsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.cells?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let model = self.viewModel?.cells?[indexPath.row],
@@ -73,7 +73,7 @@ extension SectionsTableViewController {
         cell.textLabel?.text = model.title
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.userDidSelectRow(at: indexPath.row)
     }
@@ -81,11 +81,11 @@ extension SectionsTableViewController {
 
 // MARK: - SectionsTableViewControllerInput
 extension SectionsTableViewController: SectionsTableViewControllerInput {
-    
+
     func updateViewModel(_ viewModel: SectionsTableViewControllerViewModel.Content) {
         self.viewModel = viewModel
     }
-    
+
     func show(section: STSection) {
         self.performSegue(withIdentifier: "showSection", sender: section)
     }

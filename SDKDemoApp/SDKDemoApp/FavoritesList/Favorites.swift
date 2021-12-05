@@ -10,15 +10,15 @@ import Foundation
 import StayTunedSDK
 
 class Favorites {
-    
+
     static var shared: Favorites?
-    
+
     var observers: [STWeakRef] = []
-    
+
     init() {
         STAuth.shared?.add(observer: self)
     }
-    
+
     var list: STTrackList? {
         didSet {
             self.list?.add(observer: self)
@@ -35,11 +35,11 @@ class Favorites {
             }
         })
     }
-    
+
 }
 
 extension Favorites: STAuthObserver {
-    
+
     func authStatusDidChange(to status: STAuth.Status) {
         switch status {
         case .authenticated:
@@ -48,7 +48,7 @@ extension Favorites: STAuthObserver {
             break
         }
     }
-    
+
     func didConnect() {}
 }
 
@@ -60,7 +60,7 @@ extension Favorites: STObservableProtocol {
     func add(observer: FavoritesObserver) {
         self.observers.append(STWeakRef(value: observer))
     }
-    
+
     func remove(observer: FavoritesObserver) {
         self.observers.removeAll { ref -> Bool in
             ref.value === observer

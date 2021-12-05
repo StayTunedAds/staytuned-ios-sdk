@@ -21,24 +21,24 @@ protocol SectionDetailTableViewControllerInput: AnyObject {
 final class SectionDetailTableViewController: UITableViewController, SectionDetailTableViewControllerCoordinator {
 
     var section: STSection!
-    
+
     private var viewModel: SectionDetailTableViewModel.Content? {
         didSet { self.viewModelUpdated() }
     }
-    
+
     private var presenter: SectionDetailTableViewControllerPresenterInput!
-    
+
     override func loadView() {
         super.loadView()
         self.tableView.loading(true)
         self.presenter = SectionDetailTableViewControllerPresenter(viewController: self)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.loadSection(self.section)
     }
-    
+
     private func viewModelUpdated() {
         guard let viewModel = viewModel else {
             return
@@ -47,7 +47,7 @@ final class SectionDetailTableViewController: UITableViewController, SectionDeta
         self.title = viewModel.title
         self.tableView.reloadData()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let lightContent = sender as? STContentLight else {
                 return
@@ -57,12 +57,12 @@ final class SectionDetailTableViewController: UITableViewController, SectionDeta
         }
         destination.lightContent = lightContent
     }
-    
+
 }
 
 // MARK: - UITableViewDelegate & UITableViewDatasource
 extension SectionDetailTableViewController {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,7 +70,7 @@ extension SectionDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.cells?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "SectionDetailTableViewCell") as? SectionDetailTableViewCell,
@@ -81,7 +81,7 @@ extension SectionDetailTableViewController {
         cell.setViewModel(cellViewModel)
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter?.presentContent(at: indexPath.row)
     }
@@ -92,7 +92,7 @@ extension SectionDetailTableViewController: SectionDetailTableViewControllerInpu
     func updatedViewModel(_ viewModel: SectionDetailTableViewModel.Content) {
         self.viewModel = viewModel
     }
-    
+
     func show(lightContent: STContentLight) {
         self.performSegue(withIdentifier: "showContent", sender: lightContent)
     }

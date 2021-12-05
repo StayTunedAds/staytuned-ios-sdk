@@ -1,4 +1,3 @@
-
 //
 //  ContentTableViewCell.swift
 //  SDKDemoApp
@@ -15,7 +14,7 @@ class ContentTableViewCell: UITableViewCell {
     @IBOutlet private weak var contentImage: UIImageView!
     @IBOutlet private weak var contentTitle: UILabel!
     @IBOutlet private weak var contentSubtitle: UILabel!
-    
+
     func setViewModel(_ viewModel: ContentsTableViewControllerViewModel.Cell) {
         self.contentImage.sd_setImage(with: URL(string: viewModel.imageSource ?? ""), completed: nil)
         self.contentTitle.text = viewModel.title

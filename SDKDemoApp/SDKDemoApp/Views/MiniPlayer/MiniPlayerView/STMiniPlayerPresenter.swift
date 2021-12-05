@@ -18,13 +18,13 @@ protocol MiniPlayerPresenterInput {
 }
 
 final class MiniPlayerPresenter {
-    
+
     private weak var view: MiniPlayerInput?
-    
+
     init(view: MiniPlayerInput) {
         self.view = view
     }
-    
+
     private func styleModel() -> MiniPlayerModel.Style {
         return .init(
             backgroundColor: UIColor(named: "MiniplayerBackground")?.withAlphaComponent(0.25),
@@ -38,7 +38,7 @@ final class MiniPlayerPresenter {
             subtitleColor: UIColor(named: "MainText")
         )
     }
-    
+
     private func contentModel(track: STTrack, content: STContent) -> MiniPlayerModel.Content {
         return .init(
             image: URL(string: track.imgSrc ?? ""),
@@ -46,7 +46,7 @@ final class MiniPlayerPresenter {
             subtitle: content.title
         )
     }
-    
+
     private func stateModel(state: STPlayerState) -> MiniPlayerModel.AudioStatus {
         switch state {
         case .playing, .loading:
@@ -54,7 +54,7 @@ final class MiniPlayerPresenter {
                 playButtonIsDisplayed: false,
                 pauseButtonIsDisplayed: true
             )
-            
+
         case .paused:
             return .init(
                 playButtonIsDisplayed: true,
@@ -64,18 +64,18 @@ final class MiniPlayerPresenter {
             fatalError()
         }
     }
-    
+
     private func positionModel(time: Double, and duration: Double) -> MiniPlayerModel.AudioPosition {
         return .init(progressValue: Float(time) / Float(duration))
     }
 }
 
 extension MiniPlayerPresenter: MiniPlayerPresenterInput {
-    
+
     func setStyle() {
         self.view?.update(with: self.styleModel())
     }
-    
+
     func update(for track: STTrack, and content: STContent) {
         self.view?.update(with: self.contentModel(track: track, content: content))
     }
@@ -83,14 +83,14 @@ extension MiniPlayerPresenter: MiniPlayerPresenterInput {
     func update(for state: STPlayerState) {
         self.view?.update(with: self.stateModel(state: state))
     }
-    
+
     func update(for time: Double, and duration: Double?) {
         guard let duration = duration else {
             return
         }
         self.view?.update(with: self.positionModel(time: time, and: duration))
     }
-    
+
     func displayExpand() {
         self.view?.displayExpand()
     }

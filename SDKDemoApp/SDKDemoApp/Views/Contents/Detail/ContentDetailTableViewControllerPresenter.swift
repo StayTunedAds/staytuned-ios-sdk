@@ -19,10 +19,9 @@ protocol ContentDetailTableViewControllerPresenterInput {
 }
 
 final class ContentDetailTableViewControllerPresenter {
-    
+
     private weak var viewController: ContentDetailTableViewControllerInput?
-    private var observationRetainers: [STObservable.Cancellable?] = []
-    
+
     private lazy var contentsFeature: STContents? = {
         return try? STContents.getInstance()
     }()
@@ -30,15 +29,15 @@ final class ContentDetailTableViewControllerPresenter {
     private lazy var player: STPlayer? = {
         return try? STPlayer.getInstance()
     }()
-    
+
     private lazy var offline: STOffline? = {
         return try? STOffline.getInstance()
     }()
-    
+
     private lazy var favorites: Favorites? = {
         return Favorites.shared
     }()
-    
+
     private var content: STContent? {
         didSet {
             self.buildContentViewModel()
@@ -46,21 +45,21 @@ final class ContentDetailTableViewControllerPresenter {
             self.buildFavoritesViewModel()
         }
     }
-    
+
     private var offlineTracks: [STTrackOfflineItem]? {
         didSet { self.buildOfflineViewModel() }
     }
-    
+
     private var favoritesTracks: [STTrackListItem]? {
         didSet { self.buildFavoritesViewModel() }
     }
-    
+
     init(viewController: ContentDetailTableViewControllerInput?) {
         self.viewController = viewController
         STOffline.shared?.add(observer: self)
         Favorites.shared?.add(observer: self)
     }
-    
+
     private func retrieveContent(by key: String) {
         self.contentsFeature?.get(by: key, completion: { [weak self] result in
             switch result {
@@ -71,7 +70,7 @@ final class ContentDetailTableViewControllerPresenter {
             }
         })
     }
-    
+
     private func buildContentViewModel() {
         guard let content = self.content else {
             return
@@ -87,7 +86,7 @@ final class ContentDetailTableViewControllerPresenter {
         )
         self.viewController?.updateViewModel(viewModel)
     }
-    
+
     private func buildOfflineViewModel() {
         guard let content = self.content else {
             return
@@ -109,7 +108,7 @@ final class ContentDetailTableViewControllerPresenter {
         }
         self.viewController?.updateViewModel(.init(cells: cells))
     }
-    
+
     private func buildFavoritesViewModel() {
         guard let content = self.content else {
             return
@@ -131,15 +130,15 @@ final class ContentDetailTableViewControllerPresenter {
 }
 
 extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewControllerPresenterInput {
-    
+
     func loadContent(with content: STContentLight) {
         self.retrieveContent(by: content.key)
     }
-    
+
     func loadOfflineTracks() {
         self.offlineTracks = self.offline?.tracks
     }
-    
+
     func loadFavoritesTracks() {
         if let list = self.favorites?.list {
             self.favoritesTracks = list.items
@@ -152,12 +151,12 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
         }
         self.player?.play(playlist: STPlaylist(content: content), at: index)
     }
-    
+
     func toggleOffline(on trackIndex: Int) {
         guard
             let tracks = self.content?.elementList,
             tracks.count > trackIndex else { return }
-        
+
         let track = tracks[trackIndex]
         if self.offline?.tracks.contains(where: { item -> Bool in
             item.audioItem.key == track.key
@@ -166,7 +165,7 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
         } else {
             self.offline?.add(track: track) { result in
                 switch result {
-                case .success():
+                case .success:
                     break
                 case .failure(let error):
                     print(error)
@@ -174,12 +173,12 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
             }
         }
     }
-    
+
     func toggleFavorite(on trackIndex: Int) {
         guard
             let tracks = self.content?.elementList,
             tracks.count > trackIndex else { return }
-        
+
         let track = tracks[trackIndex]
         let listItem = self.favorites?.list?.items.first(where: { item -> Bool in
             item.key == track.key
@@ -194,12 +193,12 @@ extension ContentDetailTableViewControllerPresenter: ContentDetailTableViewContr
             })
         }
     }
-    
+
 }
 
 extension ContentDetailTableViewControllerPresenter: STOfflineObserver {
     func offlineContentItemDidChange(_ item: STContentLightOfflineItem) {}
-    
+
     func offlineTrackItemsDidChange(_ items: [STTrackOfflineItem]) {
         self.offlineTracks = self.offline?.tracks
     }

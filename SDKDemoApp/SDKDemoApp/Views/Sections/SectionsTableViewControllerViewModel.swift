@@ -9,14 +9,14 @@
 import Foundation
 
 enum SectionsTableViewControllerViewModel {
-    
+
     struct Content {
         let title: String
         let cells: [Cell]?
     }
-    
+
     struct Cell {
         let title: String
     }
-    
+
 }

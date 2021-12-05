@@ -15,21 +15,21 @@ protocol ContentsTableViewControllerPresenterInput {
 }
 
 final class ContentsTableViewControllerPresenter {
-    
+
     private weak var viewController: ContentsTableViewControllerInput?
-    
+
     private lazy var stContents: STContents? = {
         return try? STContents.getInstance()
     }()
-    
+
     private var contents: [STContentLight]? {
         didSet { self.buildContentsViewModel() }
     }
-    
+
     init(viewController: ContentsTableViewControllerInput) {
         self.viewController = viewController
     }
-    
+
     private func retrieveContents() {
         self.stContents?.getAll(completion: { [weak self] result in
             switch result {
@@ -40,9 +40,9 @@ final class ContentsTableViewControllerPresenter {
             }
         })
     }
-    
+
     private func buildContentsViewModel() {
-        
+
         guard let contents = self.contents else {
             return
         }
@@ -55,20 +55,20 @@ final class ContentsTableViewControllerPresenter {
         )
         self.viewController?.updateViewModel(viewModel)
     }
-    
+
 }
 
 extension ContentsTableViewControllerPresenter: ContentsTableViewControllerPresenterInput {
-    
+
     func userDidSelectRow(at index: Int) {
         guard let content = self.contents?[index] else {
             return
         }
         self.viewController?.show(content: content)
     }
-    
+
     func loadContent() {
         self.retrieveContents()
     }
-    
+
 }

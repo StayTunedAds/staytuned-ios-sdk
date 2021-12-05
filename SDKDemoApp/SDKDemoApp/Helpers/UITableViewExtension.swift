@@ -9,7 +9,7 @@
 import UIKit
 
 extension UITableView {
-    
+
     func loading(_ loading: Bool) {
         if loading {
             self.tableFooterView = UIView()
@@ -29,5 +29,5 @@ extension UITableView {
             self.backgroundView = UIView()
         }
     }
-    
+
 }

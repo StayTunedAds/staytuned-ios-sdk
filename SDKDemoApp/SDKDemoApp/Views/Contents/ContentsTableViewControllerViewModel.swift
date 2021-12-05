@@ -9,16 +9,16 @@
 import Foundation
 
 enum ContentsTableViewControllerViewModel {
-    
+
     struct Content {
         let title: String
         let cells: [Cell]?
     }
-    
+
     struct Cell {
         let imageSource: String?
         let title: String
         let subtitle: String?
     }
-    
+
 }

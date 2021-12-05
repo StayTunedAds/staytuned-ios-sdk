@@ -15,21 +15,21 @@ protocol SectionsTableViewControllerPresenterInput {
 }
 
 final class SectionsTableViewControllerPresenter {
-    
+
     private weak var viewController: SectionsTableViewControllerInput?
-    
+
     private lazy var stSections: STSections? = {
         return try? STSections.getInstance()
     }()
-    
+
     private var sections: [STSection]? {
         didSet { self.buildContentViewModel() }
     }
-    
+
     init(viewController: SectionsTableViewControllerInput) {
         self.viewController = viewController
     }
-    
+
     private func retrieveSections() {
         self.stSections?.getSections(completion: { [weak self] result in
             switch result {
@@ -40,7 +40,7 @@ final class SectionsTableViewControllerPresenter {
             }
         })
     }
-    
+
     private func buildContentViewModel() {
         guard let sections = self.sections else {
             return
@@ -56,15 +56,15 @@ final class SectionsTableViewControllerPresenter {
         )
         self.viewController?.updateViewModel(viewModel)
     }
-    
+
 }
 
 extension SectionsTableViewControllerPresenter: SectionsTableViewControllerPresenterInput {
-    
+
     func loadContent() {
         self.retrieveSections()
     }
-    
+
     func userDidSelectRow(at index: Int) {
         guard let section = self.sections?[index] else {
             return

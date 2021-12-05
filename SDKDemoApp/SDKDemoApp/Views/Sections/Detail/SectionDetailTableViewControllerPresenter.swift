@@ -15,21 +15,21 @@ protocol SectionDetailTableViewControllerPresenterInput {
 }
 
 final class SectionDetailTableViewControllerPresenter {
-    
+
     private weak var viewController: SectionDetailTableViewControllerInput?
-    
+
     private lazy var stSections: STSections? = {
         return try? STSections.getInstance()
     }()
-    
+
     private var section: STSection? {
         didSet { self.buildViewModel() }
     }
-    
+
     init(viewController: SectionDetailTableViewControllerInput) {
         self.viewController = viewController
     }
-    
+
     private func buildViewModel() {
         guard let section = self.section else {
             return
@@ -40,7 +40,7 @@ final class SectionDetailTableViewControllerPresenter {
         let contentViewModel = SectionDetailTableViewModel.Content(title: section.name, cells: cellsViewModel)
         self.viewController?.updatedViewModel(contentViewModel)
     }
-    
+
     private func loadSection(for section: STSection) {
         STSections.shared?.getSection(by: section.id, completion: { result in
             switch result {
@@ -54,11 +54,11 @@ final class SectionDetailTableViewControllerPresenter {
 }
 
 extension SectionDetailTableViewControllerPresenter: SectionDetailTableViewControllerPresenterInput {
-    
+
     func loadSection(_ section: STSection) {
         self.loadSection(for: section)
     }
-    
+
     func presentContent(at index: Int) {
         guard let lightContent = self.section?.linkedContents?[index] else {
             return
